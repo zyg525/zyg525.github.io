@@ -1,103 +1,143 @@
-# The Site Configuration
+# 网站设置
 
-# Import the theme
+# 导入主题
 theme: jekyll-theme-chirpy
 
-# Change the following value to '/PROJECT_NAME' ONLY IF your site type is GitHub Pages Project sites
-# and doesn't have a custom domain.
+# 仅当你的站点类型是 Github Pages 项目并且没有自定义域名时，修改下面的值为 '/项目名'。
 baseurl: ''
 
-# The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
-# If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
-# otherwise, the layout language will use the default value of 'en'.
-lang: en
+# 站点的语言 › https://www.w3.org/International/questions/qa-choosing-language-tags
+# 如果在文件夹 `_data/locales` 下存在同名文件，则布局语言也会改变，
+# 否则，布局语言使用默认值 'en'。
+lang: zh-CN
 
-# Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
+# 更改为你的时区 › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
 timezone: Asia/Shanghai
 
-# jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
-# ↓ --------------------------
+# jekyll-seo-tag 设置 › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+# --------------------------
+title: Nihil       # 主标题
 
-title: Chirpy                          # the main title
+tagline: 丑新罢了   # 副标题
 
-tagline: A text-focused Jekyll theme   # it will display as the sub-title
+description: >-                        # 由 seo meta 和 atom feed 使用
+  Nichts Hsu 的个人博客
 
-description: >-                        # used by seo meta and the atom feed
-  A minimal, portfolio, sidebar,
-  bootstrap Jekyll theme with responsive web design
-  and focuses on text presentation.
+# 填入你的网站的协议和域名，例如，'https://username.github.io'
+url: 'https://nihil.cc'
 
-# fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: ''
+author: Nichts Hsu    # 全名
 
 github:
-  username: github_username             # change to your github username
+  username: NichtsHsu     # Github 用户名
 
 twitter:
-  username: twitter_username            # change to your twitter username
+  username: Still_Nihil       # 推特用户名
 
 social:
-  # Change to your full name.
-  # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
-  email: example@doamin.com             # change to your email address
+  name: Nichts Hsu                  # 将会显示为页脚处的版权所有者
+  email: NichtsVonChaos@gmail.com             # 邮箱地址
   links:
-    # The first element serves as the copyright owner's link
-    - https://twitter.com/username      # change to your twitter homepage
-    - https://github.com/username       # change to your github homepage
-    # Uncomment below to add more social links
+    # 第一个链接将会作为版权所有者的链接
+    - https://nihil.cc/
+    - https://twitter.com/Still_Nihil      # 推特主页
+    - https://github.com/NichtsHsu       # Github 主页
+    # 取消注释以添加更多链接
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-google_site_verification: google_meta_tag_verification # change to your verification string
+google_site_verification:  # 你的 Google 认证字符串
 
 # ↑ --------------------------
 
+# 自定义 Iconfont 的图标链接。 › https://www.iconfont.cn/
+# 需要添加自己的 Iconfont 图标，请在 Iconfont 中新建项目，
+# 加入图标到项目，选择 Font Class，查看在线链接，并将其拷贝到下面。
+#
+# 注意：请不要与项目原本使用的图标重名，请全局搜索以确保该名称没被使用。
+# 一个比较好的办法是修改 Iconfont 项目的 FontClass/Symbol 前缀为其他值。
+iconfont_css: 
+  # 此 css 包含以 'icon-' 为前缀的图标，为模板的核心图标，请勿删除。
+  - //at.alicdn.com/t/font_2440352_bohgidlbn0l.css
+  # 此 css 包含以 'icon-nihil-' 为前缀的图标，为我博客内容使用的图标，可删除。
+  - //at.alicdn.com/t/font_2451185_tgvgeuen2lh.css
+  # 添加你的 Iconfont 图标链接
+  # - 
 
 google_analytics:
-  id: ''              # fill in your Google Analytics ID
-  # Google Analytics pageviews report settings
+  id: 'G-RK9LRGVP0T'              # 填入你的 Google Analytics ID
+  # Google Analytics 页面浏览量开关
   pv:
-    proxy_endpoint:   # fill in the Google Analytics superProxy endpoint of Google App Engine
-    cache_path:       # the local PV cache data, friendly to visitors from GFW region
+    proxy_endpoint:   # 填入 Google App Engine 的 Google Analytics superProxy 端点
+    cache_path:       # pv 数据本地缓存，对 GFW 区域的人而言很好
 
-# Prefer color scheme setting.
+# 启用的评论系统类型，可选值：disqus, valine, waline，若留空则不启用评论系统。
+comments: waline
+
+# Disqus 评论系统
+disqus:
+  shortname: ''    # 填入你的 disqus shorname › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+
+# Valine 评论系统       › https://valine.js.org/
+valine:
+  leancloud_appid:    # 输入你的 LeanCloud App ID
+  leancloud_appkey:   # 输入你的 LeanCloud App Key
+  placeholder: 说点什么吧！PS:在昵称栏输入QQ号可以自动获取QQ昵称和QQ头像哦~    # 空白评论框时显示的文字
+  avatar: mp          # 默认头像  › https://valine.js.org/avatar.html 
+ 
+# Waline 评论系统是 Valine 的改进版本，有后端，更安全。     › https://waline.js.org/
+waline:
+  server: https://myblog-comments.vercel.app/ # Vercal 服务端地址
+  placeholder: 说点什么吧！    # 空白评论框时显示的文字
+  avatar: mp          # 默认头像  › https://waline.js.org/guide/client/avatar.html
+
+# 设置首选配色方案
 #
-# Note: Keep empty will follow the system prefer color by default,
-# and there will be a toggle to switch the theme between dark and light
-# on the bottom left of the sidebar.
+# 提示: 保留空白会跟随系统的默认首选配色，并且在侧边栏的底部会出现
+# 一个可以转换亮色主题和暗色主题的按钮。
 #
-# Available options:
+# 可用选项:
 #
-#     light  - Use the light color scheme
-#     dark   - Use the dark color scheme
+#     light  - 使用亮色方案
+#     dark   - 使用暗色方案
 #
 theme_mode:   # [light|dark]
 
-# The CDN endpoint for images.
-# Notice that once it is assigned, the CDN url
-# will be added to all image (site avatar & posts' images) paths starting with '/'
-#
-# e.g. 'https://cdn.com'
-img_cdn: 'https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images@0a003683c0c3ca549d12c309f9b3e03ea20981e5'
+# 图像 CDN 端点。
+# 注意一旦被分配，CDN 网址会被加在所有图像（网站头像和帖子图像）路径上。
+# 例如，'https://cdn.com'
+img_cdn: ''
 
-# the avatar on sidebar, support local or CORS resources
-avatar: '/commons/avatar.jpg'
+# 侧边栏的头像，支持本地或 CROS 资源
+avatar: /avatar.png
 
-# boolean type, the global switch for ToC in posts.
-toc: true
+# 设置显示右侧边栏的内容
+panel:
+  # 设置显示在帖子中右侧边栏的内容
+  # 
+  # 提示:
+  #   全局开关为false时必定不显示对应块。
+  #   全局开关为true时，可以在帖子的 md 文件头部使用形如:
+  #   lastmod: false
+  #   的方式为该帖子单独关闭右侧边栏的功能。
+  post:
+    # 最近更新
+    lastmod: false
+    # 热门标签
+    trending_tags: false
+    # 外部链接
+    external_links: false
+    # 目录
+    toc: true
 
-disqus:
-  comments: false  # boolean type, the global switch for posts comments.
-  shortname: ''    # Fill with your Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
-
+# 每一页的帖子数量
 paginate: 10
 
-# ------------ The following options are not recommended to be modified ------------------
+# ------------ 下面的设置不建议修改 ------------------
 
 kramdown:
   syntax_highlighter: rouge
-  syntax_highlighter_opts:   # Rouge Options › https://github.com/jneen/rouge#full-options
+  syntax_highlighter_opts:   # Rouge 设置 › https://github.com/jneen/rouge#full-options
     css_class: highlight
     # default_lang: console
     span:
@@ -115,14 +155,18 @@ collections:
 defaults:
   -
     scope:
-      path: ''          # An empty string here means all files in the project
+      path: ''          # 空字符串意味着项目里的所有文件
       type: posts
     values:
       layout: post
-      comments: true    # Enable comments in posts.
-      toc: true         # Display TOC column in posts.
-      # DO NOT modify the following parameter unless you are confident enough
-      # to update the code of all other post links in this project.
+      comments: true    # 在帖子中启用评论
+      # 右侧边栏的默认显示
+      lastmod: true
+      trending_tags: true
+      external_links: true
+      toc: true
+      # 不要改变它除非你是 Jekyll 以及 Web 开发的专家，
+      # 或者你认为自己足够聪明可以在此模板中修改为其他的相对路径。
       permalink: /posts/:title/
   -
     scope:
@@ -132,11 +176,11 @@ defaults:
   -
     scope:
       path: ''
-      type: tabs             # see `site.collections`
+      type: tabs             # 参考 `site.collections`
     values:
       layout: page
       permalink: /:title/
-      dynamic_title: true    # Hide title in mobile screens.
+      dynamic_title: true    # 在移动端隐藏标题
 
 sass:
   style: compressed

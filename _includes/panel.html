@@ -6,44 +6,79 @@
 
 <div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down">
 
+  {% if include.lastmod or include.trending_tags or include.external_links %}
   <div class="access">
-
-  {% include update-list.html %}
-
-  {% if update_list.size > 0 %}
+    {% include update-list.html %}
+    
+    {% if include.lastmod %}
+    {% if update_list.size > 0 %}
 
     <div id="access-lastmod" class="post">
       <span>{{- site.data.locales[lang].panel.lastmod -}}</span>
       <ul class="post-content pl-0 pb-1 ml-1 mt-2">
 
-      {% for item in update_list %}
+        {% for item in update_list %}
         {% assign index = item | split: "::" | last | plus: 0 %}
         {% assign post = site.posts[index] %}
         {% assign url = post.url | relative_url %}
         <li><a href="{{ url }}">{{ post.title }}</a></li>
-      {% endfor %}
+        {% endfor %}
 
       </ul>
     </div> <!-- #access-lastmod -->
 
-  {% endif %}
+    {% endif %}
+    {% endif %}
 
-  {% include trending-tags.html %}
-
-  {% if trending_tags.size > 0 %}
+    {% include trending-tags.html %}
+    
+    {% if include.trending_tags %}
+    {% if trending_tags.size > 0 %}
     <div id="access-tags">
       <span>{{- site.data.locales[lang].panel.trending_tags -}}</span>
       <div class="d-flex flex-wrap mt-3 mb-1 mr-3">
 
-      {% for tag_name in trending_tags %}
+        {% for tag_name in trending_tags %}
         {% assign url = tag_name | slugify | url_encode | prepend: "/tags/" | append: "/" %}
         <a class="post-tag" href="{{ url | relative_url }}">{{ tag_name }}</a>
-      {% endfor %}
+        {% endfor %}
 
       </div>
     </div>
-  {% endif %}
+    {% endif %}
+    {% endif %}
+
+    {% if include.external_links %}
+    {% if site.data.external_links.size > 0 %}
+    <div id="access-links">
+      <span>{{- site.data.locales[site.lang].panel.external_links | default: 'External Links' -}}</span>
+      <ul class="post-content pl-0 pb-1 ml-1 mt-2">
+
+        {% for external_link in site.data.external_links %}
+        <li><a href="{{ external_link.link }}" target="_blank">
+            {% if external_link.automatic_name %}
+            {% if external_link.use_iconfont %}
+            <i class="iconfont {{ external_link.icon }}"></i>
+            {% else %}
+            <img src="{{ external_link.icon }}" alt="{{ external_link.name }}" />
+            {% endif %}
+            {% else %}
+            {% if external_link.use_iconfont %}
+            <i class="iconfont {{ external_link.icon }}"></i>
+            &nbsp;{{- external_link.name -}}
+            {% else %}
+            <img src="{{ external_link.icon }}" />
+            &nbsp;{{- external_link.name -}}
+            {% endif %}
+            {% endif %}
+          </a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    {% endif %}
   </div> <!-- .access -->
+  {% endif %}
 
   {% if include.toc %}
     <!-- BS-toc.js will be loaded at medium priority -->

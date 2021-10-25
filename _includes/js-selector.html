@@ -12,10 +12,8 @@
   {% endif %}
 {% endif %}
 
-{% if page.layout == 'post' or page.layout == 'page' %}
-  <!-- image lazy-loading & popup -->
-  <script src="https://cdn.jsdelivr.net/combine/npm/lozad/dist/lozad.min.js,npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
-{% endif %}
+<!-- image lazy-loading & popup -->
+<script src="https://cdn.jsdelivr.net/combine/npm/lozad/dist/lozad.min.js,npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/clipboard@2/dist/clipboard.min.js"></script>
 
 {% if page.layout == 'home'
     or page.layout == 'categories'

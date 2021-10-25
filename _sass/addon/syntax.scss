@@ -4,23 +4,24 @@
 
 @import "colors/light-syntax";
 @import "colors/dark-syntax";
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css);
 
 html:not([mode]),
-html[mode=light] {
+html[mode="light"] {
   @include light-syntax;
 }
 
-html[mode=dark] {
+html[mode="dark"] {
   @include dark-syntax;
 }
 
 @media (prefers-color-scheme: dark) {
   html:not([mode]),
-  html[mode=dark] {
+  html[mode="dark"] {
     @include dark-syntax;
   }
 
-  html[mode=light] {
+  html[mode="light"] {
     @include light-syntax;
   }
 }
@@ -54,6 +55,7 @@ div > pre {
   color: var(--highlighter-rouge-color);
   margin-top: 0.5rem;
   margin-bottom: 1.2em; /* Override BS Inline-code style */
+  position: relative;
 }
 
 .highlight {
@@ -67,6 +69,8 @@ div > pre {
   overflow: auto;
 
   pre {
+    font-family: 'Fira Code', 'Microsoft Yahei', monospace;
+    font-variant-ligatures: normal;
     margin-bottom: 0;
     font-size: $code-font-size;
     line-height: 1.4rem;
@@ -76,8 +80,11 @@ div > pre {
   table {
     padding: 0;
     border: 0;
+
     td pre {
-      overflow: visible;  /* Fixed iOS safari overflow-x */
+      font-family: 'Fira Code', 'Microsoft Yahei', monospace;
+      font-variant-ligatures: normal;
+      overflow: visible; /* Fixed iOS safari overflow-x */
       word-break: normal; /* Fixed iOS safari linenos code break */
     }
   }
@@ -112,9 +119,11 @@ code {
   -ms-hyphens: none;
   -moz-hyphens: none;
   hyphens: none;
+  font-family: 'Fira Code', 'Microsoft Yahei', monospace;
+  font-variant-ligatures: none;
 
   &.highlighter-rouge {
-    font-size: $code-font-size;
+    // font-size: $code-font-size;
     padding: 3px 5px;
     border-radius: 4px;
     background-color: var(--inline-code-bg);
@@ -144,12 +153,11 @@ td.rouge-code {
     border-bottom: none !important;
     pointer-events: none;
   }
-
 }
 
 /* Hide line numbers for default, console, and terminal code snippets */
 div {
-  &[class^='highlighter-rouge'],
+  &[class^="highlighter-rouge"],
   &.language-plaintext.highlighter-rouge,
   &.language-console.highlighter-rouge,
   &.language-terminal.highlighter-rouge,
@@ -157,6 +165,7 @@ div {
     pre.lineno {
       display: none;
     }
+
     td.rouge-code {
       @extend %code-snippet-padding;
     }

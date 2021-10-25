@@ -1,7 +1,6 @@
 ---
 layout: archives
-title: Archives
-icon: fas fa-archive
-order: 3
+title: 档案
+icon: iconfont icon-archive
+order: 4
 ---
-

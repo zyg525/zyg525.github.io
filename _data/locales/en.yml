@@ -11,6 +11,7 @@ layout:
 tabs:
   # format: <filename_without_extension>: <value>
   home: Home
+  subdomain: Subdomain
   categories: Categories
   tags: Tags
   archives: Archives
@@ -25,6 +26,7 @@ search:
 panel:
   lastmod: Recent Update
   trending_tags: Trending Tags
+  external_links: External Links
   toc: Contents
 
 #  The liquid date format › http://strftime.net/
@@ -51,10 +53,10 @@ copyright:
 meta: Powered by :PLATFORM with :THEME theme.
 
 not_found:
-  statment: Sorry, we've misplaced that URL or it's pointing to something that doesn't exist.
-  hint_template: :HEAD_BAK to try finding it again, or search for it on the :ARCHIVES_PAGE.
+  statment: You seem to have come to a wasteland where there is no knowledge
   head_back: Head back Home
-  archives_page: Archives page
+  or: or
+  previous_page: previous page
 
 # ----- Posts related labels -----
 
@@ -78,6 +80,10 @@ post:
     previous: Older
     copy_code:
       succeed: Copied!
+    run:
+      output: Code output
+      wait: Wait for running...
+      error_prompt: "Failed to run code, message:"
     share_link:
       title: Copy link
       succeed: Link copied successfully!

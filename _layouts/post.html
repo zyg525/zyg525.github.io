@@ -38,7 +38,7 @@ layout: default
           <!-- page views -->
           {% if site.google_analytics.pv.proxy_endpoint or site.google_analytics.pv.cache_path %}
           <span id="pv" class="pageviews">
-            <i class="fas fa-spinner fa-spin fa-fw"></i>
+            <i class="iconfont icon-spinner"></i>
           </span>
           {{ site.data.locales[lang].post.pageview_measure }}
           {% endif %}
@@ -50,11 +50,9 @@ layout: default
       <div class="post-content">
 
         {% if page.image.src %}
-          <img src="{{ page.image.src }}"
-            class="preview-img"
-            alt="{{ page.image.alt | default: "Preview Image" }}"
-            {% if page.image.width %}width="{{ page.image.width }}"{% endif %}
-            {% if page.image.height %}height="{{ page.image.height }}"{% endif %}>
+        <img src="{{ page.image.src }}" class="preview-img" alt="{{ page.image.alt | default: " Preview Image" }}" {% if
+          page.image.width %}width="{{ page.image.width }}" {% endif %} {% if page.image.height
+          %}height="{{ page.image.height }}" {% endif %}>
         {% endif %}
 
         {{ content }}
@@ -67,10 +65,10 @@ layout: default
         {% if page.categories.size > 0 %}
 
         <div class="post-meta mb-3">
-          <i class="far fa-folder-open fa-fw mr-1"></i>
+          <i class="iconfont icon-FolderOpen-1 mr-1"></i>
           {% for category in page.categories %}
-            <a href='{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/'>{{ category }}</a>
-            {%- unless forloop.last -%}, {%- endunless -%}
+          <a href='{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/'>{{ category }}</a>
+          {%- unless forloop.last -%}, {%- endunless -%}
           {% endfor %}
         </div>
         {% endif %}
@@ -78,27 +76,26 @@ layout: default
         <!-- tags -->
         {% if page.tags.size > 0 %}
         <div class="post-tags">
-          <i class="fa fa-tags fa-fw mr-1"></i>
+          <i class="iconfont icon-tag mr-1"></i>
           {% for tag in page.tags %}
-          <a href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/"
-            class="post-tag no-text-decoration" >
+          <a href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/" class="post-tag no-text-decoration">
             {{- tag -}}
           </a>
           {% endfor %}
-          </div>
+        </div>
         {% endif %}
 
         <div class="post-tail-bottom
           d-flex justify-content-between align-items-center mt-3 pt-5 pb-2">
           <div class="license-wrapper">
-          {% if site.data.locales[lang].copyright.license.template %}
+            {% if site.data.locales[lang].copyright.license.template %}
             {% capture _replacement %}
             <a href="{{ site.data.locales[lang].copyright.license.link }}">
               {{ site.data.locales[lang].copyright.license.name }}
             </a>
             {% endcapture %}
             {{ site.data.locales[lang].copyright.license.template | replace: ':LICENSE_NAME', _replacement }}
-          {% endif %}
+            {% endif %}
           </div>
 
           {% include post-sharing.html %}
@@ -112,32 +109,47 @@ layout: default
 
   </div> <!-- #post-wrapper -->
 
+  {% assign enable_lastmod = false %}
+  {% assign enable_trending_tags = false %}
+  {% assign enable_external_links = false %}
   {% assign enable_toc = false %}
 
-  {% if site.toc and page.toc %}
-    {% if content contains '<h2' or content contains '<h3' %}
-      {% assign enable_toc = true %}
-    {% endif %}
+  {% if site.panel.post.lastmod and page.lastmod %}
+  {% assign enable_lastmod = true %}
   {% endif %}
 
-  {% include panel.html toc=enable_toc %}
+  {% if site.panel.post.trending_tags and page.trending_tags %}
+  {% assign enable_trending_tags = true %}
+  {% endif %}
 
-</div> <!-- .row -->
+  {% if site.panel.post.external_links and page.external_links %}
+  {% assign enable_external_links = true %}
+  {% endif %}
 
-<div class="row">
-  <div class="col-12 col-lg-11 col-xl-8">
-    <div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
+  {% if site.panel.post.toc and page.toc %}
+  {% if content contains '<h2' or content contains '<h3' %} {% assign enable_toc=true %} {% endif %} {% endif %} {%
+    include panel.html lastmod=enable_lastmod trending_tags=enable_trending_tags external_links=enable_external_links
+    toc=enable_toc %} </div>
+    <!-- .row -->
 
-    {% include related-posts.html %}
+    <div class="row">
+      <div class="col-12 col-lg-11 col-xl-8">
+        <div id="post-extend-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4">
 
-    {% include post-nav.html %}
+          {% include related-posts.html %}
 
-    {% if site.disqus.comments and page.comments %}
-      {% include disqus.html %}
-    {% endif %}
+          {% include post-nav.html %}
 
-    </div> <!-- #post-extend-wrapper -->
+          {% if site.comments == 'waline' and page.comments %}
+          {% include waline.html %}
+          {% elsif site.comments == 'valine' and page.comments %}
+          {% include valine.html %}
+          {% elsif site.comments == 'disqus' and page.comments %}
+          {% include disqus.html %}
+          {% endif %}
 
-  </div> <!-- .col-* -->
+        </div> <!-- #post-extend-wrapper -->
 
-</div> <!-- .row -->
+      </div> <!-- .col-* -->
+
+    </div> <!-- .row -->

@@ -7,8 +7,8 @@
  */
 
 $(function() {
-  const btnSelector = '.code-header>button';
-  const ICON_SUCCESS = 'fas fa-check';
+  const btnSelector = '.code-header button.button-copy';
+  const ICON_SUCCESS = 'iconfont icon-check';
   const ATTR_TIMEOUT = 'timeout';
   const TIMEOUT = 2000; // in milliseconds
 
@@ -35,7 +35,7 @@ $(function() {
   // Initial the clipboard.js object
   const clipboard = new ClipboardJS(btnSelector, {
     target(trigger) {
-      let codeBlock = trigger.parentNode.nextElementSibling;
+      let codeBlock = trigger.parentNode.parentNode.nextElementSibling;
       return codeBlock.querySelector('code .rouge-code');
     }
   });

@@ -1,0 +1,35 @@
+<div id="vcomments"></div>
+<script>
+  function loadValine() {
+    var s = document.createElement('script');
+    s.setAttribute('src', '//cdn.jsdelivr.net/npm/valine');
+    s.async = false;
+    document.body.appendChild(s);
+    s.onload = () => {
+      var valine = new Valine();
+      valine.init({
+        av: AV,
+        el: '#vcomments',
+        appId: '{{ site.valine.leancloud_appid }}',
+        appKey: '{{ site.valine.leancloud_appkey }}',
+        placeholder: '{{ site.valine.placeholder }}',
+        avatar: '{{ site.valine.avatar }}',
+        enableQQ: true
+      });
+    }
+  }
+
+  setTimeout(function () {
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          loadValine();
+          io.disconnect();
+        }
+      });
+      io.observe(document.getElementById('vcomments'));
+    } else {
+      loadValine();
+    }
+  }, 1);
+</script>
