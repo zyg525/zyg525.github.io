@@ -6,10 +6,8 @@
 @mixin mode-toggle($dark-mode: false) {
   @if $dark-mode {
     @include dark-scheme;
-
   } @else {
     @include light-scheme;
-
   }
 }
 
@@ -237,6 +235,7 @@ footer {
   .post-content {
     font-size: 0.9rem;
   }
+
 }
 
 #access-tags {
@@ -322,6 +321,7 @@ footer {
       margin-top: 0;
       margin-bottom: 0;
     }
+
     // [scroll-focus] added by `smooth-scroll.js`
     &:target:not([scroll-focus]),
     &[scroll-focus="true"] > p {
@@ -367,8 +367,7 @@ footer {
     margin-bottom: 1rem;
   }
 
-  em {
-    /* MarkDown italic */
+  em { /* MarkDown italic */
     padding-right: 0.2rem;
   }
 
@@ -407,8 +406,8 @@ footer {
         padding-right: 0.75rem;
         padding-bottom: 0.5rem;
         padding-left: 0.75rem;
-        border-bottom: 1px solid rgba(var(--tb-shade-color), 0.1);
-        border-left: 1px solid rgba(var(--tb-shade-color), 0.1);
+        border-bottom: solid 1px rgba(var(--tb-shade-color), 0.1);
+        border-left: solid 1px rgba(var(--tb-shade-color), 0.1);
       }
 
       th {
@@ -478,7 +477,7 @@ footer {
     margin: 0.5rem 0;
 
     &[data-loaded=true] {
-      animation: fade-in linear .5s;
+      animation: fade-in linear 0.5s;
     }
 
     &.left {
@@ -807,7 +806,6 @@ $sidebar-display: "sidebar-display";
       width: 100%;
 
       &:last-child {
-
         a {
           position: relative;
           left: $cursor-width / 2;
