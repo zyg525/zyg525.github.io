@@ -58,6 +58,12 @@ div > pre {
   position: relative;
 }
 
+.language-sh {
+  pre {
+    font-variant-ligatures: none !important;
+  }
+}
+
 .highlight {
   @extend %code-snippet-radius;
   @extend %code-snippet-bg;
@@ -69,7 +75,7 @@ div > pre {
   overflow: auto;
 
   pre {
-    font-family: 'Fira Code', 'Microsoft Yahei', monospace;
+    font-family: "Fira Code", "Microsoft Yahei", monospace;
     font-variant-ligatures: normal;
     margin-bottom: 0;
     font-size: $code-font-size;
@@ -82,7 +88,7 @@ div > pre {
     border: 0;
 
     td pre {
-      font-family: 'Fira Code', 'Microsoft Yahei', monospace;
+      font-family: "Fira Code", "Microsoft Yahei", monospace;
       font-variant-ligatures: normal;
       overflow: visible; /* Fixed iOS safari overflow-x */
       word-break: normal; /* Fixed iOS safari linenos code break */
@@ -111,7 +117,6 @@ div > pre {
   .gp {
     user-select: none;
   }
-
 } //.highlight
 
 code {
@@ -119,7 +124,7 @@ code {
   -ms-hyphens: none;
   -moz-hyphens: none;
   hyphens: none;
-  font-family: 'Fira Code', 'Microsoft Yahei', monospace;
+  font-family: "Fira Code", "Microsoft Yahei", monospace;
   font-variant-ligatures: none;
 
   &.highlighter-rouge {
@@ -211,7 +216,6 @@ div {
       top: 1px; // center the file icon
       margin-left: 0.25rem;
     }
-
   }
 
   // clipboard
@@ -245,14 +249,12 @@ div {
     &:focus {
       outline: none;
     }
-
   }
-
 }
 
 @media all and (max-width: 576px) {
   .post-content {
-    > div[class^='language-'] {
+    > div[class^="language-"] {
       @include ml-mr(-1.25rem);
 
       border-radius: 0;
