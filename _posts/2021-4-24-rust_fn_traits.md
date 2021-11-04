@@ -18,19 +18,23 @@ let closure_name = |arg1: type1, arg2: type2| -> return_type {
 在闭包定义中，可以省略参数的类型和返回值类型，Rust 将通过第一次调用该闭包时的参数类型来决定闭包的参数类型以及返回值类型，甚至，如果闭包体只有一句代码时，可以省略花括号不写：
 
 ```rust
-let just_print = |num| println!("{}", num);
-just_print(12);
+fn main() {
+    let just_print = |num| println!("{}", num);
+    just_print(12);
+}
 ```
+{: run="rust" }
 
 闭包同时有一个函数无法做到的功能：捕获上下文变量。举个例子：
 
 ```rust
-let delta = 5;
-let add_delta = |num| num + delta;
-println!("{}", add_delta(15));
+fn main() {
+    let delta = 5;
+    let add_delta = |num| num + delta;
+    println!("{}", add_delta(15));
+}
 ```
-
-以上例子将在控制台输出 `20`。
+{: run="rust" }
 
 那么闭包的类型是什么呢？如果你借助 rust-analyzer 或者其他工具的自动类型推导，它可能会告诉你 `just_print` 的类型是 `|i32| -> ()`{:.language-rust}，但是你会发现，如果你把这个类型写到代码里：
 
@@ -146,19 +150,7 @@ let num_2 = get_num(2);
 
 因为该闭包仅仅包含上下文变量的不可变引用，因此编译器会为它实现 `Fn` 的同时实现 `Copy`，我们可以随意拷贝数份闭包来使用。
 
-### 总结
-
-任何一个函数都实现了 `FnOnce`, `FnMut`, `Fn`, `Copy`。
-
-对于闭包：
-
-* 必定实现 `FnOnce`。
-* 如果闭包能仅通过可变引用访问上下文变量，则实现 `FnOnce` 和 `FnMut`。
-* 如果闭包能仅通过不可变引用访问上下文变量，或者不访问上下文变量，则实现 `FnOnce`, `FnMut`, `Fn`, `Copy`。
-
-当调用一个函数或闭包时，编译器首先寻找 `call` 来调用，如果没有，则寻找 `call_mut`，再没有再寻找 `call_once`。
-
-### `move`
+### `move` 关键字
 
 `move` 可能是一个很容易带来误解的关键字。例如下面的代码：
 
@@ -200,7 +192,7 @@ vec.push(6);
 
 `vec.push(6)`{:.language-rust} 就会报错，提示你 `` borrow of moved value: `vec` ``。在第一个例子中，闭包在其结构体中只储存 `vec` 的可变引用，而在第二个例子中，闭包会转移 `vec` 的所有权保存在自己的结构体中。
 
-> 值得注意的是，由于此时闭包的结构体持有 `vec` 而不是持有它的不可变引用，因此**闭包不会自动实现 `Copy`**，除非被 `move` 的类型实现了 `Copy` 闭包才会自动实现 `Copy`。
+> 值得注意的是，如果在 `Fn` 的例子中增加 `move`，由于此时闭包的结构体持有 `vec` 而不是持有它的不可变引用，因此**闭包不会自动实现 `Copy`**，除非被 `move` 的类型实现了 `Copy` 闭包才会自动实现 `Copy`。
 
 更多的情况下，`move` 需要处理的是生命周期的问题。我们来看到下面的例子：
 
@@ -214,22 +206,44 @@ std::thread::spawn(|| println!("captured {} by value", x))
 在这个例子中，`x` 在闭包中可以仅以不可变引用的方式访问，因此该闭包会实现 `Fn`。但是问题来了，虽然我们在此处通过 `.join().unwrap()` 的方式直接等待线程运行结束，但在实际中，我们无法保证线程的运行时机，也就是说：我们无法保证线程在访问 `x` 的时候，主线程的 `x` 仍然存在——主线程可能早就已经跑去做其他事情了。因此，这种时候我们就需要通过 `move` 关键字将 `x` 移入闭包的结构体中：
 
 ```rust
-let x = 5;
-std::thread::spawn(move || println!("captured {} by value", x))
-    .join()
-    .unwrap();
+fn main() {
+    let x = 5;
+    std::thread::spawn(move || println!("captured {} by value", x))
+        .join()
+        .unwrap();
+}
 ```
+{: run="rust" }
 
 此时结构体获得 `x` 的所有权，而不只是获得 `x` 的引用，就能够保证闭包调用时 `x` 的生命周期。此时该闭包仍然实现了 `Fn` 而不是仅实现了 `FnOnce`，这一点可以通过下面的代码验证：
 
 ```rust
-let x = 5;
-let closure = move || println!("captured {} by value", x);
-let closure_copy = closure;
-closure();
-closure_copy();
-std::thread::spawn(closure).join().unwrap();
+fn main() {
+    let x = 5;
+    let closure = move || println!("captured {} by value", x);
+    let closure_copy = closure;
+    closure();
+    closure_copy();
+    std::thread::spawn(closure).join().unwrap();
+}
 ```
+{: run="rust" }
+
+在之后的小节中，我们将从实现的角度理解 `move` 关键字的作用。
+
+### 总结
+
+任何一个函数都实现了 `FnOnce`, `FnMut`, `Fn`, `Copy`。
+
+对于闭包：
+
+* 必定实现 `FnOnce`。
+* 如果闭包能仅通过可变引用访问上下文变量，则实现 `FnOnce` 和 `FnMut`。
+* 如果闭包能仅通过不可变引用访问上下文变量，或者不访问上下文变量，则实现 `FnOnce`, `FnMut`, `Fn`, `Copy`。
+* `move` 会导致闭包所捕获变量被移动到闭包的匿名结构体内，但是不会影响该闭包实现哪些 `Fn` Traits。
+* 当闭包实现 `Fn` 时，`move` 关键字会导致闭包不总是实现 `Copy`，而是根据捕捉的变量是否实现 `Copy` 来决定自身是否实现 `Copy`。
+
+当调用一个函数或闭包时，编译器首先寻找 `call` 来调用，如果没有，则寻找 `call_mut`，再没有再寻找 `call_once`。
 
 ## 自己实现 `Fn` Traits
 
