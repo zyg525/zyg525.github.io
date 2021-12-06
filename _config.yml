@@ -180,7 +180,6 @@ defaults:
     values:
       layout: page
       permalink: /:title/
-      dynamic_title: true    # 在移动端隐藏标题
 
 sass:
   style: compressed

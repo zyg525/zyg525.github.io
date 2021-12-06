@@ -16,27 +16,37 @@
   border-color: var(--btn-border-color);
 }
 
-@mixin dot($pl: 0.2rem, $pr: 0.4rem) {
+@mixin dot($pl: 0.25rem, $pr: 0.25rem) {
   content: "\2022";
-  color: rgba(158, 158, 158, 0.8);
   padding-left: $pl;
   padding-right: $pr;
 }
 
-#post-wrapper .post-meta {
-  > div:nth-child(2) {
-    > span:not(:first-child)::before {
-      @include dot;
+%text-color {
+  color: var(--text-color);
+}
+
+h1 + .post-meta {
+  span + span::before {
+    @include dot;
+  }
+
+  em {
+    @extend %text-color;
+
+    a {
+      @extend %text-color;
     }
   }
 }
 
-.post-content {
-  .preview-img {
-    @include align-center;
+img.preview-img {
+  margin-top: 3.75rem;
+  margin-bottom: 0;
+  border-radius: 6px;
 
-    margin-top: 0;
-    margin-bottom: 2.5rem !important;
+  &.bg[data-loaded=true] {
+    background: var(--preview-img-bg);
   }
 }
 
@@ -44,6 +54,10 @@
   margin-top: 6rem;
   border-bottom: 1px double var(--main-border-color);
   font-size: 0.85rem;
+
+  .post-meta a {
+    @extend %link-underline;
+  }
 }
 
 .post-tags {
@@ -166,6 +180,10 @@ nav[data-toggle=toc] {
     @include label(1.1rem, 600);
   }
 
+  em {
+    @extend %normal-font-style;
+  }
+
   .card {
     border-color: var(--card-border-color);
     background-color: var(--card-bg);
@@ -175,7 +193,7 @@ nav[data-toggle=toc] {
     transition: all 0.3s ease-in-out;
 
     h3 {
-      color: var(--text-color);
+      @extend %text-color;
     }
 
     &:hover {
@@ -221,7 +239,7 @@ nav[data-toggle=toc] {
   }
 }
 
-#post-extend-wrapper {
+#tail-wrapper {
   min-height: 2rem;
 
   #disqus_thread {
@@ -319,7 +337,7 @@ nav[data-toggle=toc] {
   line-height: 1.2rem;
 
   > a {
-    font-weight: 600;
+    color: var(--text-color);
 
     &:hover {
       @extend %link-hover;
@@ -332,6 +350,10 @@ nav[data-toggle=toc] {
 } // .license-wrapper
 
 @media all and (max-width: 576px) {
+  .preview-img[data-src] {
+    margin-top: 2.2rem;
+  }
+
   .post-tail-bottom {
     -ms-flex-wrap: wrap-reverse !important;
     flex-wrap: wrap-reverse !important;
@@ -347,23 +369,6 @@ nav[data-toggle=toc] {
   .post-content > p > img {
     max-width: calc(100% + 1rem);
   }
-}
-
-@media all and (min-width: 768px) {
-  #post-wrapper {
-    .post-meta {
-      > div:not(:first-child)::before {
-        @include dot(0.5rem, 0.2rem);
-      }
-
-      &.flex-column {
-        -webkit-box-orient: horizontal !important;
-        -webkit-box-direction: normal !important;
-        -ms-flex-direction: row !important;
-        flex-direction: row !important;
-      }
-    }
-  } // .post
 }
 
 /* Hide SideBar and TOC */
