@@ -27,8 +27,15 @@ layout: default
   <div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down">
 
     <div class="access">
-      {% include update-list.html %}
-      {% include trending-tags.html %}
+      {% if page.layout != 'post' or site.panel.post.lastmode %}
+        {% include update-list.html %}
+      {% endif %}
+      {% if page.layout != 'post' or site.panel.post.trending_tags %}
+        {% include trending-tags.html %}
+      {% endif %}
+      {% if page.layout != 'post' or site.panel.post.external_links %}
+        {% include external-links.html %}
+      {% endif %}
     </div>
 
     {% for _include in layout.pannel_includes %}

@@ -7,10 +7,8 @@
 
     h6 {
       display: flex;
-      height: 1rem;
       color: #888;
       font-size: 0.8rem;
-      margin-bottom: 0;
       max-width: 100%;
 
       a.subdomain-a {
@@ -41,13 +39,10 @@
 
         .subdomain-icon {
           display: inline-block;
-          height: 2rem;
-          width: 2rem;
-          min-width: 2rem;
+          margin-right: 0.5rem;
 
           img {
             display: block;
-            height: 1.8rem;
           }
         }
 
