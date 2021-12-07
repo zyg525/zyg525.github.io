@@ -511,7 +511,49 @@ fn main() {
 ```
 {: run="rust" }
 
-如果想到更好的解决办法，我会在此贴中补充。
+如果不是非得引用不可的话，建议还是不要折磨自己，乖乖地用 `Rc` 那不香吗？
+
+```rust
+use std::rc::Rc;
+
+struct Func<'a, A, F>(&'a dyn Fn(Func<'a, A, F>, A) -> F);
+
+impl<'a, A, F> Clone for Func<'a, A, F> {
+    fn clone(&self) -> Self {
+        Self(self.0)
+    }
+}
+
+impl<'a, A, F> Copy for Func<'a, A, F> {}
+
+impl<'a, A, F> Func<'a, A, F> {
+    fn call(&self, f: Func<'a, A, F>, x: A) -> F {
+        (self.0)(f, x)
+    }
+}
+
+fn y<A, R>(g: impl Fn(&dyn Fn(A) -> R, A) -> R) -> impl Fn(A) -> R {
+    move |x| (|f: Func<A, R>, x| f.call(f, x))(Func(&|f, x| g(&|x| f.call(f, x), x)), x)
+}
+
+fn main() {
+    let g = |f: &dyn Fn((Rc<[i32]>, usize)) -> i32,
+    (arr, index): (Rc<[i32]>, usize)| -> i32 {
+        if index == arr.len() - 1 {
+            arr[index]
+        } else if index == arr.len() - 2 {
+            std::cmp::max(arr[index], arr[index + 1])
+        } else {
+            std::cmp::max(arr[index], f((arr, index + 1)))
+        }
+    };
+
+    let arr = Rc::new([31, 5, 88, 67, 63, 17, 34, 7, 15]);
+    let max = y(g);
+    println!("{}", max((Rc::clone(&arr) as Rc<[i32]>, 0)));    // 将会输出 88
+}
+```
+{: run="rust" }
 
 ## 参考
 
