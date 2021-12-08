@@ -142,18 +142,15 @@ img.preview-img {
   border-left: 1px solid rgba(158, 158, 158, 0.17);
   position: -webkit-sticky;
   position: sticky;
-  top: 4rem;
+  top: 3rem;
   margin-top: 3rem;
   transition: top 0.2s ease-in-out;
   animation: fade-up 0.8s;
 
   &.topbar-down {
-    top: 6rem;
+    top: 5rem;
   }
 
-  > span {
-    @include panel-label;
-  }
 }
 
 #toc li a {

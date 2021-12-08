@@ -15,10 +15,18 @@ layout: default
         {{- site.data.locales[lang].tabs[tab_key] | default: page.title -}}
       </h1>
       <div class="post-content">
-        {% include refactor-content.html content=content %}
+        {% if page.layout == 'page' %}
+          {% include refactor-content.html content=content %}
+        {% else %}
+          {{ content }}
+        {% endif %}
       </div>
     {% else %}
-      {% include refactor-content.html content=content %}
+      {% if page.layout == 'post' %}
+        {% include refactor-content.html content=content %}
+      {% else %}
+        {{ content }}
+      {% endif %}
     {% endif %}
     </div>
   </div> <!-- #core-wrapper -->
@@ -27,13 +35,13 @@ layout: default
   <div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down">
 
     <div class="access">
-      {% if page.layout != 'post' or site.panel.post.lastmode %}
+      {% if page.layout != "post" or site.panel.post.lastmod %}
         {% include update-list.html %}
       {% endif %}
-      {% if page.layout != 'post' or site.panel.post.trending_tags %}
+      {% if page.layout != "post" or site.panel.post.trending_tags %}
         {% include trending-tags.html %}
       {% endif %}
-      {% if page.layout != 'post' or site.panel.post.external_links %}
+      {% if page.layout != "post" or site.panel.post.external_links %}
         {% include external-links.html %}
       {% endif %}
     </div>
