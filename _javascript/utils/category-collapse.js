@@ -12,7 +12,7 @@ $(function() {
     const parentId = parentPrefix + $(this).attr("id").substring(childPrefix.length);
     if (parentId) {
       $(`#${parentId} .iconfont.icon-FolderOpen-1`).attr("class", "iconfont icon-folder");
-      $(`#${parentId} i.iconfont`).addClass("rotate");
+      $(`#${parentId} i.ifrot`).addClass("rotate");
       $(`#${parentId}`).removeClass("hide-border-bottom");
     }
   });
@@ -22,7 +22,7 @@ $(function() {
     const parentId = parentPrefix + $(this).attr("id").substring(childPrefix.length);
     if (parentId) {
       $(`#${parentId} .iconfont.icon-folder`).attr("class", "iconfont icon-FolderOpen-1");
-      $(`#${parentId} i.iconfont`).removeClass("rotate");
+      $(`#${parentId} i.ifrot`).removeClass("rotate");
       $(`#${parentId}`).addClass("hide-border-bottom");
     }
   });

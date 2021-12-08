@@ -1119,7 +1119,7 @@ $sidebar-display: "sidebar-display";
 #back-to-top {
   $size: 2.7em;
 
-  display: inline-flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1;
@@ -1136,9 +1136,7 @@ $sidebar-display: "sidebar-display";
   -webkit-transition: transform 0.2s ease-out;
 
   i {
-    line-height: $size;
     position: relative;
-    bottom: 2px;
   }
 }
 
