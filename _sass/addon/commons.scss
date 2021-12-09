@@ -95,7 +95,11 @@ a {
   @extend %link-color;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   a {
     font-weight: normal;
   }
@@ -112,7 +116,7 @@ blockquote {
   margin: 0;
   margin-bottom: 1rem;
   padding: 0 1rem;
-  
+
   > :last-child {
     margin-bottom: 0;
   }
@@ -160,7 +164,8 @@ footer {
   }
 }
 
-i { // fontawesome icons
+i {
+  // fontawesome icons
   &.far,
   &.fas {
     @extend %no-cursor;
@@ -168,14 +173,18 @@ i { // fontawesome icons
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 img[data-src] {
   margin: 0.5rem 0;
 
-  &[data-loaded=true] {
+  &[data-loaded="true"] {
     animation: fade-in linear 0.5s;
   }
 
@@ -224,11 +233,11 @@ img[data-src] {
   .post-content {
     font-size: 0.9rem;
   }
-
 }
 
 #panel-wrapper {
-  .panel-heading { // the headings
+  .panel-heading {
+    // the headings
     @include label(inherit);
   }
 
@@ -411,7 +420,8 @@ img[data-src] {
       @extend %no-cursor;
     }
 
-    &.popup { // created by `_includes/img-extra.html`
+    &.popup {
+      // created by `_includes/img-extra.html`
       cursor: zoom-in;
 
       > img[data-src]:not(.normal):not(.left):not(.right) {
@@ -425,7 +435,6 @@ img[data-src] {
       }
     }
   } // a
-
 }
 
 .pageviews .icon-spinner {
@@ -475,7 +484,6 @@ img[data-src] {
       padding: 0;
       color: #6d6c6c;
     }
-
   }
 
   ul {
@@ -848,7 +856,6 @@ $sidebar-display: "sidebar-display";
       height: 3px;
       border-radius: 50%;
     }
-
   } // .sidebar-bottom
 } // #sidebar
 
@@ -935,7 +942,8 @@ $sidebar-display: "sidebar-display";
     color: var(--search-icon-color);
   }
 
-  .icon-times-circle { /* button 'clean up' */
+  .icon-times-circle {
+    /* button 'clean up' */
     @extend %cursor-pointer;
 
     visibility: hidden;
@@ -1168,7 +1176,6 @@ $sidebar-display: "sidebar-display";
 */
 
 @media all and (max-width: 576px) {
-
   $footer-height: $footer-height-mobile; // overwrite
 
   #main > div.row:first-child > div:first-child {
@@ -1765,7 +1772,7 @@ details {
 .sidebar-content {
   display: flex;
   justify-content: center;
-  
+
   .sidebar-item {
     display: inline-block;
     width: 70%;
@@ -1793,4 +1800,20 @@ details {
 
 .iconfont {
   font-size: 100%;
+}
+
+@keyframes infirot {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.icon-loading {
+  display: inline-block;
+  animation: infirot 1s linear infinite;
+  -webkit-animation: infirot 1s linear infinite;
 }
