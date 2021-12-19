@@ -394,11 +394,6 @@ img[data-src] {
       th {
         text-align: center;
       }
-
-      th:first-of-type,
-      td:first-of-type {
-        border-left: 0;
-      }
     }
 
     > tbody > tr:last-child > td {
