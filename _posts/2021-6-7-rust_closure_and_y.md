@@ -147,6 +147,8 @@ Y g
 
 因为 `Y g = g (Y g)`，根据不动点的定义 `f' = g(f')`，可见 `Y g` 确实是 `g(f)` 的不动点。
 
+需要注意的是，**Y 组合子并不是唯一的不动点组合子**。
+
 ## 在 Rust 中实现 Y 组合子
 
 我们按照之前理好的逻辑，将 `g` 定义为：
@@ -555,8 +557,89 @@ fn main() {
 ```
 {: run="rust" }
 
+## 非 Y 组合子的递归实现
+
+在参考文献[如何在Rust中写Y组合子？ - Nugine的回答 - 知乎](https://www.zhihu.com/question/266186457/answer/1062284485){:target="_blank"}中，作者在最后给出了一种特别的 “Y 组合子”：
+
+```rust
+fn y<'a, A, O>(f: impl Fn(&dyn Fn(A) -> O, A) -> O + 'a) -> impl Fn(A) -> O + 'a {
+    fn real_y<'a, A, O>(f: &'a dyn Fn(&dyn Fn(A) -> O, A) -> O) -> impl Fn(A) -> O + 'a {
+        move |a| f(&real_y(f), a)
+    }
+    move |a| real_y(&f)(a)
+}
+```
+
+当然，这实际上并不是 Y 组合子。为了避免歧义，我们后文推导时也不会使用 `y` 来作为该函数的名字，而是使用 `r`。Y 组合子与我们实际编程最大的区别是，**Y 组合子本身也是一个 lambda 表达式**，因此 `Y` 不会出现在它的定义本身。但是，我们编程定义函数时，并没有这种考量，**我们可以在我们的 `r` 中直接使用 `r`**，这就给我们提供了更好的实现匿名递归的思路。
+
+让我们回归到原始需求，我们需要一个函数 `r`，它对于任何输入函数 `g` 和它的不动点 `f'` 都有 `f' = r(g)`，而不动点的定义是 `f' = g(f')`，因此有 `r(g) = g(r(g))`。这样，最原始的 `r` 函数就定义完了，当然，我们直接这样写成 Rust 肯定是不能通过编译的：
+
+```rust
+fn r(g: ??) -> ?? {
+    g(r(g))
+}
+```
+
+我们做类似 Y 组合子那样的优化，将 `g(f)` 转换为双参函数 `g(f, x)`，再将输入的闭包转换为引用类型，初版代码就完成了：
+
+```rust
+fn r<A, R>(g: &dyn Fn(&dyn Fn(A) -> R, A) -> R) -> impl Fn(A) -> R {
+    |x| g(&r(g), x)
+}
+```
+
+考量到生命周期的推导问题，我们给它添加生命周期参数，并给闭包添加 `move`：
+
+```rust
+fn r<'a, A, R>(g: &'a dyn Fn(&dyn Fn(A) -> R, A) -> R) -> impl Fn(A) -> R + 'a {
+    move |x| g(&r(g), x)
+}
+```
+
+你会发现，这个函数跟上面的 `real_y` 是一模一样的，并且可以直接通过编译，完成递归：
+
+```rust
+fn r<'a, A, R>(g: &'a dyn Fn(&dyn Fn(A) -> R, A) -> R) -> impl Fn(A) -> R + 'a {
+    move |x| g(&r(g), x)
+}
+
+fn main() {
+    let g = |f: &dyn Fn(usize) -> usize, x| match x {
+        0 => 1,
+        _ => x * f(x - 1),
+    };
+
+    let fact = r(&g);
+    println!("{}", fact(5));    // 将会输出 120
+}
+```
+{: run="rust" }
+
+不过我们这里的调用方式是 `r(&g)`，如果再像原作者那样套层包装的话，就可以使用 `r(g)` 来调用了，对闭包的生命周期推导也更友好：
+
+```rust
+fn r<'a, A, R>(g: impl Fn(&dyn Fn(A) -> R, A) -> R) -> impl Fn(A) -> R {
+    fn r_inner<'a, A, R>(g: &'a dyn Fn(&dyn Fn(A) -> R, A) -> R) -> impl Fn(A) -> R + 'a {
+        move |x| g(&r_inner(g), x)
+    }
+    move |x| r_inner(&g)(x)
+}
+
+fn main() {
+    let g = |f: &dyn Fn(usize) -> usize, x| match x {
+        0 => 1,
+        _ => x * f(x - 1),
+    };
+
+    let fact = r(g);
+    println!("{}", fact(5)); // 将会输出 120
+}
+```
+{: run="rust" }
+
 ## 参考
 
 [如何在Rust中写Y组合子？ - Nugine的回答 - 知乎](https://www.zhihu.com/question/266186457/answer/1062284485){:target="_blank"}
 
 [Lambda calculus - Wikipedia](https://en.wikipedia.org/wiki/Lambda_calculus){:target="_blank"}
+
