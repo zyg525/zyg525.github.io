@@ -53,6 +53,7 @@ copyright:
 meta: Powered by :PLATFORM with :THEME theme.
 
 not_found:
+  title: "404: Page not found"
   statment: You seem to have come to a wasteland where there is no knowledge
   head_back: Head back Home
   or: or

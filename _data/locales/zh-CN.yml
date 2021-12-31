@@ -52,6 +52,7 @@ copyright:
 meta: 本站由 :PLATFORM 生成，采用 :THEME 主题。
 
 not_found:
+  title: "404: 页面无法访问"
   statment: 你似乎来到了没有知识存在的荒原
   head_back: 去往首页
   or: 或者

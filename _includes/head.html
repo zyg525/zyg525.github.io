@@ -36,9 +36,9 @@
 
   <title>
     {%- unless page.layout == "home" -%}
-    {{ page.title | append: " | "}}
+    {{ page.title | flatify | append: " | "}}
     {%- endunless -%}
-    {{ site.title }}
+    {{ site.title | flatify }}
   </title>
 
   {% include favicons.html %}
