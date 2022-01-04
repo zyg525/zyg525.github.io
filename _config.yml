@@ -71,26 +71,6 @@ google_analytics:
     proxy_endpoint:   # 填入 Google App Engine 的 Google Analytics superProxy 端点
     cache_path:       # pv 数据本地缓存，对 GFW 区域的人而言很好
 
-# 启用的评论系统类型，可选值：disqus, valine, waline，若留空则不启用评论系统。
-comments: waline
-
-# Disqus 评论系统
-disqus:
-  shortname: ''    # 填入你的 disqus shorname › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
-
-# Valine 评论系统       › https://valine.js.org/
-valine:
-  leancloud_appid:    # 输入你的 LeanCloud App ID
-  leancloud_appkey:   # 输入你的 LeanCloud App Key
-  placeholder: 说点什么吧！PS:在昵称栏输入QQ号可以自动获取QQ昵称和QQ头像哦~    # 空白评论框时显示的文字
-  avatar: mp          # 默认头像  › https://valine.js.org/avatar.html 
- 
-# Waline 评论系统是 Valine 的改进版本，有后端，更安全。     › https://waline.js.org/
-waline:
-  server: https://myblog-comments.vercel.app/ # Vercal 服务端地址
-  placeholder: 说点什么吧！    # 空白评论框时显示的文字
-  avatar: mp          # 默认头像  › https://waline.js.org/guide/client/avatar.html
-
 # 设置首选配色方案
 #
 # 提示: 保留空白会跟随系统的默认首选配色，并且在侧边栏的底部会出现
@@ -130,6 +110,28 @@ panel:
     # 目录
     toc: true
 
+comments:
+  active: 'waline'  # 帖子评论区全局开关，例如，'disqus'。保持为空表示禁用
+  # active 选项可以是如下：
+  # disqus 评论系统 > https://disqus.com/
+  disqus:
+    shortname:    # 填入你的 disqus shorname › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+  # utterances 评论系统 › https://utteranc.es/
+  utterances:
+    repo:         # <Github 用户名>/<仓库名>
+    issue_term:   # < 链接 | 路径 | 标题 | ...>
+  # Valine 评论系统       › https://valine.js.org/
+  valine:
+    leancloud_appid:    # 输入你的 LeanCloud App ID
+    leancloud_appkey:   # 输入你的 LeanCloud App Key
+    placeholder: 说点什么吧！PS:在昵称栏输入QQ号可以自动获取QQ昵称和QQ头像哦~    # 空白评论框时显示的文字
+    avatar: mp          # 默认头像  › https://valine.js.org/avatar.html 
+  # Waline 评论系统是 Valine 的改进版本，有后端，更安全。     › https://waline.js.org/
+  waline:
+    server: https://myblog-comments.vercel.app/    # Vercal 服务端地址
+    placeholder: 说点什么吧！    # 空白评论框时显示的文字
+    avatar: mp          # 默认头像  › https://waline.js.org/guide/client/avatar.html
+
 # 每一页的帖子数量
 paginate: 10
 
@@ -150,7 +152,6 @@ collections:
   tabs:
     output: true
     sort_by: order
-
 
 defaults:
   -

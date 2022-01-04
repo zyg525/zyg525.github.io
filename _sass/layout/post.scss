@@ -122,7 +122,8 @@ img.preview-img {
     margin-top: 0.3rem;
     white-space: normal;
   }
-} // .post-navigation
+
+} /* .post-navigation */
 
 @keyframes fade-up {
   from {
@@ -234,9 +235,12 @@ nav[data-toggle=toc] {
 #tail-wrapper {
   min-height: 2rem;
 
-  #disqus_thread {
-    min-height: 7.5rem;
+  > div:last-of-type {
     margin-bottom: 2rem;
+  }
+
+  #disqus_thread {
+    min-height: 8.5rem;
   }
 
 }
@@ -310,12 +314,13 @@ nav[data-toggle=toc] {
         @include btn-sharing-color(rgb(255, 218, 5));
       }
     }
-  } // .share-icons
+  } /* .share-icons */
 
   .iconfont.icon-link {
     @include btn-sharing-color(rgb(171, 171, 171));
   }
-} // .share-wrapper
+
+} /* .share-wrapper */
 
 .share-label {
   @include label(inherit, 400, inherit);
@@ -339,7 +344,8 @@ nav[data-toggle=toc] {
   span:last-child {
     font-size: 0.85rem;
   }
-} // .license-wrapper
+
+} /* .license-wrapper */
 
 @media all and (max-width: 576px) {
   .preview-img[data-src] {

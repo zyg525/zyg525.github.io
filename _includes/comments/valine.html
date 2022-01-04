@@ -1,5 +1,3 @@
-{% if page.comments %}
-
 <div id="vcomments"></div>
 <script>
   function loadValine() {
@@ -12,10 +10,10 @@
       valine.init({
         av: AV,
         el: '#vcomments',
-        appId: '{{ site.valine.leancloud_appid }}',
-        appKey: '{{ site.valine.leancloud_appkey }}',
-        placeholder: '{{ site.valine.placeholder }}',
-        avatar: '{{ site.valine.avatar }}',
+        appId: '{{ site.comments.valine.leancloud_appid }}',
+        appKey: '{{ site.comments.valine.leancloud_appkey }}',
+        placeholder: '{{ site.comments.valine.placeholder }}',
+        avatar: '{{ site.comments.valine.avatar }}',
         enableQQ: true
       });
     }
@@ -35,5 +33,3 @@
     }
   }, 1);
 </script>
-
-{% endif %}

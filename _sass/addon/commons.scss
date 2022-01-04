@@ -123,7 +123,19 @@ blockquote {
 }
 
 kbd {
+  font-family: inherit;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.3rem;
+  min-width: 1.75rem;
+  text-align: center;
   margin: 0 0.3rem;
+  padding-top: 0.1rem;
+  color: var(--kbd-text-color);
+  background-color: var(--kbd-bg-color);
+  border-radius: 0.25rem;
+  border: solid 1px var(--kbd-wrap-color);
+  box-shadow: inset 0 -2px 0 var(--kbd-wrap-color);
 }
 
 footer {
@@ -232,8 +244,8 @@ img[data-src] {
 }
 
 #panel-wrapper {
+  // the headings
   .panel-heading {
-    // the headings
     @include label(inherit);
   }
 
@@ -325,7 +337,7 @@ img[data-src] {
     &[scroll-focus="true"] > p {
       background-color: var(--footnote-target-bg);
       width: fit-content;
-      -webkit-transition: background-color 1.5s ease-in-out; // Safari prior 6.1
+      -webkit-transition: background-color 1.5s ease-in-out; /* Safari prior 6.1 */
       transition: background-color 1.5s ease-in-out;
     }
   }
@@ -337,7 +349,7 @@ img[data-src] {
     @include pl-pr(2px);
 
     border-bottom-style: none !important;
-    -webkit-transition: background-color 1.5s ease-in-out; // Safari prior 6.1
+    -webkit-transition: background-color 1.5s ease-in-out; /* Safari prior 6.1 */
     transition: background-color 1.5s ease-in-out;
   }
 
@@ -361,11 +373,9 @@ img[data-src] {
 
 /* --- Begin of Markdown table style --- */
 
+// it will be created by Liquid
 .table-wrapper {
-  // it will be created by Liquid
-  display: block;
-  width: 100%;
-  max-width: 100%;
+  overflow-x: auto;
   margin-bottom: 1.5rem;
   overflow-x: auto;
   border-radius: 0.25rem;
@@ -415,8 +425,8 @@ img[data-src] {
       @extend %no-cursor;
     }
 
+    // created by `_includes/img-extra.html`
     &.popup {
-      // created by `_includes/img-extra.html`
       cursor: zoom-in;
 
       > img[data-src]:not(.normal):not(.left):not(.right) {
@@ -1119,7 +1129,7 @@ $sidebar-display: "sidebar-display";
     }
   }
 
-  .row.alone {
+  div.row:first-of-type:last-of-type { // alone
     margin-bottom: 4rem;
   }
 }
