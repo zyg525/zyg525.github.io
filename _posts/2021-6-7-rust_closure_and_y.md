@@ -618,7 +618,7 @@ fn main() {
 不过我们这里的调用方式是 `r(&g)`，如果再像原作者那样套层包装的话，就可以使用 `r(g)` 来调用了，对闭包的生命周期推导也更友好：
 
 ```rust
-fn r<'a, A, R>(g: impl Fn(&dyn Fn(A) -> R, A) -> R) -> impl Fn(A) -> R {
+fn r<A, R>(g: impl Fn(&dyn Fn(A) -> R, A) -> R) -> impl Fn(A) -> R {
     fn r_inner<'a, A, R>(g: &'a dyn Fn(&dyn Fn(A) -> R, A) -> R) -> impl Fn(A) -> R + 'a {
         move |x| g(&r_inner(g), x)
     }
