@@ -2,7 +2,7 @@
 title: Rust 中的闭包递归与 Y 组合子
 date: 2021-6-7 23:45:52 +0800
 categories: [杂记 , Rust]
-tags: [rust, closure]     # TAG names should always be lowercase
+tags: [rust, 闭包, 编程语言]     # TAG names should always be lowercase
 ---
 
 ## λ 函数递归

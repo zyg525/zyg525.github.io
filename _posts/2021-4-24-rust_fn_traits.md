@@ -2,7 +2,7 @@
 title: Rust 中函数与闭包与 Fn Traits 探讨
 date: 2021-4-24 20:31:52 +0800
 categories: [杂记 , Rust]
-tags: [rust, closure, trait]     # TAG names should always be lowercase
+tags: [rust, 闭包, 编程语言]     # TAG names should always be lowercase
 ---
 
 ## 闭包
