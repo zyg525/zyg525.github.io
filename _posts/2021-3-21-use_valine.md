@@ -5,6 +5,10 @@ categories: [教程, 网站]
 tags: [jekyll, 教程, 网站, valine]     # TAG names should always be lowercase
 ---
 
+> **!! <font color="red">WARNING</font> !!**
+>
+> **由于 Chirpy 版本更替，该帖子内容已失去时效性，请谨慎参考。**
+
 ## 前置工作
 
 根据 [Valine 官方教程](https://valine.js.org/quickstart.html){:target="_blank"}注册 LeanCloud 以获取 APP ID 和 APP Key。注：注册[国内版 LeanCloud](https://leancloud.cn/){:target="_blank"} 需要绑定已备案的域名，而注册[国际版 LeanCloud](https://leancloud.app/){:target="_blank"} 则不需要。
