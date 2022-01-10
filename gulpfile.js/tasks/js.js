@@ -75,6 +75,7 @@ const pageJs = () => {
     `${JS_SRC}/utils/checkbox.js`,
     `${JS_SRC}/utils/img-extra.js`,
     `${JS_SRC}/utils/clipboard.js`,
+    `${JS_SRC}/utils/smooth-scroll.js`,
     `${JS_SRC}/utils/run-cpp.js`,
     `${JS_SRC}/utils/run-javascript.js`,
     `${JS_SRC}/utils/run-rust.js`,
