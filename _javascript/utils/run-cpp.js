@@ -22,12 +22,12 @@ $(function () {
   
     function lock(node) {
       $(node).attr(LOCK, Date.now() + TIMEOUT);
-      $("i", node).removeClass("icon-playfill").addClass("icon-loading");
+      $("i", node).removeClass("icon-playfill").addClass("icon-loading1");
     }
   
     function unlock(node) {
       $(node).removeAttr(LOCK);
-      $("i", node).removeClass("icon-loading").addClass("icon-playfill");
+      $("i", node).removeClass("icon-loading1").addClass("icon-playfill");
     }
   
     function getOutputFrame(btn) {
