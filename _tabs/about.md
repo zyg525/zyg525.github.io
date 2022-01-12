@@ -23,7 +23,7 @@ order: 5
 ## 个人账号
 
 * QQ：非公开
-* Twitter：[@Still_Nihil](https://twitter.com/Still_Nihil){:target="_blank"}
+* Twitter：[@NichtsHsu](https://twitter.com/NichtsHsu){:target="_blank"}
 * Gmail：<mailto:NichtsVonChaos@gmail.com>
 * Github：[NichtsHsu](https://github.com/NichtsHsu){:target="_blank"}
 * Discord：Nihil#4200
