@@ -20,7 +20,7 @@ layout: default
 
     {% if page.layout == 'page' or page.collection == 'tabs'%}
       {% assign title = site.data.locales[lang].tabs[tab_key] | default: page.title %}
-      {% if page.layout != 'subdomain' %}
+      {% if page.no_title == false %}
       <h1 class="dynamic-title">
         {{ title }}
       </h1>
