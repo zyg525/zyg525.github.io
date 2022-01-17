@@ -165,7 +165,7 @@
       {% endif %}
 
       {% capture _label %}
-        <span label-text="{{ _label_text | strip }}"><i class="{{ _label_icon }}"></i></span>
+        <span data-label-text="{{ _label_text | strip }}"><i class="{{ _label_icon }}"></i></span>
       {% endcapture %}
 
       {% if _left contains 'run="' %}
@@ -221,7 +221,7 @@
       {% endif %}
 
       {% assign id = snippet | split: '"' | first %}
-      {% capture anchor %}<a href="#{{ id }}" class="anchor"><i class="iconfont icon-hashtag"></i></a>{% endcapture %}
+      {% capture anchor %} <a href="#{{ id }}" class="anchor"><i class="iconfont icon-hashtag"></i></a>{% endcapture %}
 
       {% assign left = snippet | split: mark_end | first %}
       {% assign _start_index = left | size %}

@@ -6,22 +6,22 @@
 @import "colors/dark-syntax";
 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css);
 
-html:not([mode]),
-html[mode="light"] {
+html:not([data-mode]),
+html[data-mode=light] {
   @include light-syntax;
 }
 
-html[mode="dark"] {
+html[data-mode=dark] {
   @include dark-syntax;
 }
 
 @media (prefers-color-scheme: dark) {
-  html:not([mode]),
-  html[mode="dark"] {
+  html:not([data-mode]),
+  html[data-mode=dark] {
     @include dark-syntax;
   }
 
-  html[mode="light"] {
+  html[data-mode=light] {
     @include light-syntax;
   }
 }
@@ -219,7 +219,7 @@ div {
 
     // label text
     &::after {
-      content: attr(label-text);
+      content: attr(data-label-text);
       font-size: 0.85rem;
       font-weight: 600;
       color: var(--code-header-text-color);

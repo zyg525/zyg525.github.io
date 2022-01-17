@@ -46,7 +46,7 @@ social:
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-google_site_verification:  # 你的 Google 认证字符串
+google_site_verification:       # 填入你的认证字符串
 
 # ↑ --------------------------
 
@@ -66,7 +66,7 @@ iconfont_css:
 
 google_analytics:
   id: 'G-RK9LRGVP0T'              # 填入你的 Google Analytics ID
-  # Google Analytics 页面浏览量开关
+  # Google Analytics 页面浏览量设置
   pv:
     proxy_endpoint:   # 填入 Google App Engine 的 Google Analytics superProxy 端点
     cache_path:       # pv 数据本地缓存，对 GFW 区域的人而言很好
