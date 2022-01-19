@@ -16,7 +16,7 @@ platforms:
   -
     type: Telegram
     icon: "iconfont icon-telegram"
-    link: "https://telegram.me/share?text=TITLE&url=URL"
+    link: "https://t.me/share/url?url=URL&text=TITLE"
   -
     type: QQ
     icon: "iconfont icon-QQ"
