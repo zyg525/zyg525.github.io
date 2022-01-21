@@ -306,10 +306,6 @@ nav[data-toggle=toc] {
         @include btn-sharing-color(rgb(1, 187, 10));
       }
 
-      &.icon-tieba {
-        @include btn-sharing-color(rgb(51, 133, 255));
-      }
-
       &.icon-qzone {
         @include btn-sharing-color(rgb(255, 218, 5));
       }
