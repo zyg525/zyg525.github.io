@@ -78,6 +78,11 @@
   --code-header-muted-color: rgb(60 60 60);
   --code-header-icon-color: rgb(86 86 86);
   --clipboard-checked-color: #2bcc2b;
+  --filepath-text-color: #bdbdbd;
+
+  /* the code of prompts */
+  --prompt-code-bg: rgb(38 38 38 / 47%);
+  --prompt-code-text-color: var(--highlighter-rouge-color);
 
   .highlighter-rouge {
     .gp { color: #818c96; }
