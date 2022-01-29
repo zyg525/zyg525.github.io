@@ -11,7 +11,7 @@ const insert = require('gulp-insert');
 const fs = require('fs');
 
 const JS_SRC = '_javascript';
-const JS_DEST = `assets/js/dist/`;
+const JS_DEST = `assets/js/dist`;
 
 function concatJs(files, output) {
   return src(files)
@@ -83,6 +83,14 @@ const pageJs = () => {
   );
 };
 
+const miscJs = () => {
+  return concatJs([
+      `${JS_SRC}/commons/*.js`,
+      `${JS_SRC}/utils/locale-datetime.js`
+    ], 'misc'
+  );
+};
+
 // GA pageviews report
 const pvreportJs = () => {
   return concatJs([
@@ -91,7 +99,8 @@ const pvreportJs = () => {
   ], 'pvreport');
 };
 
-const buildJs = parallel(commonsJs, homeJs, postJs, categoriesJs, pageJs, pvreportJs);
+const buildJs = parallel(
+  commonsJs, homeJs, postJs, categoriesJs, pageJs, miscJs, pvreportJs);
 
 exports.build = series(buildJs, minifyJs);
 
@@ -99,10 +108,9 @@ exports.liveRebuild = () => {
   buildJs();
 
   watch([
-    `${JS_SRC}/commons/*.js`,
-    `${JS_SRC}/utils/*.js`,
-    `${JS_SRC}/lib/*.js`
-  ],
+      `${ JS_SRC }/commons/*.js`,
+      `${ JS_SRC }/utils/*.js`
+    ],
     buildJs
   );
 };

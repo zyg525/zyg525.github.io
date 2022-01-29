@@ -11,7 +11,10 @@ baseurl: ''
 # 否则，布局语言使用默认值 'en'。
 lang: zh-CN
 
-# 更改为你的时区 › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
+# 时间本地化的额外参数，可选. › https://github.com/iamkun/dayjs/tree/dev/src/locale
+prefer_datetime_locale:
+
+# 修改为你的时区 › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
 timezone: Asia/Shanghai
 
 # jekyll-seo-tag 设置 › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
