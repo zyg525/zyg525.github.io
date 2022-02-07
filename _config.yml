@@ -157,8 +157,7 @@ collections:
     sort_by: order
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ''          # 空字符串意味着项目里的所有文件
       type: posts
     values:
@@ -172,18 +171,24 @@ defaults:
       # 不要改变它除非你是 Jekyll 以及 Web 开发的专家，
       # 或者你认为自己足够聪明可以在此模板中修改为其他的相对路径。
       permalink: /posts/:title/
-  -
-    scope:
+  - scope:
       path: _drafts
     values:
       comments: false
-  -
-    scope:
+  - scope:
       path: ''
       type: tabs             # 参考 `site.collections`
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: assets/img/favicons
+    values:
+      swcache: true
+  - scope:
+      path: assets/js/dist
+    values:
+      swcache: true
 
 sass:
   style: compressed
@@ -201,7 +206,6 @@ exclude:
   - '*.gem'
   - '*.gemspec'
   - tools
-  - docs
   - README.md
   - LICENSE
   - gulpfile.js
