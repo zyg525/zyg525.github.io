@@ -52,6 +52,7 @@ social:
 google_site_verification:       # 填入你的认证字符串
 
 # ↑ --------------------------
+# `jekyll-seo-tag` 设置结束
 
 # 自定义 Iconfont 的图标链接。 › https://www.iconfont.cn/
 # 需要添加自己的 Iconfont 图标，请在 Iconfont 中新建项目，
@@ -134,6 +135,14 @@ comments:
     server: https://myblog-comments.vercel.app/    # Vercal 服务端地址
     placeholder: 说点什么吧！    # 空白评论框时显示的文字
     avatar: mp          # 默认头像  › https://waline.js.org/guide/client/avatar.html
+
+# 自托管静态资产，可选 › https://github.com/cotes2020/chirpy-static-assets
+assets:
+  self_host:
+    enabled:      # 布尔值, 置空表示否
+    # 指定 Jekyll 环境，置空意味着都启用
+    # 仅在 `assets.self_host.enabled` 为 'true' 时生效
+    env:          # [development|production]
 
 # 每一页的帖子数量
 paginate: 10
