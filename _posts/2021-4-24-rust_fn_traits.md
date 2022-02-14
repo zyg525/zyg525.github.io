@@ -93,7 +93,7 @@ pub trait FnMut<Args>: FnOnce<Args> {
 }
 ```
 
-注意，`trait FnMut<Args>: FnOnce<Args>`{:.language-rust} 表示在实现 `FnMut` 之前必须先给类型实现 `FnOnce`，因此，实现了 `FnMut` 的类型必定实现了 `FnOnce`。
+注意，`trait FnMut<Args>: FnOnce<Args>`{:.language-rust} 表示在实现 `FnMut` 之前必须先给类型实现 `FnOnce`，因此，**实现了 `FnMut` 的类型必定实现了 `FnOnce`**。
 
 **任何一个函数都实现了 `FnMut`**。对于闭包，如果闭包可以仅通过可变引用，而不是获取其所有权的方式访问上下文变量，则编译器会为该闭包实现 `FnMut`。例如，下面的例子中，闭包会实现 `FnMut` 并可以多次调用：
 
@@ -105,7 +105,8 @@ vec_push(5);
 vec_push(6);
 ```
 
-注意：你必须给闭包也声明为 mut。
+> 你必须将闭包也声明为 mut
+{: .prompt-note }
 
 ### `Fn`
 
@@ -117,9 +118,11 @@ pub trait Fn<Args>: FnMut<Args> {
 }
 ```
 
-注意，`trait Fn<Args>: FnMut<Args>`{:.language-rust} 表示在实现 `Fn` 之前必须先给类型实现 `FnMut`，因此，实现了 `Fn` 的类型必定实现了 `FnMut` 和 `FnOnce`。
+注意，`trait Fn<Args>: FnMut<Args>`{:.language-rust} 表示在实现 `Fn` 之前必须先给类型实现 `FnMut`，因此，**实现了 `Fn` 的类型必定实现了 `FnMut` 和 `FnOnce`**。
 
-**任何一个函数都实现了 `Fn`**。对于闭包，如果闭包可以仅通过不可变引用的方式访问上下文变量，则编译器会为该闭包实现 `Fn`。例如，在下面的例子中，闭包会实现 `Fn` 并可以多次调用：
+**任何一个函数都实现了 `Fn`**。
+
+对于闭包，如果闭包可以仅通过不可变引用的方式访问上下文变量，则编译器会为该闭包实现 `Fn`。例如，在下面的例子中，闭包会实现 `Fn` 并可以多次调用：
 
 ```rust
 let vec = vec![1, 2, 3];
@@ -129,7 +132,7 @@ let num_1 = get_num(1);
 let num_2 = get_num(2);
 ```
 
-与 `FnMut` 不同的是，仅实现了 `FnMut` 的闭包拥有上下文变量的可变引用，因此该闭包是不可以拷贝的，比如，在 `FnMut` 的例子中，我们：
+与 `Fn` 不同的是，仅实现了 `FnMut` 的闭包拥有上下文变量的可变引用，因此该闭包是不可以拷贝的，比如，在 `FnMut` 的例子中，我们：
 
 ```rust
 let mut vec = vec![1, 2, 3];
@@ -137,7 +140,7 @@ let mut vec_push = |num| vec.push(num);
 let mut vec_push_moved = vec_push;
 ```
 
-会导致闭包所有权转移到 `vec_push_moved` 从而 `vec_push` 不能再被访问。但是在 `Fn` 中，我们可以：
+会导致闭包所有权转移到 `vec_push_moved` 从而 `vec_push` 不能再被访问。但是对于 `Fn`，我们可以：
 
 ```rust
 let vec = vec![1, 2, 3];
@@ -148,7 +151,7 @@ let num_1 = get_num_copy(1);
 let num_2 = get_num(2);
 ```
 
-因为该闭包仅仅包含上下文变量的不可变引用，因此编译器会为它实现 `Fn` 的同时实现 `Copy`，我们可以随意拷贝数份闭包来使用。
+因为实现 `Fn` 的闭包闭包仅仅包含上下文变量的不可变引用，因此编译器会为它实现 `Fn` 的同时实现 `Copy`，我们可以随意拷贝数份该闭包来使用。
 
 ### `move` 关键字
 
@@ -192,7 +195,8 @@ vec.push(6);
 
 `vec.push(6)`{:.language-rust} 就会报错，提示你 `` borrow of moved value: `vec` ``。在第一个例子中，闭包在其结构体中只储存 `vec` 的可变引用，而在第二个例子中，闭包会转移 `vec` 的所有权保存在自己的结构体中。
 
-> 值得注意的是，如果在 `Fn` 的例子中增加 `move`，由于此时闭包的结构体持有 `vec` 而不是持有它的不可变引用，因此**闭包不会自动实现 `Copy`**，除非被 `move` 的类型实现了 `Copy` 闭包才会自动实现 `Copy`。
+> 如果在 `Fn` 的例子中增加 `move`，由于此时闭包的结构体持有 `vec` 而不是持有它的不可变引用，因此**闭包不会自动实现 `Copy`**，除非被 `move` 的类型实现了 `Copy`，闭包才会自动实现 `Copy`
+{: .prompt-note }
 
 更多的情况下，`move` 需要处理的是生命周期的问题。我们来看到下面的例子：
 
@@ -229,7 +233,7 @@ fn main() {
 ```
 {: run="rust" }
 
-在之后的小节中，我们将从实现的角度理解 `move` 关键字的作用。
+在之后的小节中，我们将自己模拟实现闭包，来进一步理解 `move` 关键字的作用。
 
 ### 总结
 
@@ -243,7 +247,7 @@ fn main() {
 * `move` 会导致闭包所捕获变量被移动到闭包的匿名结构体内，但是不会影响该闭包实现哪些 `Fn` Traits。
 * 当闭包实现 `Fn` 时，`move` 关键字会导致闭包不总是实现 `Copy`，而是根据捕捉的变量是否实现 `Copy` 来决定自身是否实现 `Copy`。
 
-当调用一个函数或闭包时，编译器首先寻找 `call` 来调用，如果没有，则寻找 `call_mut`，再没有再寻找 `call_once`。
+当调用一个函数或闭包时，编译器首先寻找 `call` 方法（对应 `Fn`）来调用，如果没有，则寻找 `call_mut` 方法（对应 `FnMut`），再没有再寻找 `call_once` 方法（对应 `FnOnce`）。
 
 ## 自己实现 `Fn` Traits
 
@@ -360,7 +364,8 @@ fn main() {
 ```
 {: run="rust" }
 
-点击代码框右上角的运行按钮查看运行结果。
+> 点击代码框右上角的运行按钮可查看运行结果
+{: .prompt-note }
 
 ### 理解 `move` 关键字
 

@@ -5,7 +5,7 @@ categories: [教程, 网站]
 tags: [jekyll, 教程, 网站, valine]     # TAG names should always be lowercase
 ---
 
-> 由于 Chirpy 版本更替，该帖子内容已失去时效性，请谨慎参考。
+> 由于 Chirpy 版本更替，该帖子内容已失去时效性，请谨慎参考
 {: .prompt-warning }
 
 ## 前置工作

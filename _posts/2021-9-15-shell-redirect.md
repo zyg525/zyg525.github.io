@@ -15,7 +15,8 @@ command1 | command2
 
 它的作用是将 `command1` 的标准输出作为 `command2` 的标准输入来使用。一个非常典型的例子是 `grep`，相信大部分人都有使用过形如 `command | grep xxx`{:.language-sh} 的命令。
 
-需要注意一点，管道的两个命令分别在两个不同的子 shell 中执行，并且没有规定哪个子 shell 会被保留继续使用。
+> 管道的两个命令分别在两个不同的子 shell 中执行，并且没有规定哪个子 shell 会被保留继续使用
+{: .prompt-warning }
 
 ## 重定向
 
@@ -55,7 +56,7 @@ command >> output_file
 command > output_file 2>&1
 ```
 
-注意到在 `>` 和 `1` 之间使用了一个 `&`，用以表示 `1` 是文件描述符而不是一个名为 `1` 的文件。
+注意到**在 `>` 和 `1` 之间使用了一个 `&`**，用以表示 `1` 是文件描述符而不是一个名为 `1` 的文件。
 
 举个例子，我们在使用 `nohup xxx &`{:.language-sh} 命令启用一个后台程序时，通常会将其输出重定向到 `/dev/null` 以避免污染当前终端：
 
@@ -63,7 +64,10 @@ command > output_file 2>&1
 nohup command > /dev/null 2>&1 &
 ```
 
-值得注意的是，**重定向的顺序很重要**，如果写成：
+> 重定向的顺序很重要
+{: .prompt-note }
+
+如果写成：
 
 ```sh
 command 2>&1 > output_file
@@ -119,7 +123,10 @@ command1 |& command2
 } 3>&1
 ```
 
-这条命令首先将 `STDERR` 重定向到 `STDOUT`，然后将 `STDOUT` 重定向到新引入的文件描述符 `3`，完成变量 `err` 的赋值之后，再将 `3` 重定向到 `STDOUT`。最后的结果是：`STDERR` 的输出被保存到变量 `err` 中，而 `STDOUT` 的输出仍然打印在终端。值得注意的是，GNU 不建议使用大于 `9` 的文件描述符，因为这可能和 shell 分配的文件描述符冲突。
+这条命令首先将 `STDERR` 重定向到 `STDOUT`，然后将 `STDOUT` 重定向到新引入的文件描述符 `3`，完成变量 `err` 的赋值之后，再将 `3` 重定向到 `STDOUT`。最后的结果是：`STDERR` 的输出被保存到变量 `err` 中，而 `STDOUT` 的输出仍然打印在终端。
+
+> GNU 建议不要使用大于 `9` 的文件描述符，因为这可能和 shell 分配的文件描述符冲突
+{: .prompt-warning }
 
 #### 强制覆盖
 
