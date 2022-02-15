@@ -65,7 +65,7 @@ nohup command > /dev/null 2>&1 &
 ```
 
 > 重定向的顺序很重要
-{: .prompt-note }
+{: .prompt-info }
 
 如果写成：
 

@@ -106,7 +106,7 @@ vec_push(6);
 ```
 
 > 你必须将闭包也声明为 mut
-{: .prompt-note }
+{: .prompt-info }
 
 ### `Fn`
 
@@ -196,7 +196,7 @@ vec.push(6);
 `vec.push(6)`{:.language-rust} 就会报错，提示你 `` borrow of moved value: `vec` ``。在第一个例子中，闭包在其结构体中只储存 `vec` 的可变引用，而在第二个例子中，闭包会转移 `vec` 的所有权保存在自己的结构体中。
 
 > 如果在 `Fn` 的例子中增加 `move`，由于此时闭包的结构体持有 `vec` 而不是持有它的不可变引用，因此**闭包不会自动实现 `Copy`**，除非被 `move` 的类型实现了 `Copy`，闭包才会自动实现 `Copy`
-{: .prompt-note }
+{: .prompt-info }
 
 更多的情况下，`move` 需要处理的是生命周期的问题。我们来看到下面的例子：
 
@@ -365,7 +365,7 @@ fn main() {
 {: run="rust" }
 
 > 点击代码框右上角的运行按钮可查看运行结果
-{: .prompt-note }
+{: .prompt-tip }
 
 ### 理解 `move` 关键字
 
