@@ -5,7 +5,7 @@
 @mixin dark-syntax {
   /* syntax highlight colors from https://raw.githubusercontent.com/jwarby/pygments-css/master/monokai.css */
   .highlighter-rouge pre { background-color: var(--highlight-bg-color); }
-  .highlighter-rouge .hll { background-color: var(--highlight-bg-color); }
+  .highlighter-rouge .hll { background-color: #5e5702; }
   .highlighter-rouge .c { color: #75715e; } /* Comment */
   .highlighter-rouge .err { color: #960050; background-color: #1e0010; } /* Error */
   .highlighter-rouge .k { color: #66d9ef; } /* Keyword */

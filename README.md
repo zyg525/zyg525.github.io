@@ -16,6 +16,7 @@
 * 将代码染色应用到了行内代码段，例如 `` `let fuck_rust = 114514;`{:.language-rust} ``。
 * 使用 [Fira Code](https://github.com/tonsky/FiraCode) 作为代码段字体。默认对行内代码不开启连体（Ligature），对块代码开启。因为某些原因，在 shell 语言中禁用连体。
 * 暗色主题时，标题和加粗内容在白色文字之中难以区分，增加发光效果以突出显示。
+* 可以配置高亮代码段中的某些行，参考[此处](http://nihil.cc/posts/highlight_lines_for_jekyll/#%E4%BE%8B%E5%AD%90)。
 * 运行代码显示输出结果（开发中，目前支持部分语言），需要在代码段的下一行添加 `{: run="lang" }`，例如：
 
     ````markdown
