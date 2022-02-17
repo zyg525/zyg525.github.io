@@ -79,7 +79,7 @@ Rust 中，一个独立的（分离式）编译单元是 crate。如果在 crate
 
 *第三*，在构建应用时，当分析显示某个特定的小函数是瓶颈时才被动地使用 `#[inline]`。考虑在发布时使用 lto。主动 `#[inline]` 不重要的公有函数可能是有意义的。
 
-*第四*，在构建库时，主动给小型的非泛型函数添加 `#[inline]`。特别注意实现 `Deref` 和 `AsRef` 类似的东西经常受益于内联。库无法预知所有的使用，不要过早地对未来的使用者抱有悲观态度才是正确的。请注意 `#[inline]` 不具有传递性：如果一个不重要的公有函数调用了一个不重要的私有函数，你应该同时 `#[inline]` 二者。参阅[此基准](https://github.com/matklad/benchmarks/tree/91171269f0a6e260a27111d07661021a89d20085/rust-inline)以了解更多。
+*第四*，在构建库时，主动给小型的非泛型函数添加 `#[inline]`。特别注意实现 `Deref` 和 `AsRef` 类似的东西经常受益于内联。库无法预知所有的使用，不要过早地对未来的使用者抱有悲观态度才是正确的。请注意 `#[inline]` 不具有传递性：如果一个不重要的公有函数调用了一个不重要的私有函数，你应该同时 `#[inline]` 二者。参阅[此基准](https://github.com/matklad/benchmarks/tree/91171269f0a6e260a27111d07661021a89d20085/rust-inline)（Benchmark）以了解更多。
 
 *第五*，考虑通用函数。说泛型函数是隐式内联的并没有错。因此，它们通常是导致代码膨胀的原因。应当编写通用函数，尤其是在库中，以尽量减少不需要的内联。举一个 [wat](https://github.com/bytecodealliance/wasm-tools/blob/0486fb4de505b8116a0034bdde4918cd783325b9/crates/wat/src/lib.rs#L214-L222) 的例子：
 
@@ -107,7 +107,7 @@ fn _parse_str(wat: &str) -> Result<Vec<u8>> {
 
 在 [r/rust](https://old.reddit.com/r/rust/comments/oh4s2j/blog_post_inline_in_rust/) 中讨论。
 
-现在有一个后续的帖子：[It’s Not Always iCache](https://matklad.github.io/2021/07/10/its-not-always-icache.html)
+现在有一个后续的帖子：[并不总是 iCache](http://nihil.cc/posts/translate_not_always_icache/)
 
 > 这个帖子是 [One Hundred Thousand Lines of Rust](https://matklad.github.io/2021/09/05/Rust100k.html) 系列的一部分。
 {: .prompt-info }
