@@ -75,7 +75,7 @@ Rust 中，一个独立的（分离式）编译单元是 crate。如果在 crate
 
 *首先*，不管三七二十一地使用 `#[inline]` 绝非良策，因为这会使得编译时间更加糟糕。如果您不关心编译时间，一个更好的办法是在 [Cargo 配置文件](https://doc.rust-lang.org/cargo/reference/profiles.html#lto)中设置 `lto = true`。
 
-*其次*，通常不需要为私有函数应用 `#[inline]`——在一个 crate 内部，编译器通常会做出更好的内联策略。有一个[笑话](https://twitter.com/ManishEarth/status/936084757212946432)说的是 LLVM 对于何时应该内联函数的启发式方法（Heuristic）是“是”。
+*其次*，通常不需要为私有函数应用 `#[inline]`——在一个 crate 内部，编译器通常会做出更好的内联策略。有一个[笑话](https://twitter.com/ManishEarth/status/936084757212946432)说的是 LLVM 对于何时应该内联函数的捷思法（Heuristic）是“是”。
 
 *第三*，在构建应用时，当分析显示某个特定的小函数是瓶颈时才被动地使用 `#[inline]`。考虑在发布时使用 lto。主动 `#[inline]` 不重要的公有函数可能是有意义的。
 
