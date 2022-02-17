@@ -15,6 +15,7 @@ tags: [jekyll, 教程, 网站, javascript]     # TAG names should always be lowe
 
 1. Ruby 脚本在生成站点时静态地添加高亮块，没有运行时时间成本。JS 脚本在浏览者打开网页时才动态的添加高亮块，有一定的运行时时间成本。
 2. Ruby 脚本使用 Rouge 的参数接口来实现高亮指定行。而 JS 脚本则完全靠自己解析属性值，再动态地增加高亮块。
+3. JS 脚本目前对大段的纯文本无能为力，例如 plaintext 代码块，或者 shell 语句的大段输出等。
 
 可见 JS 脚本是有比较大的局限性的，如果有比较合适的 Ruby 脚本，还是使用 Ruby 的好。
 

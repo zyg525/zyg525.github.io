@@ -479,6 +479,7 @@ fn main() {
 }
 ```
 {: run="rust" }
+{: highlight-lines="22" }
 
 ### 引用的处理
 
@@ -524,6 +525,7 @@ fn main() {
 }
 ```
 {: run="rust" }
+{: highlight-lines="22, 23, 34" }
 
 如果不是非得引用不可的话，建议还是不要折磨自己，乖乖地用 `Rc` 那不香吗？
 
@@ -552,7 +554,7 @@ fn y<A, R>(g: impl Fn(&dyn Fn(A) -> R, A) -> R) -> impl Fn(A) -> R {
 
 fn main() {
     let g = |f: &dyn Fn((Rc<[i32]>, usize)) -> i32,
-    (arr, index): (Rc<[i32]>, usize)| -> i32 {
+             (arr, index): (Rc<[i32]>, usize)| -> i32 {
         if index == arr.len() - 1 {
             arr[index]
         } else if index == arr.len() - 2 {
@@ -568,6 +570,7 @@ fn main() {
 }
 ```
 {: run="rust" }
+{: highlight-lines="24, 25, 35" }
 
 ## 非 Y 组合子的递归实现
 
