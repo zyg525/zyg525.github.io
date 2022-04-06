@@ -148,6 +148,11 @@ blockquote:not([class^="prompt-"]) {
   }
 }
 
+mjx-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 kbd {
   font-family: inherit;
   display: inline-block;
