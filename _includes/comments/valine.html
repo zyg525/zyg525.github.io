@@ -1,12 +1,12 @@
 <div id="vcomments"></div>
 <script>
   function loadValine() {
-    var s = document.createElement('script');
+    let s = document.createElement('script');
     s.setAttribute('src', '//cdn.jsdelivr.net/npm/valine');
     s.async = false;
     document.body.appendChild(s);
     s.onload = () => {
-      var valine = new Valine();
+      let valine = new Valine();
       valine.init({
         av: AV,
         el: '#vcomments',

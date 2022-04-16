@@ -1,12 +1,12 @@
 <div id="waline"></div>
 <script>
   function loadWaline() {
-    var s = document.createElement('script');
+    let s = document.createElement('script');
     s.setAttribute('src', '//cdn.jsdelivr.net/npm/@waline/client');
     s.async = false;
     document.body.appendChild(s);
     s.onload = () => {
-      var valine = Waline({
+      let valine = Waline({
         el: '#waline',
         serverURL: '{{ site.comments.waline.server }}',
         emoji: [
@@ -15,16 +15,25 @@
           'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji',
           'https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/bilibili',
         ],
-        dark: 'html:not([data-mode]),html[data-mode=dark]',
+        dark: "__waline__css__",
         avatar: '{{ site.comments.waline.avatar }}',
         placeholder: '{{ site.comments.waline.placeholder }}',
       });
+      let head = document.getElementsByTagName("head")[0];
+      let css = head.lastChild;
+      let cssContent = css.textContent.replace("__waline__css__", "");
+      let cssContentPerferredDark = "@media (prefers-color-scheme: dark){html:not([data-mode])" + cssContent + "}";
+      let cssContentSelectedDark = "html[data-mode=dark]" + cssContent;
+      css.textContent = cssContentPerferredDark;
+      let style = document.createElement('style');
+      style.textContent = cssContentSelectedDark;
+      head.appendChild(style);
     };
   };
 
   setTimeout(function () {
     if ("IntersectionObserver" in window) {
-      var io = new IntersectionObserver(function (entries) {
+      let io = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) {
           loadWaline();
           io.disconnect();
