@@ -36,10 +36,10 @@ const commonsJs = () => {
 
 const homeJs = () => {
   return concatJs([
-    `${JS_SRC}/commons/*.js`,
-    `${JS_SRC}/utils/img-extra.js`,
-    `${JS_SRC}/utils/timeago.js`
-  ],
+      `${JS_SRC}/commons/*.js`,
+      `${JS_SRC}/utils/img-extra.js`,
+      `${JS_SRC}/utils/locale-datetime.js`
+    ],
     'home'
   );
 };
@@ -48,7 +48,7 @@ const postJs = () => {
   return concatJs([
     `${JS_SRC}/commons/*.js`,
     `${JS_SRC}/utils/img-extra.js`,
-    `${JS_SRC}/utils/timeago.js`,
+    `${JS_SRC}/utils/locale-datetime.js`,
     `${JS_SRC}/utils/checkbox.js`,
     `${JS_SRC}/utils/clipboard.js`,
     `${JS_SRC}/utils/run-cpp.js`,
