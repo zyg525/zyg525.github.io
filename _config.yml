@@ -186,6 +186,7 @@ defaults:
       trending_tags: true
       external_links: true
       toc: true
+      license: true
       # 不要改变它除非你是 Jekyll 以及 Web 开发的专家，
       # 或者你认为自己足够聪明可以在此模板中修改为其他的相对路径。
       permalink: /posts/:title/
