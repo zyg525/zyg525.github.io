@@ -149,8 +149,12 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM
+
+# Prism settings
+# Support all offical and extended themes
+# Please visit https://prismjs.com and https://github.com/PrismJS/prism-themes/tree/master/themes to check the supported theme names
 prism:
-  theme:
+  theme: one-light
   line_numbers: true
 
 # RSS
