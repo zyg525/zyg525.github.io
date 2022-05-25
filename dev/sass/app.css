@@ -765,6 +765,7 @@ a {
 }
 .post-header .post-meta .post-meta-item a {
   color: #fff;
+  text-decoration: underline;
 }
 .post-header .post-meta .post-meta-item .icon {
   width: 18px;
