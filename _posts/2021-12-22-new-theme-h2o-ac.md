@@ -109,6 +109,10 @@ tags: jekyll theme blog ac develop 主题 前端开发 学术 运维
 
 &emsp;&emsp;更换 Prism 库加载方式，采用按需自动加载代码类型，尽可能减少因 Prism 造成的阻塞。修复了某些样式问题。增加显示行数支持、官方主题选择支持。如下所示可以进行设置，具体主题风格样式可以访问 [Prism 官网](https://prismjs.com/) 了解更多。
 
+(2022年5月23日更新)
+
+&emsp;&emsp;除官方代码库中默认代码主题外，新增扩展代码主题支持，比如常用的 One Light 等等。具体主题风格样式可以查看 [PrismJS/prism-themes](https://github.com/PrismJS/prism-themes/tree/master/themes) 了解更多。
+
 ```yaml
 # Prism
 prism:
