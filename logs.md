@@ -2,7 +2,7 @@
 layout: page
 home-title: Welcome to zhonger's blog!
 description: Writing, writing, writing ...
-cover: https://unspalsh.lisz.tk/1630824869986-a5b2f513b1f4.webp
+cover: https://unsplash.lisz.tk/1630824869986-a5b2f513b1f4.webp
 cover_author: 'Eean Chen'
 cover_author_link: 'https://unsplash.com/@zhouyudesign'
 ---
