@@ -140,8 +140,16 @@ recommend-condition-size: 12 # a tag will be recommended if the size of it is mo
 #   sort_reverse: true
 
 # Build settings
-paginate: 2
-paginate_path: 'blog/page:num'
+pagination:
+  enabled: true
+  per_page: 3
+  permalink: 'page:num/'
+  title: ':title | :num of :max'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+# paginate: 2
+# paginate_path: 'blog/page:num'
 exclude: ['node_modules', 'dev', 'package.json', 'gulpfile.js', '.gitignore', 'README.md', '*.gemspec', '*.gem']
 
 # Markdown
@@ -205,4 +213,4 @@ premonition:
       default_title: 'Error'
 
 # Plugins
-plugins: [jekyll-paginate, jekyll-feed, jekyll-sitemap, premonition]
+plugins: [jekyll-paginate-v2, jekyll-feed, jekyll-sitemap, premonition]
