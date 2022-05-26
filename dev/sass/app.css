@@ -204,6 +204,18 @@ a {
   color: #fff;
   padding: 0 60px;
 }
+.g-banner .meta-item {
+  margin-top: 20px;
+}
+.g-banner .meta-item svg {
+  width: 20px;
+  height: 20px;
+  margin-bottom: -5px;
+}
+.g-banner .meta-item a {
+  text-decoration: underline;
+  color: #fff;
+}
 
 .home-banner {
   position: relative;
