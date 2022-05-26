@@ -57,6 +57,11 @@ cover_author_link: 'https://unsplash.com/@zhouyudesign'
   - 新增时间本地化
   - 修复模式切换后 Disqus 未主动跟随切换模式问题
   - 缩短字数统计显示长度
+- 2022年5月23~26日，新增若干功能：
+  - 新增多种 Prism 主题支持
+  - 新增文章置顶功能
+  - 新增封面图片作者及链接
+  - 升级 jekyll-paginate 为 jekyll-paginate-v2
 
 ## 节点信息
 

@@ -1,5 +1,5 @@
 # jekyll-theme-h2o-ac
-version: 1.1.6
+version: 1.1.7
 
 # Site settings 配置站点
 title: 'Mr Li'
@@ -131,25 +131,16 @@ google_search:
 recommend-tags: true # whether or not display recommend-tags on the sidebar
 recommend-condition-size: 12 # a tag will be recommended if the size of it is more than this value
 
-# paginate
-# pagination:
-#   enabled: true
-#   per_page: 2
-#   permalink: "blog/page:num"
-#   sort_field: "keep_on"
-#   sort_reverse: true
-
 # Build settings
 pagination:
   enabled: true
-  per_page: 3
+  per_page: 5
   permalink: 'page:num/'
   title: ':title | :num of :max'
   limit: 0
   sort_field: 'date'
   sort_reverse: true
-# paginate: 2
-# paginate_path: 'blog/page:num'
+
 exclude: ['node_modules', 'dev', 'package.json', 'gulpfile.js', '.gitignore', 'README.md', '*.gemspec', '*.gem']
 
 # Markdown
