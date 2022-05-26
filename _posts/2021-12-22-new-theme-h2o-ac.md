@@ -18,6 +18,7 @@ tags:
 - 前端开发 
 - 学术 
 - 运维
+pin: true
 ---
 
 ## 前言
@@ -151,6 +152,40 @@ prism:
 </button>
 ```
 
+#### 文章置顶功能
+
+(2022年5月26日更新)
+
+&emsp;&emsp;鉴于现有的 Jekyll 文章置顶库有点年久失修，决定徒手实现了一下文章置顶功能。具体文章列表页和归档页置顶效果如下所示：
+
+![文章置顶 Top acticles](https://i.lisz.top/blog/mcF2Z3.webp)
+![归档页文章置顶 Top acticles in archives](https://i.lisz.top/blog/yajcoi.webp)
+
+#### 分页依赖升级
+
+(2022年5月26日更新)
+
+&emsp;&emsp;由于原有的 jekyll-paginate 库已停止更新，所以升级到目前更新、维护活跃的 [jekyll-paginate-v2](https://github.com/sverrirs/jekyll-paginate-v2) 库。原有的分页配置自 v1.1.7 版本后无法使用，请更换为如下类似设置：
+
+```yaml
+# _config.yml 旧配置
+paginate: 10
+paginate_path: 'blog/page:num'
+
+# _config.yml 新配置
+pagination:
+  enabled: true
+  per_page: 10
+  permalink: 'page:num/'
+```
+
+&emsp;&emsp;另外，blog/index.html 的头部信息中应该加上如下**启用分页**的配置。否则，jekyll-paginate-v2 不会主动工作。
+
+```yaml
+pagination: 
+  enabled: true
+```
+
 #### 封面图片作者及链接
 
 (2022年5月26日更新)
@@ -164,6 +199,10 @@ cover_author: ''
 cover_author_link: ''
 ......
 ```
+
+&emsp;&emsp;非文章的页面中也可以像上面那样声明相关的封面作者及链接，效果如下所示：
+
+![页面封面图片信息 Cover author for pages](https://i.lisz.top/blog/fzWjPs.webp)
 
 #### 字数统计及阅读时间估计
 
