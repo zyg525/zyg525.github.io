@@ -151,6 +151,20 @@ prism:
 </button>
 ```
 
+#### 封面图片作者及链接
+
+(2022年5月26日更新)
+
+&emsp;&emsp;一直以来封面图片都是来自 [Unsplash](https://unsplash.com) 的免费高清图片，为了表明封面图片的来源和作者，现在文章的元信息中添加了对封面图片作者及链接的支持。如果想要声明，可以直接在文章的头部信息中添加如下配置：
+
+```yaml
+......
+cover: ''
+cover_author: ''
+cover_author_link: ''
+......
+```
+
 #### 字数统计及阅读时间估计
 
 &emsp;&emsp;字数统计及阅读时间估计这个小功能其实以前在用 WordPress 的时候比较常见。虽然说统计和估计的结果不一定完全准确，但是还是起到了一定的辅助阅读的作用。效果可以查看本页标题下的基本信息区域。
@@ -201,7 +215,7 @@ github:
 
 #### 支持 Waline 评论系统
 
-&emsp;&emsp;目前已支持基于 Valine 衍生的简洁、安全的评论系统。可以根据官方提供的 [快速上手](https://waline.js.org/guide/get-started.html) 进行配置，以下为 _config.yml 中需要配置的内容：
+&emsp;&emsp;目前已支持基于 Valine 衍生的简洁、安全的评论系统 Waline。可以根据官方提供的 [快速上手](https://waline.js.org/guide/get-started.html) 进行配置，以下为 _config.yml 中需要配置的内容：
 
 ```yaml
 # _config.yml
