@@ -8,6 +8,7 @@
 [![GitHub license](https://img.shields.io/github/license/zhonger/jekyll-theme-H2O-ac)](https://github.com/zhonger/jekyll-theme-H2O-ac/blob/master/LICENSE)
 ![Jekyll Version](https://img.shields.io/badge/Jekyll-4.2.1-blue)
 ![Ruby Version](https://img.shields.io/badge/Ruby-3.1.0-blue)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fzhonger%2Fjekyll-theme-H2O-ac.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fzhonger%2Fjekyll-theme-H2O-ac?ref=badge_shield)
 
 基于 Jekyll 和 [H2O](https://github.com/kaeyleo/jekyll-theme-H2O) 主题、适合学术研究人员和运维开发人员的博客主题模板。
 
