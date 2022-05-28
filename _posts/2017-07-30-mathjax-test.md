@@ -5,7 +5,7 @@ subtitle: "Support MathJax"
 date: 2017-07-30
 categories: test
 author: zhonger
-cover: 'https://unsplash.lisz.tk/1465189684280-6a8fa9b19a7a.webp'
+cover: 'https://i.luish.cc/cover/XtFvt5.webp'
 cover_author: 'Kalen Emsley'
 cover_author_link: 'https://unsplash.com/@kalenemsley'
 tags: mathjax 

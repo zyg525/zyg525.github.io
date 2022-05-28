@@ -46,6 +46,13 @@ Using your smartphone to scan the QR Code
 - 配置项
 - 前端自动构建工作流优化
 - 文章页侧边导航
+- Waline 评论系统
+- 深色模式切换按钮
+- 时间本地化
+- PWA
+- 提示框支持
+- 文章置顶
+- 版权显式声明
 
 #### EN
 
@@ -59,6 +66,13 @@ Using your smartphone to scan the QR Code
 - New Settings
 - Optimize the automatic workflow for static files
 - The TOC for posts
+- Waline comments
+- Dark mode switch button
+- Time localization
+- PWA
+- Premonition
+- Top article pin
+- Copyright statement for articles
 
 ### Usage 快速开始
 
@@ -83,3 +97,5 @@ Any types of contribution are welcome. Thanks.
 ### License 许可证
 
 Jekyll-Theme-H2O-ac is licensed under [MIT](https://github.com/zhonger/jekyll-theme-H2O-ac/blob/master/LICENSE).
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fzhonger%2Fjekyll-theme-H2O-ac.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fzhonger%2Fjekyll-theme-H2O-ac?ref=badge_large)
