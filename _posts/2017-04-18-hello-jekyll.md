@@ -3,7 +3,7 @@ layout: post
 title: 'Hello Jekyll'
 date: 2017-04-18
 author: Jekyll
-cover: 'https://unsplash.lisz.tk/1455459182396-ae46100617cb.webp'
+cover: 'https://i.luish.cc/cover/r41lbG.webp'
 cover_author: 'Adi Constantin'
 cover_author_link: 'https://unsplash.com/@idoevolve'
 tags: 

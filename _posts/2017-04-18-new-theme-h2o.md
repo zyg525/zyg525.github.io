@@ -5,7 +5,7 @@ subtitle: '或许是最漂亮的Jekyll主题'
 date: 2017-04-18
 categories: tech
 author: kaeyleo
-cover: 'https://unsplash.lisz.tk/1485470733090-0aae1788d5af.webp'
+cover: 'https://i.luish.cc/cover/ezMgrY.webp'
 cover_author: 'Daniel Leone'
 cover_author_link: 'https://unsplash.com/@danielleone'
 tags: 
