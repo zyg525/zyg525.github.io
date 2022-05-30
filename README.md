@@ -3,7 +3,7 @@
 # jekyll-theme-H2O-ac
 
 [![Gem Version](https://badge.fury.io/rb/jekyll-theme-h2o-ac.svg)](https://badge.fury.io/rb/jekyll-theme-h2o-ac)
-[![example workflow](https://github.com/zhonger/jekyll-theme-h2o-ac/actions/workflows//pages/pages-build-deployment/badge.svg)](https://github.com/zhonger/jekyll-theme-H2O-ac/actions/workflows/pages/pages-build-deployment)
+[![pages-build-deployment](https://github.com/zhonger/jekyll-theme-H2O-ac/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/zhonger/jekyll-theme-H2O-ac/actions/workflows/pages/pages-build-deployment)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/60e1e5fb75b8411da3df2fbed7243aa6)](https://www.codacy.com/gh/zhonger/jekyll-theme-H2O-ac/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=zhonger/jekyll-theme-H2O-ac&amp;utm_campaign=Badge_Grade)
 [![GitHub license](https://img.shields.io/github/license/zhonger/jekyll-theme-H2O-ac)](https://github.com/zhonger/jekyll-theme-H2O-ac/blob/master/LICENSE)
 ![Jekyll Version](https://img.shields.io/badge/Jekyll-4.2.1-blue)

@@ -5,9 +5,9 @@ subtitle: '基于或许是最漂亮的 Jekyll 主题 H2O 的学术版'
 date: 2021-12-22 19:50:00 +0800
 categories: tech
 author: zhonger
-cover: 'https://i.luish.cc/cover/ao6Hd2.webp'
-cover_author: 'Paris Hour'
-cover_author_link: 'https://unsplash.com/@paris168'
+cover: 'https://images.unsplash.com/photo-1529322365446-6efd62aed02e?w=1600&q=900'
+cover_author: 'inma santiago'
+cover_author_link: 'https://unsplash.com/@inmasantiago'
 tags: 
 - jekyll 
 - theme 
