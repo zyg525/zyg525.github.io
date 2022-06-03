@@ -101,6 +101,11 @@ sns:
 links:
   'Mr Li': 'https://lisz.me'
 
+# Supports 赞助商
+supports:
+  upyun: true
+  webify: 
+
 # Beian 备案号
 beian: '沪ICP备xxxxxxxx号'
 

@@ -699,6 +699,10 @@ a {
   width: 80px;
   height: 15px;
 }
+.g-footer section .upyun {
+  height: 25px;
+  margin-bottom: -8px;
+}
 
 .post-header, .markdown-body, .post-wrapper, .author-detail, .social-share-wrapper {
   margin: 0 auto;
