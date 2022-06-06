@@ -153,6 +153,9 @@ assets:
     # 仅在 `assets.self_host.enabled` 为 'true' 时生效
     env:          # [development|production]
 
+pwa:
+  enabled: true   # PWA 特性选项
+
 # 每一页的帖子数量
 paginate: 10
 

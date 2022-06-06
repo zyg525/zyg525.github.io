@@ -50,6 +50,10 @@ not_found:
   or: 或者
   previous_page: 返回上页
 
+notification:
+  update_found: 发现新版本的内容。
+  update: 更新
+
 # ----- 帖子相关标签 -----
 
 post:
