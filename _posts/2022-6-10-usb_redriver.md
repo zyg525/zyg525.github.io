@@ -15,7 +15,7 @@ NB7VPQ904M 是一颗由 *onsemi* 的子公司 *Semiconductor Components Industri
 
 1. 1.8V 指器件所需的供电电压；
 2. USB Type-C 是其所支持的 USB 接口形式；
-3. ALT Mode 指的是 Type-C 的交替模式（Alternate Mode），目前有五种交替模式规范：DisplayPort（即 DP 协议）交替模式，Mobile High-Definition Link 交替模式，Thunderbolt（即雷电协议）交替模式，HDMI 交替模式以及 VirtualLink 交替模式，而 NB7VPQ904M 这颗器件支持 DisplayPort 交替模式；
+3. ALT Mode 指的是 Type-C 的备选模式（Alternate Mode），目前有五种备选模式规范：DisplayPort（即 DP 协议）备选模式，Mobile High-Definition Link 备选模式，Thunderbolt（即雷电协议）备选模式，HDMI 备选模式以及 VirtualLink 备选模式，而 NB7VPQ904M 这颗器件支持 DisplayPort 备选模式；
 4. 10Gbps 指的是 NB7VPQ904M 支持 USB 3.2 Gen 2 版本，并且向下兼容其他低版本；
 5. Linear Redriver 是这颗器件的具体身份。关于 redriver，网络上能找到多种翻译，有叫中继器，有叫调节器，也有暴力翻译为再驱动器的，为了保持严谨性，本文中不对该词汇进行翻译。众所周知，USB 3.2 基于自身的传输特性，在介质中传输时很容易受到各种干扰导致信号完整性下降，而 redriver 的工作就是对衰减的 USB 信号进行补偿，一定程度上解决或减轻信号完整性下降的问题。如果一颗 redriver 在一定的范围内输出与输入信号呈现近似的线性关系，则其为 Linear Redriver，这类 redriver 不会解决反射（Reflection）与串扰（Crosstalk），相反还会伴随主信号的放大而放大。
 
@@ -29,9 +29,9 @@ NB7VPQ904M 没有公开其规格书，在网络上的资料几乎没有。不过
 
 实际设计中，我们会将 Type-C 的 `TX1+`/`TX1-`, `RX1+`/`RX1-`, `TX2+`/`TX2-`, `RX2+`/`RX2-` 分别连在左侧的四组通道上，将 SoC 的 USB 线路连接在右侧对应的通道上。
 
-我们会发现，NB7VPQ904M 没有连接 Type-C 的 `CC` 针脚，这意味着 NB7VPQ904M **不具有识别正反插、交替模式的能力**，那么 NB7VPQ904M 是如何正常工作的呢？
+我们会发现，NB7VPQ904M 没有连接 Type-C 的 `CC` 针脚，这意味着 NB7VPQ904M **不具有识别正反插、备选模式的能力**，那么 NB7VPQ904M 是如何正常工作的呢？
 
-事实上，正反插和交替模式的识别都依赖 PMIC，在驱动中会注册一个回调函数接收来自 PMIC 的通知，由驱动主动设置 NB7VPQ904M 的寄存器来完成正反插的切换，以及 USB 模式和交替模式的切换。
+事实上，正反插和备选模式的识别都依赖 PMIC，在驱动中会注册一个回调函数接收来自 PMIC 的通知，由驱动主动设置 NB7VPQ904M 的寄存器来完成正反插的切换，以及 USB 模式和备选模式的切换。
 
 ## 驱动
 
