@@ -139,7 +139,7 @@ err:
     return ret;
 }
 ```
-{: highlight-lines="21,31,54,55" }
+{: highlight-lines="21-24,31-34,54-58" }
 
 在这个函数中，驱动向 extcon 注册了三个函数：`ssusb_redriver_vbus_notifier`, `ssusb_redriver_id_notifier` 和 `ssusb_redriver_dp_notifier`，分别用以接收 VBUS 状态变化（USB 拔插），ID 变化（主从切换）及 DP 变化（替代模式切换）。这三个函数中做的都是基础处理，复杂的处理都依靠工作队列机制交给了 `redriver->config_work` 来做：
 
