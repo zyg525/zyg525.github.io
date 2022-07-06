@@ -39,6 +39,7 @@ nav:
   tags: '/tags.html'
   RSS: '/feed.xml'
   logs: '/logs.html'
+  tos: '/tos.html'
 
 # Gray for the whole site 全站灰色
 gray: false
@@ -131,6 +132,9 @@ google_analytics:
 
 # Google Search
 google_search: 
+
+# ToS
+tos: /tos.html
 
 # Tags 设置标签
 recommend-tags: true # whether or not display recommend-tags on the sidebar

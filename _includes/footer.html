@@ -33,9 +33,9 @@
 </footer>
 <div class="cookie-tip">
   {% if site.language == 'zh-cn' %}
-  {{ cookie.cookieconsent_status }}为了提升本站的使用体验和必要功能的正常使用，本站会使用本地 Cookie。详细请查看「<a href="{{ '/tos.html' | prepend: site.baseurl }}">本站使用条款</a>」了解更多。
+  {{ cookie.cookieconsent_status }}为了提升本站的使用体验和必要功能的正常使用，本站会使用本地 Cookie。详细请查看「<a href="{{ site.tos | prepend: site.baseurl }}">本站使用条款</a>」了解更多。
   {% else %}
-  In order to improve the experience and gurantee necessary functions of our website, we will use the local Cookie. More details in <a href="{{ '/tos.html' | prepend: site.baseurl }}">ToS</a> page.
+  In order to improve the experience and gurantee necessary functions of our website, we will use the local Cookie. More details in <a href="{{ site.tos | prepend: site.baseurl }}">ToS</a> page.
   {% endif %}
   <button id="accept-tos">同意（Accept）</button>
 </div>
