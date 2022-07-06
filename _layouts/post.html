@@ -20,6 +20,20 @@
   {% else %}
   <div id="all" class="post">
   {% endif %}
+    <div class="alert-tip" id="no-previous">
+      {% if site.language == 'zh-cn' %}
+      已经是最新一篇文章了！
+      {% else %}
+      Already the latest article!
+      {% endif %}
+    </div>
+    <div class="alert-tip" id="no-next">
+      {% if site.language == 'zh-cn' %}
+      已经是最后一篇文章了！
+      {% else %}
+      Already the last article!
+      {% endif %}
+    </div>
     <input id="nm-switch" type="hidden" value="{{ site.nightMode }}"> {% include header.html %}
 
     <header
@@ -303,6 +317,7 @@
   <script src="{{ "/assets/js/index.min.js" | relative_url }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hotkeys-js/dist/hotkeys.min.js"></script>
   {% include waline.html %}
   <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" async></script>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.2/dayjs.min.js"></script>
@@ -390,7 +405,42 @@
             if(relative_time > 365){
               $(".post-copyright").append("<p class='tips'>本文最后一次更新为 <span>" + relative_time + "</span> 天前，文章中的某些内容可能已过时！</p>");
             }
-          });         
+          });   
+          
+          /*
+          * Keyboard shortcut bind: left and right
+          */
+
+          var previous_url = $("meta[property='og:previous_url']").attr('content');
+          var next_url = $("meta[property='og:next_url']").attr('content');
+
+          hotkeys('left', function(event, handler){
+              // Prevent the default refresh event under WINDOWS system
+              event.preventDefault();
+              if(previous_url){
+                  console.log('you pressed left!');
+                  window.location.href = previous_url;
+              }else {
+                  $("#no-previous").addClass("active");
+                  console.log('已经是最新一篇文章了！');
+                  console.log('Already the latest article！');
+                  setTimeout(function(){$("#no-previous").removeClass("active");}, 1500);
+              }
+          });
+
+          hotkeys('right', function(event, handler){
+              // Prevent the default refresh event under WINDOWS system
+              event.preventDefault();
+              if(next_url){
+                  console.log('you pressed right!');
+                  window.location.href = next_url;
+              }else {
+                  $("#no-next").addClass("active");
+                  console.log('已经是最后一篇文章了！');
+                  console.log('Already the last article！');
+                  setTimeout(function(){$("#no-next").removeClass("active");}, 1500);
+              }
+          });
       });
   </script>
   <script src="https://at.alicdn.com/t/font_3046306_skfh9jzzbbf.js"></script>

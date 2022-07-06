@@ -4,6 +4,27 @@
     width: $g-container-w;
 }
 
+.alert-tip {
+    position: fixed;
+    z-index: 102;
+    background: hsla(0,0%,100%,.3);
+    padding: 10px 20px;
+    min-width: 150px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: #000;
+    backdrop-filter: blur(6px);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 1s linear;
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
 .g-header {
     position: fixed;
     top: 0;
