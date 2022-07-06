@@ -1404,6 +1404,9 @@ a {
 .night-mode .markdown-body .copy-container {
   background-color: #393939;
 }
+.night-mode .markdown-body .language-plaintext {
+  color: chocolate;
+}
 .night-mode .read-next-item {
   background-color: #484D59;
 }
@@ -1513,6 +1516,9 @@ a {
 }
 .markdown-body .post-copyright p.tips {
   color: #e32e00;
+}
+.markdown-body .language-plaintext {
+  color: chocolate;
 }
 
 .mobile-list {
