@@ -25,6 +25,46 @@
     }
 }
 
+.cookie-tip {
+    position: fixed;
+    z-index: 102;
+    background: rgb(237, 239, 245);
+    padding: 0.5em 1.8em;
+    font-size: 13px;
+    line-height: 2.5em;
+    min-height: 2.5em;
+    min-width: 150px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: rgb(131, 131, 145);
+    backdrop-filter: blur(6px);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s linear;
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+    a {
+        text-decoration: underline;
+    }
+}
+
+#accept-tos {
+    float: right;
+    padding: 6px 20px;
+    background-color: #4b81e8;
+    color: #fff;
+    font-weight: 700;
+    border-width: 2px;
+    text-align: center;
+    border-style: solid;
+    border-color: transparent;
+    cursor: pointer;
+}
+
 .g-header {
     position: fixed;
     top: 0;

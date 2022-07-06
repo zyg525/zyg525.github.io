@@ -10,6 +10,20 @@ $(document).ready(function(){
         'background-size': '100% 100%'
     });
 
+    /*
+    * Cookie Tips
+    */
+    var cookieconsent_status = getCookie("cookieconsent_status");
+    if(cookieconsent_status){
+        $('.cookie-tip').removeClass('active');
+    }else{
+        $('.cookie-tip').addClass('active');
+    }
+    $('#accept-tos').on('click', function() {
+        setCookie("cookieconsent_status", "allow", 1)
+        $('.cookie-tip').removeClass('active');
+    })
+
     /**
      * Fix table for small screens
      */

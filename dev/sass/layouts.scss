@@ -221,6 +221,12 @@
         }
     }
 
+    #accept-tos {
+        float: none;
+        display: block;
+        margin: auto;
+    }
+
 }
 
 @media screen and (max-width: 500px) {
@@ -355,6 +361,11 @@
             // background-color: #bec3c9;
             // background-color: #dcddde;
             background-color: #dadde1;
+        }
+    }
+    #accept-tos {
+        &:hover {
+            background-color: #71a7ff;
         }
     }
     .mobile-list {
