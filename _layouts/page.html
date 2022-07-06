@@ -70,12 +70,27 @@ description: 或许是最漂亮的Jekyll主题
             </section>
 
             {% if site.recommend-tags and site.tags.size>0 %}
+            {% assign max_tag_count = 0 %}
+            {% for tag in site.tags %}
+                {% if tag[1].size > max_tag_count %}
+                {% assign max_tag_count = tag[1].size %}
+                {% endif %}
+            {% endfor %}
             <section class="tags-card">
-                {% for tag in site.tags %}
-                    {% if forloop.index > site.recommend-condition-size %}
+                {% assign pnum = 0 %}
+                {% for i in (1..max_tag_count) reversed %}
+                    {% for tag in site.tags %}
+                        {% if tag[1].size == i %}
+                            {% assign pnum = pnum | plus: 1 %}
+                            {% if pnum > site.recommend-condition-size %}
+                                {% break %}
+                            {% endif %}
+                            <a href="{{ "tags.html#" | append: tag[0] | relative_url }}" class="tag">{{ tag[0]}}</a>
+                        {% endif %}
+                    {% endfor %}
+                    {% if pnum > site.recommend-condition-size %}
                         {% break %}
                     {% endif %}
-                    <a href="{{ "tags.html#" | append: tag[0] | relative_url }}" class="tag">{{ tag[0]}}</a>
                 {% endfor %}
             </section>
             {% endif %}
