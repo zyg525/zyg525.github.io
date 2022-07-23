@@ -20,7 +20,7 @@ $(document).ready(function(){
         $('.cookie-tip').addClass('active');
     }
     $('#accept-tos').on('click', function() {
-        setCookie("cookieconsent_status", "allow", 1)
+        setCookie("cookieconsent_status", "allow", 365);
         $('.cookie-tip').removeClass('active');
     })
 
@@ -128,12 +128,6 @@ $(document).ready(function(){
     /*
     * List for contents
     */
-    // var mode = getCookie("mode");
-    // if(mode == "night"){
-    //     $(".mobile-list .icon.list.night").addClass("active");
-    // }else{
-    //     $(".mobile-list .icon.list.day").addClass("active");
-    // }
 
     function clickMobileList(){
         $('.table-of-contents').toggleClass("active");
@@ -391,26 +385,16 @@ $(document).ready(function(){
         return "";
     }
 
-    // function setCookie(cname, cvalue, exdays, domain="127.0.0.1"){
     function setCookie(cname, cvalue, exdays){
         var d = new Date();
         d.setTime(d.getTime()+(exdays*24*60*60*1000));
         var expires = "expires="+d.toGMTString();
         if(!baseurl){
-            // document.cookie = cname+"="+cvalue+"; path=/; domain="+domain+";"+expires;
             document.cookie = cname+"="+cvalue+"; path=/; "+expires;
         }else {
-            // document.cookie = cname+"="+cvalue+"; path="+baseurl+"; domain="+domain+";"+expires;
             document.cookie = cname+"="+cvalue+"; path="+baseurl+"; "+expires;
         }
     }
-    
-    // setCookie("SameSite", "None; Secure", 1, ".lisz.me");
-    // setCookie("widget_session", "abc123; SameSite=None; Secure", 1);
-    // setCookie("widget_session", "abc123; SameSite=None; Secure", 1, ".lisz.me");
-    // setCookie("SameSite", "Strict", 1, ".lisz.me");
-
-    // document.cookie = "Set-Cookie: widget_session=abc123; SameSite=None; Secure; path="+baseurl;
 
     var mode = getCookie("mode");
     // console.log(mode);
