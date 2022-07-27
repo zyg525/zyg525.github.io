@@ -12,7 +12,7 @@
 
 基于 Jekyll 和 [H2O](https://github.com/kaeyleo/jekyll-theme-H2O) 主题、适合学术研究人员和运维开发人员的博客主题模板。
 
-An Jekyll theme for researchers and maintainers based on Jekyll and [H2O](https://github.com/kaeyleo/jekyll-theme-H2O) theme.
+A Jekyll theme for researchers and maintainers based on Jekyll and [H2O](https://github.com/kaeyleo/jekyll-theme-H2O) theme.
 
 </div>
 
@@ -85,18 +85,25 @@ Please refer to [H2O-ac theme for Jekyll](https://lisz.me/tech/webmaster/new-the
 
 Any types of contribution are welcome. Thanks.
 
-接受各种形式的贡献，包括不限于提交问题与需求，修复代码。等待您的 ```Pull Request```
+接受各种形式的贡献，包括不限于提交问题与需求，修复代码。等待您的 ```Pull Request```。
 
-#### 感谢参与 H2O 代码贡献的伙伴
+### Thanks 感谢参与 H2O 代码贡献的伙伴
 
 - [kaeyleo](https://github.com/kaeyleo/)
 - [Ray-Eldath](https://github.com/Ray-Eldath)
 - [sctop](https://github.com/sctop)
 - [bananaappletw](https://github.com/bananaappletw)
 - [moycat](https://github.com/moycat)
+- More
+
+### Contributors 贡献者
+
+![Contributors](https://contrib.rocks/image?repo=zhonger/jekyll-theme-H2O-ac)
 
 ### License 许可证
 
 Jekyll-Theme-H2O-ac is licensed under [MIT](https://github.com/zhonger/jekyll-theme-H2O-ac/blob/master/LICENSE).
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fzhonger%2Fjekyll-theme-H2O-ac.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fzhonger%2Fjekyll-theme-H2O-ac?ref=badge_large)
+
+![Alt](https://repobeats.axiom.co/api/embed/c3257de0cec8e91520debc3232103da52e4727b4.svg "Repobeats analytics image")
