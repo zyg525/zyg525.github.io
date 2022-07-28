@@ -119,7 +119,7 @@
             top: 48px;
             right: 1%;
             display: none;
-            min-width: 120px;
+            min-width: 152px;
             background-color: #fff;
             border-radius: 2px;
             padding: 8px 16px;
@@ -300,17 +300,20 @@
     }
     .post-header{
         padding: 0;
-        height: 360px;
+        min-height: 360px;
+        height: auto;
+        // max-height: 405px;
     }
     .post-wrapper {
         .post-tags {
             margin: 100px 0 8px;
         }
-        h1 {
-            font-family: "Helvetica Neue", Helvetica, Arial, "Pingfang SC", "Microsoft Yahei", Sans-serif;
-        }
+        // h1 {
+        //     font-family: "Helvetica Neue", Helvetica, Arial, "Pingfang SC", "Microsoft Yahei", Sans-serif;
+        // }
         .post-meta {
             margin-top: 16px;
+            padding-bottom: 20px;
         }
     }
     .post-content {
@@ -349,6 +352,9 @@
                 color: #888;
                 word-break: break-all;
             }
+        }
+        mjx-container {
+            overflow-x: scroll;
         }
     }
 }
