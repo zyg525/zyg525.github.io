@@ -17,11 +17,26 @@
     <nav class="g-nav">
         <ul>
             {% for i in site.nav %}
-            <li>
-                <a href="{{ i[1] | relative_url}}" aria-label="{{ i[0] }}">
-                    {{ i[0] }}
-                </a>
-            </li>
+                {% if i[1].first %}
+                <li class="dropdown">
+                    <a class="dropdown-toggle"> {{ i[0] }} </a>
+                    <ul class="dropdown-menu">
+                    {% for j in i[1] %}
+                        <li>
+                            <a href="{{ j[1] | relative_url}}" aria-label="{{ j[0] }}">
+                                {{ j[0] }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    </ul> 
+                </li>
+                {% else %}
+                <li>
+                    <a href="{{ i[1] | relative_url}}" aria-label="{{ i[0] }}">
+                        {{ i[0] }}
+                    </a>
+                </li>
+                {% endif %}
             {% endfor %}
             <li class="mode">
                 <svg class="icon day" aria-hidden="true">

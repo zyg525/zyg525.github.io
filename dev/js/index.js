@@ -46,6 +46,17 @@ $(document).ready(function(){
         e.stopPropagation();
     });
 
+    $(".g-nav li.dropdown").on("click", function(){
+        $(".g-nav li.dropdown").not($(this)).children("ul.dropdown-menu").removeClass("show");
+        $(".g-nav li.dropdown").not($(this)).children("a.dropdown-toggle").removeClass("show");
+        $(this).children("a.dropdown-toggle").toggleClass("show");
+        $(this).children("ul.dropdown-menu").toggleClass("show");
+    });
+    $(document).on("click", function(){
+        $(".g-nav li.dropdown").children("a.dropdown-toggle").removeClass("show");
+        $(".g-nav li.dropdown").children("ul.dropdown-menu").removeClass("show");
+    })
+
     /*
     *  Header Bar
     */
