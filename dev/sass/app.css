@@ -5,17 +5,6 @@
  */
 /*** Parameters ***/
 /*** Mixins ***/
-/** Font **/
-@font-face {
-  font-family: "Merriweather";
-  src: url("../fonts/Merriweather-Regular.ttf");
-  font-display: swap;
-}
-@font-face {
-  font-family: "Merriweather-Light";
-  src: url("../fonts/Merriweather-Light.ttf");
-  font-display: swap;
-}
 /*** Base ***/
 html, body {
   height: 100%;
@@ -31,7 +20,7 @@ time, mark, audio, video, iframe, main, header, footer {
 }
 
 body {
-  font-family: -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "LXGW WenKai Screen", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   color: #656565;
   -webkit-font-smoothing: antialiased;
   background-color: #F7F8FA;
@@ -342,7 +331,7 @@ a {
   padding-top: 190px;
   line-height: 38px;
   font-size: 42px;
-  font-family: "Microsoft YaHei", "Arial", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "LXGW WenKai Screen", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-weight: bold;
   line-height: 52px;
 }
@@ -424,7 +413,7 @@ a {
   position: relative;
 }
 .article-list .article-item .post-preview .post-title {
-  font-family: "Merriweather", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "LXGW WenKai Screen", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   color: #4E4E4E;
   font-size: 24px;
   line-height: 32px;
@@ -442,7 +431,7 @@ a {
 .article-list .article-item .post-preview .post-excerpt {
   margin-top: 8px;
   font-size: 16px;
-  font-family: "Merriweather", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "Merriweather", "LXGW WenKai Screen", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   line-height: 26px;
   word-break: break-all;
   color: #585858;
@@ -599,7 +588,7 @@ a {
   padding: 0 8px;
   font-size: 14px;
   color: #656565;
-  font-family: -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "LXGW WenKai Screen", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   line-height: 22px;
   box-sizing: border-box;
   box-shadow: 0 0 0.6px #D5DAE1;
@@ -846,7 +835,7 @@ a {
   padding: 0 8px;
   font-size: 14px;
   color: #656565;
-  font-family: -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "LXGW WenKai Screen", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   line-height: 22px;
   box-sizing: border-box;
   box-shadow: 0 0 0.6px #D5DAE1;
@@ -1008,7 +997,7 @@ a {
 }
 
 .markdown-body {
-  font-family: "Merriweather", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "LXGW WenKai Screen", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   width: 720px;
   box-sizing: border-box;
   padding: 0 0 32px;
@@ -1054,7 +1043,7 @@ a {
   height: 24px;
 }
 .markdown-body .copy-container .btn .tooltip {
-  font-family: -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "LXGW WenKai Screen", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
   font-size: 14px;
   float: right;
   position: absolute;

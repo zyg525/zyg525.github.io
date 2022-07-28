@@ -290,7 +290,7 @@ a {
         padding-top: 190px;
         line-height: 38px;
         font-size: 42px;
-        font-family: 'Microsoft YaHei', 'Arial', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+        font-family: $fonts;
         font-weight: bold;
         line-height: 52px;
     }
@@ -357,7 +357,7 @@ a {
         .post-preview {
             position: relative;
             .post-title {
-                font-family: 'Merriweather', $fonts;
+                font-family: $fonts;
                 color: $color-f-primary;
                 font-size: 24px;
                 line-height: 32px;
@@ -779,7 +779,7 @@ a {
 
 // Post style
 .markdown-body {
-    font-family: 'Merriweather', $fonts;
+    font-family: $fonts;
     width: $post-content-w;
     box-sizing: border-box;
     padding: 0 0 32px;
