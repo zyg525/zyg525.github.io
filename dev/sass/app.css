@@ -780,6 +780,8 @@ a {
   padding: 20px 0;
   border-top: 1px solid #E7EAF1;
   text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 -1px 3px rgba(0, 37, 55, 0.06);
 }
 .g-footer section {
   font-size: 14px;
@@ -952,6 +954,9 @@ a {
   background-color: #fff;
   overflow: visible;
   padding: 40px 0 80px;
+  border: 1px solid #e7eaf1;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 37, 55, 0.06);
 }
 .post-content .post-subtitle {
   position: relative;
@@ -1345,10 +1350,10 @@ a {
 }
 
 .night-mode {
-  background-color: #282C33;
+  background-color: #2d313a;
 }
 .night-mode .g-banner {
-  background-color: #282C33;
+  background-color: #2d313a;
   color: #C8CDD3;
 }
 .night-mode .post-header .filter {
@@ -1419,7 +1424,8 @@ a {
   color: #83888f;
 }
 .night-mode .post-content {
-  background-color: #282C33;
+  background-color: #2d313a;
+  border-color: rgba(255, 255, 255, 0.1);
 }
 .night-mode .post-content .post-subtitle:before, .night-mode .post-content .post-subtitle:after {
   background-color: #575B63;
