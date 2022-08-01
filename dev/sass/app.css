@@ -1677,6 +1677,56 @@ a {
   color: brown;
 }
 
+.friends .friendurl {
+  text-decoration: none !important;
+  color: #000;
+  box-shadow: none !important;
+}
+.friends .frienddiv {
+  height: 100px;
+  width: 49%;
+  display: inline-block !important;
+  border-radius: 5px;
+  background: 0 0;
+  -webkit-transition: all ease-out 0.3s;
+  -moz-transition: all ease-out 0.3s;
+  -o-transition: all ease-out 0.3s;
+  transition: all ease-out 0.3s;
+}
+.friends .frienddiv:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+.friends .frienddivleft {
+  width: 92px;
+  float: left;
+  margin-right: -5px;
+}
+.friends .frienddivleft .myfriend {
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  padding: 2px;
+  margin-top: 20px !important;
+  margin-left: 14px !important;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(100, 110, 120, 0.53);
+}
+.friends .frienddivright {
+  margin-top: 27px;
+  margin-right: 18px;
+}
+.friends .frienddivright .friendname {
+  text-overflow: ellipsis;
+  font-size: 100%;
+  margin-bottom: 5px;
+  color: var(--primary);
+}
+.friends .frienddivright .friendinfo {
+  text-overflow: ellipsis;
+  font-size: 70%;
+  color: var(--primary);
+}
+
 .premonition.note, .premonition.info, .premonition.warning, .premonition.error, .premonition.citation {
   border-radius: 6.4px;
   padding: 10px 16px 1px 16px;
@@ -1995,6 +2045,10 @@ a {
     float: none;
     display: block;
     margin: auto;
+  }
+
+  .friends .frienddiv {
+    width: 100%;
   }
 }
 @media screen and (max-width: 500px) {
