@@ -180,14 +180,15 @@ a {
                         display: block;
                     }
                 }
-                &:hover{
+                &::hover{
                     background-color: #81bbff;
                     border-radius: 50%;
                 }
             }
         }
         .dropdown-toggle{
-            &:after {
+            white-space: nowrap;
+            &::after {
                 content: "";
                 display: inline-block;
                 vertical-align: 0.306em;
@@ -199,7 +200,7 @@ a {
                 margin-left: 0.4em;
                 transform: rotate(-45deg);
             }
-            &.show:after {
+            &.show::after {
                 vertical-align: 0.1em;
                 transform: rotate(+135deg);
             }

@@ -232,11 +232,14 @@ a {
 .g-header .g-nav > ul > li.mode .icon.active {
   display: block;
 }
-.g-header .g-nav > ul > li.mode:hover {
+.g-header .g-nav > ul > li.mode::hover {
   background-color: #81bbff;
   border-radius: 50%;
 }
-.g-header .g-nav .dropdown-toggle:after {
+.g-header .g-nav .dropdown-toggle {
+  white-space: nowrap;
+}
+.g-header .g-nav .dropdown-toggle::after {
   content: "";
   display: inline-block;
   vertical-align: 0.306em;
@@ -248,7 +251,7 @@ a {
   margin-left: 0.4em;
   transform: rotate(-45deg);
 }
-.g-header .g-nav .dropdown-toggle.show:after {
+.g-header .g-nav .dropdown-toggle.show::after {
   vertical-align: 0.1em;
   transform: rotate(135deg);
 }

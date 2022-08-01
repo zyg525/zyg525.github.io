@@ -36,13 +36,12 @@ nav:
   home: '/'
   blog: '/blog/index.html'
   archives: '/archives.html'
-  collections:
-    jekyll: '/collections/jekyll.html'
-    math: '/collections/math.html'
   tags: '/tags.html'
-  RSS: '/feed.xml'
-  logs: '/logs.html'
-  tos: '/tos.html'
+  about:   
+    logs: '/logs.html'
+    tos: '/tos.html'
+    RSS: '/feed.xml'
+    CV: '/cv.html'
 
 # Gray for the whole site 全站灰色
 gray: false
