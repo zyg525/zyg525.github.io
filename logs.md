@@ -67,7 +67,7 @@ cover_author_link: 'https://unsplash.com/@zhouyudesign'
 
 | 托管方 | 支持访问域名 | IPv4 | IPv6 | 备注 |
 | ---- | ---- | ---- | ---- |
-| Netlify | [h2o-ac.netlify.app](https://h2o-ac.netlify.app) | 是 | 是 | 全球性节点 |
+| Netlify | [h2o-ac.lisz.me](https://h2o-ac.lisz.me) | 是 | 是 | 全球性节点 |
 | Github | [h2o-ac.lisz.ink](https://h2o-ac.lisz.ink) | 是 | 否 | 美国节点 |
 | Cloudflare| [h2o-ac.pages.dev](https://h2o-ac.pages.dev) | 是 | 是 | 全球性节点 |
 | Vercel | [h2o-ac.vercel.app](https://zhonger.vercel.app) | 是 | 否 | 美国节点 |
