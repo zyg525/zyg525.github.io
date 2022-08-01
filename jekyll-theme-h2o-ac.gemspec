@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
     spec.name          = "jekyll-theme-h2o-ac"
-    spec.version       = "1.1.10"
+    spec.version       = "1.1.11"
     spec.authors       = ["zhonger"]
     spec.email         = ["zhonger@live.cn"]
   
@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
       "rubygems_mfa_required" => "true",    
     }
   
-    spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|blog|search.json|LICENSE|README|_config\.yml)!i) }
+    spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_data|blog|search.json|LICENSE|README|_config\.yml)!i) }
   
     # spec.add_runtime_dependency "jekyll", "~> 3.7", ">= 3.7"
     spec.add_runtime_dependency "jekyll-paginate-v2", "~> 3.0.0"
