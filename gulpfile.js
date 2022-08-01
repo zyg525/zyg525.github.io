@@ -31,11 +31,22 @@ gulp.task('css', (cb) => {
     cb();
 });
 
+gulp.task('cv', (cb) => {
+    gulp.src('dev/sass/cv.scss')
+        .pipe(sass())
+        .pipe(gulp.dest('dev/sass'))
+        .pipe(cleanCSS())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('assets/css'));
+    cb();
+});
+
 gulp.task('watch', function(done) {
     gulp.watch('dev/sass/*.scss', gulp.series('sass'));
-    gulp.watch('dev/sass/*.css', gulp.series("css"));
+    gulp.watch(['dev/sass/github-markdown.css', 'dev/sass/share.min.css'], gulp.series("css"));
+    gulp.watch('dev/sass/cv.scss', gulp.series('cv'));
     gulp.watch('dev/js/*.js', gulp.series("scripts"));
     done();
 });
 
-gulp.task('default', gulp.series('scripts', 'sass', 'css', 'watch'));
+gulp.task('default', gulp.series('scripts', 'sass', 'css', 'cv', 'watch'));
