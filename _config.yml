@@ -38,10 +38,7 @@ nav:
   archives: '/archives.html'
   tags: '/tags.html'
   about:   
-    logs: '/logs.html'
-    tos: '/tos.html'
     RSS: '/feed.xml'
-    CV: '/cv.html'
 
 # Gray for the whole site 全站灰色
 gray: false
@@ -93,16 +90,16 @@ postPatterns: 'circuitBoard'
 # SNS settings 配置社交网站
 # url: email, weibo, zhihu, twitter, instagram, juejin, github, douban, facebook, dribble, uicn, jianshu, medium, linkedin
 sns:
-  google-scholar: 'https://scholar.google.com/citations?user=AUupIooAAAAJ'
-  researchgate: 'https://www.researchgate.net/profile/Shengzhou-Li'
-  ORCID: 'https://orcid.org/0000-0001-6973-3825'
-  github: 'https://github.com/zhonger'
-  linkedin: 'https://www.linkedin.com/in/shengzhouli/'
-  segmentfault: 'https://segmentfault.com/u/wuwozhonger'
+  # google-scholar: 'https://scholar.google.com/citations?user=AUupIooAAAAJ'
+  # researchgate: 'https://www.researchgate.net/profile/Shengzhou-Li'
+  # ORCID: 'https://orcid.org/0000-0001-6973-3825'
+  # github: 'https://github.com/zhonger'
+  # linkedin: 'https://www.linkedin.com/in/shengzhouli/'
+  # segmentfault: 'https://segmentfault.com/u/wuwozhonger'
 
 # Links 友情链接
 links:
-  'Mr Li': 'https://lisz.me'
+  # 'Mr Li': 'https://lisz.me'
 
 # Supports 赞助商
 supports:

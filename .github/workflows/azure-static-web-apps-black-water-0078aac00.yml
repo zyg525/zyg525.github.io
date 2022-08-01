@@ -22,7 +22,7 @@ jobs:
         with:
           ruby-version: '3.1.0'
           bundler-cache: true
-      - run: bundle exec jekyll build
+      - run: bundle exec jekyll build --config _config_production.yml
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
