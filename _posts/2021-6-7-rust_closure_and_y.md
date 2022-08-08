@@ -527,11 +527,9 @@ fn main() {
 {: run="rust" }
 {: highlight-lines="22, 23, 34" }
 
-如果不是非得引用不可的话，建议还是不要折磨自己，乖乖地用 `Rc` 那不香吗？
+如果不是非得引用不可的话，建议还是不要折磨自己，乖乖地用智能指针（`Box`/`Rc` 等）那不香吗？
 
 ```rust
-use std::rc::Rc;
-
 struct Func<'a, A, F>(&'a dyn Fn(Func<'a, A, F>, A) -> F);
 
 impl<'a, A, F> Clone for Func<'a, A, F> {
@@ -553,8 +551,7 @@ fn y<A, R>(g: impl Fn(&dyn Fn(A) -> R, A) -> R) -> impl Fn(A) -> R {
 }
 
 fn main() {
-    let g = |f: &dyn Fn((Rc<[i32]>, usize)) -> i32,
-             (arr, index): (Rc<[i32]>, usize)| -> i32 {
+    let g = |f: &dyn Fn((Box<[i32]>, usize)) -> i32, (arr, index): (Box<[i32]>, usize)| -> i32 {
         if index == arr.len() - 1 {
             arr[index]
         } else if index == arr.len() - 2 {
@@ -564,9 +561,9 @@ fn main() {
         }
     };
 
-    let arr = Rc::new([31, 5, 88, 67, 63, 17, 34, 7, 15]);
+    let arr = Box::new([31, 5, 88, 67, 63, 17, 34, 7, 15]);
     let max = y(g);
-    println!("{}", max((Rc::clone(&arr) as Rc<[i32]>, 0)));    // 将会输出 88
+    println!("{}", max((arr as Box<[i32]>, 0))); // 将会输出 88
 }
 ```
 {: run="rust" }
