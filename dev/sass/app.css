@@ -69,6 +69,12 @@ a {
   -ms-user-select: none;
   user-select: none;
 }
+a.extlinks::after {
+  content: "↗️";
+  font-size: 12px;
+  padding: 0 2px;
+  vertical-align: 1px;
+}
 
 .alert-tip {
   position: fixed;

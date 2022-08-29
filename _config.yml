@@ -171,6 +171,12 @@ RSS: true
 # See: https://github.com/kaeyleo/jekyll-theme-H2O/issues/35
 permalink: /:categories/:title.html
 
+# Extlinks
+extlinks:
+  attributes: {rel: nofollow, target: _blank, class: extlinks}
+  # rel_exclude: ['host1.com', 'host2.net']
+  # class_exclude: ['host1.com', 'host2.net']
+
 # TOC
 toc: true
 # <div class="title">{% if title %} {{title}} {% else %} {{default_title}} {% endif %}</div>
@@ -212,4 +218,4 @@ premonition:
       default_title: 'Error'
 
 # Plugins
-plugins: [jekyll-paginate-v2, jekyll-feed, jekyll-sitemap, premonition]
+plugins: [jekyll-paginate-v2, jekyll-feed, jekyll-sitemap, premonition, jekyll-extlinks]
