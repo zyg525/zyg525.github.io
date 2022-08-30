@@ -473,10 +473,26 @@ $(document).ready(function(){
         var currentId = "codeblock" + (i + 1);
         $(this).attr('id', currentId);
         var lang = $(this).attr("class").split(" ")[1].substring(9).toUpperCase(); 
-       
-        //trigger
-        var clipButton = '<div class="copy-container"><span class="lang">' + lang + '</span><button class="btn" data-bs-original-title="Copy" aria-label="Copy" data-clipboard-target="#' + currentId + '"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-copy"></use></svg><span class="tooltip unfinish">Copy</span><span class="tooltip finish">Copied</span></button></div>';
-        $(this).before(clipButton);
+
+        if(lang == "ERS"){
+            lang = $(this).attr("class").split(" ")[0].substring(9).toUpperCase();
+            if(lang == "MERMAID2") {
+                text = $(this).text();
+                $(this).before('<summary class="render-expand" aria-haspopup="dialog" role="button"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="octicon" style="display:inline-block;vertical-align:text-bottom"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z"></path></svg></summary>');
+                $(this).after('<div class="mermaid2">' + text + '</div>');
+            }else {
+                $(this).wrap('<div class="highlight"></div>');
+                $(this).parent().wrap('<div class="'+ $(this).attr("class").split(" ")[0] +' highlighter-rouge"></div>');
+                $(this).addClass("highlight");
+                //trigger
+                var clipButton = '<div class="copy-container"><span class="lang">' + lang + '</span><button class="btn" data-bs-original-title="Copy" aria-label="Copy" data-clipboard-target="#' + currentId + '"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-copy"></use></svg><span class="tooltip unfinish">Copy</span><span class="tooltip finish">Copied</span></button></div>';
+                $(this).before(clipButton);
+            }
+        }else {
+            //trigger
+            var clipButton = '<div class="copy-container"><span class="lang">' + lang + '</span><button class="btn" data-bs-original-title="Copy" aria-label="Copy" data-clipboard-target="#' + currentId + '"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-copy"></use></svg><span class="tooltip unfinish">Copy</span><span class="tooltip finish">Copied</span></button></div>';
+            $(this).before(clipButton);
+        }       
     });
 
     var clipboard = new ClipboardJS('.btn');
@@ -497,6 +513,29 @@ $(document).ready(function(){
         setTimeout(function () {      
             finish.removeClass("active");
         }, 500);
+    });
+
+    /*
+    * Expand the mermaid figure
+    */
+    $("summary").click(function(event){
+        var text = $(this).next().children().text();
+        $(".modal .modal-content .container").html('<div class="mermaid2">' + text + '</div>')
+        mermaid.init(undefined, $('.modal .modal-content .mermaid2'));
+        $('.modal').css("visibility","visible");
+        $(".modal .modal-content").click(function(event){
+            if(event.target.classList.contains("close")){
+                $(".modal").css("visibility","hidden");
+            }
+            event.stopPropagation();
+        });
+        event.stopPropagation();
+    });
+
+    
+      
+    $(document).click(function(){
+        $(".modal").css("visibility","hidden");
     });
 
     /*

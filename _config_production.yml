@@ -181,6 +181,9 @@ extlinks:
   # rel_exclude: ['host1.com', 'host2.net']
   # class_exclude: ['host1.com', 'host2.net']
 
+# Mermaid
+mermaid: true
+
 # TOC
 toc: true
 # <div class="title">{% if title %} {{title}} {% else %} {{default_title}} {% endif %}</div>
