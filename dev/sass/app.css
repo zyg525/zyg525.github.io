@@ -1307,7 +1307,7 @@ a.extlinks::after {
 }
 
 .tags-content {
-  width: 695px;
+  width: 950px;
   margin: -100px auto 0;
 }
 
@@ -2000,6 +2000,10 @@ a.extlinks::after {
     white-space: nowrap;
     text-overflow: ellipsis;
     margin-bottom: -8px !important;
+  }
+
+  .tags-content {
+    width: auto;
   }
 }
 @media screen and (max-width: 768px) {
