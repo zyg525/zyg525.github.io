@@ -16,12 +16,9 @@
         width: auto;
     }
     .article-list {
-        float: none;
-        margin: 0 auto;
+        width: 70%;
     }
-    .g-sidebar, .search-card {
-        display: none;
-    }
+
     .pagination  {
         .page-num {
             display: none;
@@ -33,6 +30,12 @@
 }
 
 @media screen and (max-width: 1050px) {
+    .article-list {
+        width: 95%;
+    }
+    .g-sidebar-wrapper {
+        display: none;
+    }
     .post-content {
         .container {
             width: 100%;

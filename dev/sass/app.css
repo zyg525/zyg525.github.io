@@ -60,7 +60,10 @@ a {
 
 /*** Main style ***/
 .g-container {
-  width: 960px;
+  width: 1334px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
 a {
@@ -384,8 +387,7 @@ a.extlinks::after {
 }
 
 .article-list {
-  float: left;
-  width: 695px;
+  width: 950px;
 }
 .article-list .article-item {
   width: 100%;
@@ -410,7 +412,7 @@ a.extlinks::after {
 .article-list .article-item .post-cover {
   position: relative;
   width: 100%;
-  max-height: 300px;
+  max-height: 450px;
   margin-bottom: 14px;
   overflow: hidden;
 }
@@ -448,15 +450,14 @@ a.extlinks::after {
 .article-list .article-item .post-meta {
   min-height: 22px;
   margin-top: 8px;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
 }
 .article-list .article-item .post-meta .post-tags {
-  float: left;
   display: inline-block;
   width: 515px;
 }
 .article-list .article-item .post-meta .post-date {
-  float: right;
   color: #585858;
   display: inline-block;
   font-size: 14px;
@@ -645,8 +646,7 @@ a.extlinks::after {
 }
 
 .g-sidebar-wrapper {
-  float: right;
-  width: 240px;
+  width: 300px;
 }
 
 .g-sidebar {
@@ -839,7 +839,7 @@ a.extlinks::after {
 }
 
 .post-wrapper {
-  width: 720px;
+  width: 950px;
 }
 
 .post-header {
@@ -989,7 +989,7 @@ a.extlinks::after {
 }
 .post-content .post-subtitle {
   position: relative;
-  width: 720px;
+  width: 950px;
   font-size: 18px;
   color: #585858;
   font-weight: normal;
@@ -1015,13 +1015,14 @@ a.extlinks::after {
   bottom: 0;
 }
 .post-content .container {
-  width: 1050px;
+  width: 1334px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 .post-content .container .contents {
-  width: 720px;
+  width: 950px;
 }
 .post-content .interest {
   width: auto;
@@ -1032,7 +1033,7 @@ a.extlinks::after {
 
 .markdown-body {
   font-family: "LXGW WenKai Screen", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-  width: 720px;
+  width: 950px;
   box-sizing: border-box;
   padding: 0 0 32px;
 }
@@ -1121,7 +1122,7 @@ a.extlinks::after {
 
 .post-footer-item {
   margin: 0 auto;
-  width: 720px;
+  width: 950px;
 }
 
 .author-detail {
@@ -1224,7 +1225,7 @@ a.extlinks::after {
 
 .read-next {
   display: flex;
-  width: 720px;
+  width: 950px;
   margin: 60px auto;
 }
 
@@ -1445,6 +1446,7 @@ a.extlinks::after {
 }
 .night-mode .g-footer {
   border-color: rgba(255, 255, 255, 0.1);
+  background-color: transparent;
 }
 .night-mode .g-footer section {
   color: #AAAAAA;
@@ -1746,7 +1748,7 @@ a.extlinks::after {
   width: 280px;
   position: -webkit-sticky;
   position: sticky;
-  top: 80px;
+  top: 100px;
   margin-bottom: 80px;
   height: fit-content;
   margin-left: 30px;
@@ -1924,18 +1926,13 @@ a.extlinks::after {
     font-size: 22px;
   }
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1334px) {
   .g-container {
     width: auto;
   }
 
   .article-list {
-    float: none;
-    margin: 0 auto;
-  }
-
-  .g-sidebar, .search-card {
-    display: none;
+    width: 70%;
   }
 
   .pagination .page-num {
@@ -1946,6 +1943,14 @@ a.extlinks::after {
   }
 }
 @media screen and (max-width: 1050px) {
+  .article-list {
+    width: 95%;
+  }
+
+  .g-sidebar-wrapper {
+    display: none;
+  }
+
   .post-content .container {
     width: 100%;
   }
