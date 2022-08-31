@@ -54,6 +54,26 @@ description: 或许是最漂亮的Jekyll主题
                 <div class="bio">
                     <p>{{ site.bio }}</p>
                 </div>
+                <div class="level">
+                    <div class="level-item">
+                        <p class="heading">Posts</p>
+                        <a href="{{ "/archives.html" | prepend: site.baseurl }}">
+                            <p class="title">{{ site.posts | size }}</p>
+                        </a>
+                    </div>
+                    <div class="level-item">
+                        <p class="heading">Categories</p>
+                        <a href="{{ "/categories.html" | prepend: site.baseurl }}">
+                            <p class="title">{{ site.categories | size }}</p>
+                        </a>
+                    </div>
+                    <div class="level-item">
+                        <p class="heading">Tags</p>
+                        <a href="{{ "/tags.html" | prepend: site.baseurl }}">
+                            <p class="title">{{ site.tags | size }}</p>
+                        </a>
+                    </div>
+                </div>
                 {% if site.sns.size > 0 %}
                 <ul id="sns-links" class="sns-links">
                     {% for s in site.sns %}

@@ -495,6 +495,26 @@ a.extlinks::after {
   font-size: 14px;
   line-height: 20px;
 }
+.author-card .level {
+  display: flex;
+  margin-top: 20px;
+}
+.author-card .level .level-item {
+  flex-grow: 1;
+}
+.author-card .level .level-item .heading {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.author-card .level .level-item .title {
+  color: #363636;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.125;
+}
 .author-card .sns-links {
   margin-top: 14px;
   cursor: default;
@@ -1396,6 +1416,9 @@ a.extlinks::after {
 }
 .night-mode .g-sidebar section:last-child {
   border-bottom: none;
+}
+.night-mode .g-sidebar section .level .level-item .title {
+  color: #fff;
 }
 .night-mode .avatar img {
   -webkit-filter: brightness(0.6);
