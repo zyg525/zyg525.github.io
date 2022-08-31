@@ -1605,6 +1605,9 @@ a.extlinks::after {
   margin: 10px 0;
   background-color: #fff;
 }
+.markdown-body .category {
+  text-transform: capitalize;
+}
 .markdown-body .table-area {
   overflow: auto;
 }
