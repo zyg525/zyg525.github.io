@@ -649,6 +649,7 @@ a {
         margin-top: 32px;
         .post-meta-item {
             display: inline-block;
+            white-space: nowrap;
             font-size: 16px;
             color: #fff;
             margin-right: 4px;
@@ -1080,6 +1081,7 @@ a {
         .tag {
             box-shadow: 0 0 .3px #BFC2C6;
             margin-bottom: 12px;
+            white-space: nowrap;
         }
         .tag-name {
             display: block;
