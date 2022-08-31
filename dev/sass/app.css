@@ -647,6 +647,9 @@ a.extlinks::after {
 
 .g-sidebar-wrapper {
   width: 300px;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
 }
 
 .g-sidebar {
