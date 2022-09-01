@@ -60,7 +60,7 @@ a {
 
 /*** Main style ***/
 .g-container {
-  width: 1334px;
+  width: 1080px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -217,7 +217,8 @@ a.extlinks::after {
 }
 .g-header .g-nav > ul > li > a {
   display: inline-block;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: bold;
   letter-spacing: 1px;
   color: #fff;
   padding: 0 12px;
@@ -387,7 +388,7 @@ a.extlinks::after {
 }
 
 .article-list {
-  width: 950px;
+  width: 695px;
 }
 .article-list .article-item {
   width: 100%;
@@ -842,7 +843,7 @@ a.extlinks::after {
 }
 
 .post-wrapper {
-  width: 950px;
+  width: 695px;
 }
 
 .post-header {
@@ -983,7 +984,7 @@ a.extlinks::after {
 
 .post-content {
   position: relative;
-  width: 100%;
+  width: auto;
   background-color: #fff;
   overflow: visible;
   padding: 40px 0 80px;
@@ -993,7 +994,7 @@ a.extlinks::after {
 }
 .post-content .post-subtitle {
   position: relative;
-  width: 950px;
+  width: 695px;
   font-size: 18px;
   color: #585858;
   font-weight: normal;
@@ -1019,14 +1020,15 @@ a.extlinks::after {
   bottom: 0;
 }
 .post-content .container {
-  width: 1334px;
+  width: 1080px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 .post-content .container .contents {
-  width: 950px;
+  width: 695px;
+  padding: 30px;
 }
 .post-content .interest {
   width: auto;
@@ -1037,7 +1039,7 @@ a.extlinks::after {
 
 .markdown-body {
   font-family: "LXGW WenKai Screen", -apple-system, Verdana, "PingFang SC", "Helvetica Neue", "Arial", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-  width: 950px;
+  width: 100%;
   box-sizing: border-box;
   padding: 0 0 32px;
 }
@@ -1055,6 +1057,10 @@ a.extlinks::after {
 }
 .markdown-body ul li p:first-child, .markdown-body ol li p:first-child {
   margin-bottom: 0;
+}
+.markdown-body mjx-math {
+  overflow: scroll;
+  width: 100%;
 }
 .markdown-body .copy-container {
   position: relative;
@@ -1126,7 +1132,7 @@ a.extlinks::after {
 
 .post-footer-item {
   margin: 0 auto;
-  width: 950px;
+  width: 695px;
 }
 
 .author-detail {
@@ -1229,7 +1235,7 @@ a.extlinks::after {
 
 .read-next {
   display: flex;
-  width: 950px;
+  width: 695px;
   margin: 60px auto;
 }
 
@@ -1238,6 +1244,7 @@ a.extlinks::after {
   flex: 1;
   height: 260px;
   padding: 0;
+  margin-left: 10px;
   top: 0;
   background-color: #AAB4CA;
   border-radius: 3px;
@@ -1246,7 +1253,7 @@ a.extlinks::after {
   transition: box-shadow 0.4s ease, top 0.3s ease;
 }
 .read-next-item:first-child {
-  margin-right: 10px;
+  margin-left: 0;
 }
 .read-next-item:hover {
   top: -5px;
@@ -1310,7 +1317,7 @@ a.extlinks::after {
 }
 
 .tags-content {
-  width: 950px;
+  width: 695px;
   margin: -100px auto 0;
 }
 
@@ -1686,11 +1693,13 @@ a.extlinks::after {
   box-shadow: 1px 2px 0 rgba(0, 0, 0, 0.1);
   cursor: pointer;
   visibility: hidden;
+  padding: 0;
 }
 .mobile-list .icon.list, .mobile-list .icon.exit {
   width: 20px;
   height: 20px;
   display: none;
+  vertical-align: middle;
 }
 .mobile-list .icon.list.active, .mobile-list .icon.exit.active {
   display: inline-block;
@@ -1934,12 +1943,19 @@ a.extlinks::after {
     font-size: 22px;
   }
 }
-@media screen and (max-width: 1334px) {
+@media screen and (max-width: 1080px) {
   .g-container {
     width: auto;
   }
 
   .article-list {
+    width: 70%;
+  }
+
+  .post-content .container {
+    width: auto;
+  }
+  .post-content .container .contents {
     width: 70%;
   }
 
@@ -1951,6 +1967,10 @@ a.extlinks::after {
   }
 }
 @media screen and (max-width: 1050px) {
+  #all {
+    overflow: hidden;
+  }
+
   .article-list {
     width: 95%;
   }
@@ -1959,11 +1979,19 @@ a.extlinks::after {
     display: none;
   }
 
+  .post-wrapper {
+    width: auto;
+    padding: 30px;
+  }
+
+  .post-content .post-subtitle {
+    width: auto;
+  }
   .post-content .container {
     width: 100%;
   }
   .post-content .container .contents {
-    width: 100%;
+    width: 90%;
     float: none;
     margin: 0 auto;
   }
@@ -1991,6 +2019,15 @@ a.extlinks::after {
     transition: 0.5s;
   }
 
+  .read-next {
+    margin: 20px;
+    width: auto;
+  }
+
+  .post-footer-item {
+    width: auto;
+  }
+
   .post .mobile-list {
     visibility: visible;
   }
@@ -2014,7 +2051,7 @@ a.extlinks::after {
 }
 @media screen and (max-width: 768px) {
   .post-wrapper, .markdown-body, .read-next {
-    width: 92%;
+    width: auto;
   }
 
   .post-content .post-subtitle {
@@ -2101,6 +2138,7 @@ a.extlinks::after {
 
   .read-next-item {
     margin-bottom: 16px;
+    margin-left: 0;
   }
   .read-next-item:first-child {
     margin-right: 0;
@@ -2242,6 +2280,9 @@ a.extlinks::after {
   }
   .post-content .post-subtitle:before {
     height: 0;
+  }
+  .post-content .container .contents {
+    padding: 0;
   }
 
   .markdown-body p, .markdown-body ul > li {

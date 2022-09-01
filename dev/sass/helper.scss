@@ -22,8 +22,10 @@ $color-f-dark: #AAAAAA;
 $g-header-h: 26px;
 $g-banner-h: 460px;
 $g-footer-h: 40px;
-$g-container-w: 1334px;
-$post-content-w: 950px;
+$g-container-w: 1080px;
+$post-content-w: 695px;
+// $g-container-w: 1334px;
+// $post-content-w: 950px;
 
 /*** Mixins ***/
 @mixin clearfix {
