@@ -293,7 +293,17 @@
     }
     .home-content {
         margin-bottom: 32px;
+        flex-direction: column;
     }
+    .g-sidebar-wrapper {
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+        min-width: 300px;
+        .g-sidebar {
+            margin-top: 30px;
+        }
+    }  
     .article-list {
         .article-item {
             padding: 20px 16px;
@@ -411,7 +421,7 @@
             margin-top: 4px;
             font-size: 16px;
         }
-    }
+    }  
 
 }
 
