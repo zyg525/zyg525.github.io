@@ -1760,7 +1760,7 @@ a.extlinks::after {
 }
 
 .table-of-contents {
-  padding: 10px;
+  padding: 20px;
   border-left: 2px solid #efefef;
   width: 280px;
   position: -webkit-sticky;
@@ -1768,7 +1768,8 @@ a.extlinks::after {
   top: 100px;
   margin-bottom: 80px;
   height: fit-content;
-  margin-left: 30px;
+  overflow: scroll;
+  max-height: 450px;
 }
 .table-of-contents h2 {
   font-family: fantasy;

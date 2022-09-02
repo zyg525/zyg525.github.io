@@ -1577,7 +1577,7 @@ a {
 }
 
 .table-of-contents{
-    padding: 10px;
+    padding: 20px;
     border-left: 2px solid #efefef;
     width: 280px;
     position: -webkit-sticky;
@@ -1585,7 +1585,8 @@ a {
     top: 100px;
     margin-bottom: 80px;
     height: fit-content;
-    margin-left: 30px;
+    overflow: scroll;
+    max-height: 450px;
     h2 {
         font-family: fantasy;
         color: #e32e00;
