@@ -1,5 +1,5 @@
 # jekyll-theme-h2o-ac
-version: 1.1.11
+version: 1.1.12
 
 # Site settings 配置站点
 title: 'Mr Li'
@@ -221,4 +221,4 @@ premonition:
       default_title: 'Error'
 
 # Plugins
-plugins: [jekyll-paginate-v2, jekyll-feed, jekyll-sitemap, premonition, jekyll-extlinks]
+plugins: [jekyll-paginate-v2, jekyll-feed, jekyll-sitemap, premonition, h2o-ac-jekyll-extlinks]

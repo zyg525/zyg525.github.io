@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
     spec.name          = "jekyll-theme-h2o-ac"
-    spec.version       = "1.1.11"
+    spec.version       = "1.1.12"
     spec.authors       = ["zhonger"]
     spec.email         = ["zhonger@live.cn"]
   
@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
     spec.add_runtime_dependency "jekyll-sitemap", "~> 1.4.0"
     spec.add_runtime_dependency "webrick", "~> 1.7.0"
     spec.add_runtime_dependency "premonition", "~> 4.0.2"
+    spec.add_runtime_dependency "h2o-ac-jekyll-extlinks", "~> 0.0"
     spec.add_dependency "bundler", "~> 2.3.4"
   end
   
