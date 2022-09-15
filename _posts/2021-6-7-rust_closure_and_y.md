@@ -567,7 +567,7 @@ fn main() {
 }
 ```
 {: run="rust" }
-{: highlight-lines="24, 25, 35" }
+{: highlight-lines="22, 32" }
 
 ## 非 Y 组合子的递归实现
 
