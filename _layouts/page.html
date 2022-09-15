@@ -9,7 +9,7 @@ layout: default
 <div class="row">
 
   <!-- core -->
-  <div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pr-xl-4">
+  <div id="core-wrapper" class="col-12 col-lg-11 col-xl-9 pr-xl-4 pb-5">
     <div class="post pl-1 pr-1 pl-md-2 pr-md-2">
 
     {% capture _content %}
@@ -37,7 +37,7 @@ layout: default
     </div>
   </div> <!-- #core-wrapper -->
 
-  <!-- pannel -->
+  <!-- panel -->
   <div id="panel-wrapper" class="col-xl-3 pl-2 text-muted">
 
     <div class="access">
@@ -52,7 +52,7 @@ layout: default
       {% endif %}
     </div>
 
-    {% for _include in layout.pannel_includes %}
+    {% for _include in layout.panel_includes %}
       {% assign _include_path = _include | append: '.html' %}
       {% include {{ _include_path }} %}
     {% endfor %}
