@@ -50,13 +50,6 @@ $(function () {
       return outputFrame;
     }
   
-    function fetch_with_timeout(url, options, timeout = 20000) {
-      return Promise.race([
-        fetch(url, options),
-        new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), timeout))
-      ]);
-    }
-  
     function run_cpp_code(codeBlock, resultBlock, btn, errorPrompt) {
       const preBlock = $(codeBlock).find("pre");
       let text;
@@ -74,23 +67,18 @@ $(function () {
         src: text
       };
 
-      fetch_with_timeout("http://coliru.stacked-crooked.com/compile", {
-        headers: {
-          'Content-Type': "application/x-www-form-urlencoded",
-        },
-        method: 'POST',
-        mode: 'cors',
-        body: JSON.stringify(params)
-      })
-      .then(response => response.text())
-      .then(response => {
-        resultBlock.innerText = response;
+      let http = new XMLHttpRequest();
+      http.open("POST", "http://coliru.stacked-crooked.com/compile", true);
+      http.onload = () => {
+        resultBlock.innerText = http.responseText;
         unlock(btn);
-      })
-      .catch(error => {
-        resultBlock.innerText = errorPrompt + error.message;
+      };
+
+      http.onerror = () => {
+        resultBlock.innerText = errorPrompt + http.responseText;
         unlock(btn);
-      });
+      };
+      http.send(JSON.stringify(params));
     }
   
     $(btnSelector).click(function (e) {
