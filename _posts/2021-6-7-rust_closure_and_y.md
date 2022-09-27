@@ -656,4 +656,3 @@ fn main() {
 [如何在Rust中写Y组合子？ - Nugine的回答 - 知乎](https://www.zhihu.com/question/266186457/answer/1062284485){:target="_blank"}
 
 [Lambda calculus - Wikipedia](https://en.wikipedia.org/wiki/Lambda_calculus){:target="_blank"}
-
