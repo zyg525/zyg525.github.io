@@ -68,7 +68,7 @@ $(function () {
       };
 
       let http = new XMLHttpRequest();
-      http.open("POST", "http://coliru.stacked-crooked.com/compile", true);
+      http.open("POST", "https://coliru.stacked-crooked.com/compile", true);
       http.onload = () => {
         resultBlock.innerText = http.responseText;
         unlock(btn);
