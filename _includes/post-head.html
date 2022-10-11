@@ -28,6 +28,9 @@
     {% else %}
     <meta property="post-date" content="{{ page.date | date: '%Y年%-m月%-d日 %H:%M:%S %z'  }}" />
     {% endcase %}
+    {% if site.alivetime %}
+    <meta name="alivestart" content="{{ site.alivestart }}">
+    {% endif %}
     {% if site.google_search %}
     <meta name="google-site-verification" content="{{ site.google_search }}" />
     {% endif %}

@@ -531,8 +531,6 @@ $(document).ready(function(){
         });
         event.stopPropagation();
     });
-
-    
       
     $(document).click(function(){
         $(".modal").css("visibility","hidden");
@@ -544,5 +542,30 @@ $(document).ready(function(){
     document.addEventListener('error', function(e){
         if(e.target.nodeName == 'IMG'){e.target.src = baseurl + '/assets/img/placeholder.webp';}
     }, true);
+
+    /**
+     * Alive time
+     */
+    
+    var alivetime = $(".alivetime")
+    function alive_time() {
+        var alivestart = $("meta[name='alivestart']").attr('content');
+        window.setTimeout(alive_time, 1000);
+        // Start at
+        BirthDay = new Date(alivestart);
+        // Now at
+        today = new Date();
+        timeold = (today.getTime() - BirthDay.getTime()); 
+        secondsold = Math.floor(timeold / 1000);          
+        e_daysold = timeold / (24 * 60 * 60 * 1000);
+        daysold = Math.floor(e_daysold);                 
+        e_hrsold = (e_daysold - daysold) * 24;
+        hrsold = Math.floor(e_hrsold);                   
+        e_minsold = (e_hrsold - hrsold) * 60;
+        minsold= Math.floor(e_minsold)                   
+        seconds = Math.floor((e_minsold - minsold) * 60);  
+        alivetime.html(daysold + " 天 " + hrsold + " 小时 " + minsold + " 分 " + seconds + " 秒");
+	}
+	alive_time();
 
 });

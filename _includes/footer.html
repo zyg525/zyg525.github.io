@@ -31,6 +31,10 @@
   </section>
   {% endif %}
   <section>
+    本站已运行 <span class="alivetime"></span>
+    {% if site.foreverblog or site.wormhole %}
+    <br/>
+    {% endif %}
     {% if site.foreverblog %}
     <a href="https://www.foreverblog.cn/" target="_blank" class="foreverblog"> 
       <img src="https://img.foreverblog.cn/logo_en_default.png" alt=""> 
