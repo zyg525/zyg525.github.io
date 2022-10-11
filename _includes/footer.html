@@ -30,6 +30,18 @@
     <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" class="extlinks">本网站由 <img src="{{ "/assets/icons/upyun.png" | relative_url }}" class="upyun" /></span> 提供 CDN 加速/云存储服务</a>
   </section>
   {% endif %}
+  <section>
+    {% if site.foreverblog %}
+    <a href="https://www.foreverblog.cn/" target="_blank" class="foreverblog"> 
+      <img src="https://img.foreverblog.cn/logo_en_default.png" alt=""> 
+    </a>
+    {% endif %}
+    {% if site.wormhole %}
+    <a href="https://www.foreverblog.cn/go.html" target="_blank" class="wormhole"> 
+      <img src="https://img.foreverblog.cn/wormhole_3.gif" alt="" title="穿梭虫洞-随机访问十年之约友链博客">
+    </a>
+    {% endif%}
+  </section>
 </footer>
 <div class="cookie-tip">
   {% if site.language == 'zh-cn' %}

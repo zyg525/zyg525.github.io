@@ -837,6 +837,16 @@ a.extlinks::after {
   height: 25px;
   margin-bottom: -8px;
 }
+.g-footer section .foreverblog img {
+  width: auto;
+  height: 16px;
+  vertical-align: super;
+  margin: 10px 10px 0 0;
+}
+.g-footer section .wormhole img {
+  width: auto;
+  height: 24px;
+}
 
 .post-header, .markdown-body, .post-wrapper, .author-detail, .social-share-wrapper {
   margin: 0 auto;

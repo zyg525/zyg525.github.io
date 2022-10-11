@@ -183,6 +183,12 @@ mermaid: true
 # Webpusher
 webpusher: BEoSVcN1J4tJu8PAJyJSgpeSa2GZH3dxotSuHDVE09DYi1_zoP8cSxl_jtxIf2OKaC6fabO8yxRT-yPyWBfxeTM
 
+# Foreverblog
+foreverblog: true
+
+# Wormhole
+wormhole: true
+
 # TOC
 toc: true
 # <div class="title">{% if title %} {{title}} {% else %} {{default_title}} {% endif %}</div>
