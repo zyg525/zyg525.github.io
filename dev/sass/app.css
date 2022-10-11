@@ -641,8 +641,8 @@ a.extlinks::after {
   width: 100%;
   font-size: 16px;
   color: #4e4e4e;
-  font-weight: 500;
-  margin: 12px 0 6px;
+  font-weight: bold;
+  margin: 10px 0 16px;
   text-align: center;
 }
 
@@ -662,7 +662,7 @@ a.extlinks::after {
   box-shadow: 0 1px 3px rgba(0, 37, 55, 0.06);
 }
 .g-sidebar section {
-  padding: 30px 0;
+  padding: 10px 0;
   border-bottom: 1px solid #E7EAF1;
 }
 .g-sidebar section:first-child {
@@ -674,6 +674,22 @@ a.extlinks::after {
 }
 .g-sidebar section .tag {
   margin-bottom: 8px;
+}
+.g-sidebar section .latest-articles li {
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+.g-sidebar section .latest-articles li .latest-title {
+  margin: 5px 0;
+  text-align: justify;
+  white-space: nowrap;
+}
+.g-sidebar section .latest-articles li .latest-title a:hover {
+  text-decoration: underline;
+  color: #1494fb;
+}
+.g-sidebar section .latest-articles li .latest-date {
+  font-size: 12px;
 }
 
 .search-card {
@@ -1465,6 +1481,9 @@ a.extlinks::after {
 }
 .night-mode .tags-list li .tag-name, .night-mode .tags-list li .tag-post {
   color: #AAAAAA;
+}
+.night-mode .latest-articles a {
+  color: #ffffff;
 }
 .night-mode .g-footer {
   border-color: rgba(255, 255, 255, 0.1);
