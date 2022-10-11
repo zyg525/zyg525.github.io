@@ -10,7 +10,7 @@ $(document).ready(function(){
         'background-size': '100% 100%'
     });
 
-    /*
+    /**
     * Cookie Tips
     */
     var cookieconsent_status = getCookie("cookieconsent_status");
@@ -57,7 +57,7 @@ $(document).ready(function(){
         $(".g-nav li.dropdown").children("ul.dropdown-menu").removeClass("show");
     })
 
-    /*
+    /**
     *  Header Bar
     */
     if($(window).width() > 695) {
@@ -136,7 +136,7 @@ $(document).ready(function(){
         });
     }
 
-    /*
+    /**
     * List for contents
     */
 
@@ -161,7 +161,7 @@ $(document).ready(function(){
     });
 
 
-    /*
+    /**
     * Back To Top Button
     */
     $('.bttb').bind('click', function(){
@@ -170,7 +170,7 @@ $(document).ready(function(){
         });
     });
 
-    /*
+    /**
     * Post Cover Resize
     */
     function postCover(img, container) {
@@ -354,7 +354,7 @@ $(document).ready(function(){
         }
     });
 
-    /*
+    /**
     * TOC highlight with the corresponding content
     */
     function locateCatelogList(){
@@ -462,7 +462,7 @@ $(document).ready(function(){
         changeMode();
     });
 
-    /*
+    /**
     *  Copy code blocks
     */
     // get all <code> elements
@@ -515,7 +515,7 @@ $(document).ready(function(){
         }, 500);
     });
 
-    /*
+    /**
     * Expand the mermaid figure
     */
     $("summary").click(function(event){
@@ -538,7 +538,7 @@ $(document).ready(function(){
         $(".modal").css("visibility","hidden");
     });
 
-    /*
+    /**
     *  Error image loading
     */
     document.addEventListener('error', function(e){
