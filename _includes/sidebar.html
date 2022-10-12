@@ -60,7 +60,7 @@
                         {% if pnum > site.recommend-condition-size %}
                             {% break %}
                         {% endif %}
-                        <a href="{{ "tags.html#" | append: tag[0] | relative_url }}" class="tag">{{ tag[0]}}</a>
+                        <a href="{{ "tags.html#" | append: tag[0] | relative_url }}" class="tag">{{ tag[0] }}<sup>{{ i }}</sup></a>
                     {% endif %}
                 {% endfor %}
                 {% if pnum > site.recommend-condition-size %}
