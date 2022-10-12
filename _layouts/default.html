@@ -40,6 +40,7 @@
     <script src="{{ "/assets/js/index.min.js" | prepend: site.baseurl }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" async></script>
     <script src="https://at.alicdn.com/t/font_3046306_skfh9jzzbbf.js"></script>
+    {% include waline.html %}
     {% include analytics.html %}
     {% include umami.html %}
     {% include busuanzi.html %}
@@ -47,5 +48,6 @@
     {% include mathjax.html %}
     {% include mermaid.html%}
     {% include webpusher.html %} 
+    {% include comments.html %}     
 </body>
 </html>

@@ -48,4 +48,39 @@ description: 或许是最漂亮的Jekyll主题
 
 </main>
 
+<section class="author-detail">
+    {% if page.comments.disqus or page.comments.waline %}
+    <section class="post-footer-item comment">
+        <div class="comments-headline">
+            <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-comment"></use>
+            </svg>
+            <span>评论</span>
+        </div>
+        {% if page.comments.disqus and page.comments.waline %}
+        <div id="comments-switch">
+            <span class="first-comment">Disqus</span>
+            <span class="switch-button">
+            <input id="cmn-toggle-4" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+            <label for="cmn-toggle-4"></label>
+            </span>
+            <span class="second-comment">Waline</span>
+        </div>
+        {% endif %}
+    </section>      
+    {% endif %}
+    
+    {% if page.comments.disqus %}
+    <section class="post-footer-item comment">
+        <div id="disqus_thread"></div>
+    </section>
+    {% endif %}
+    
+    {% if page.comments.waline %}
+    <section class="post-footer-item comment">
+        <div id="waline"></div>
+    </section>
+    {% endif %}
+</section>
+
 {% include footer.html %}
