@@ -124,15 +124,9 @@ comments:
   utterances:
     repo:         # <Github 用户名>/<仓库名>
     issue_term:   # < 链接 | 路径 | 标题 | ...>
-  # Valine 评论系统       › https://valine.js.org/
-  valine:
-    leancloud_appid:    # 输入你的 LeanCloud App ID
-    leancloud_appkey:   # 输入你的 LeanCloud App Key
-    placeholder: 说点什么吧！PS:在昵称栏输入QQ号可以自动获取QQ昵称和QQ头像哦~    # 空白评论框时显示的文字
-    avatar: mp          # 默认头像  › https://valine.js.org/avatar.html 
-  # Waline 评论系统是 Valine 的改进版本，有后端，更安全。     › https://waline.js.org/
+  # Waline 评论系统 › https://waline.js.org/
   waline:
-    server: https://myblog-comments.vercel.app/    # Vercal 服务端地址
+    server: https://waline.nihil.cc/    # Vercal 服务端地址
     placeholder: 说点什么吧！    # 空白评论框时显示的文字
     avatar: mp          # 默认头像  › https://waline.js.org/guide/client/avatar.html
   # Giscus 选项 › https://giscus.app

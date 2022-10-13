@@ -4,7 +4,7 @@
 
 与原版 Chirpy 不同的点：
 
-* 在原版支持的评论系统 [Disqus](https://disqus.com/)，[Utterances](https://utteranc.es/) 和 [Giscus](https://giscus.app/zh-CN) 外，增加对 [Valine](https://valine.js.org/) / [Waline](https://waline.js.org/) 评论系统的支持，参见 `_config.yml` 里的 `comments` 以及各自的配置段。建议考虑使用 Waline 而不是 Valine。
+* 在原版支持的评论系统 [Disqus](https://disqus.com/)，[Utterances](https://utteranc.es/) 和 [Giscus](https://giscus.app/zh-CN) 外，增加对 [Waline](https://waline.js.org/) 评论系统的支持，参见 `_config.yml` 里的 `comments.waline`。
 * 使用[知乎式 404 界面](https://404.life/564.html)，可以返回首页或者返回上一页。
 * 新增了分享到 Line，QQ，QQ 空间和微博，参见 `_data/share.yml`。
 * 使用 [iconfont](https://www.iconfont.cn/) 取代 [Font Awesome](https://fontawesome.com/)，有更多的图标选择空间，参见 `_config.yml` 里的 `iconfont_css`。
