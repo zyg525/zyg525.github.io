@@ -381,7 +381,7 @@ $(document).ready(function(){
     locateCatelogList();
     $(window).bind('scroll',locateCatelogList); 
 
-    /*
+    /**
     * Day/Night mode switch button
     */
     function getCookie(cname)

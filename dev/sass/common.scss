@@ -832,6 +832,13 @@ a {
         transition: .3s;
         max-width: 100%;
         max-height: 100%;
+        margin: 32px 0 auto;
+    }
+    .caption {
+        display: block;
+        text-align: center;
+        color: #222222;
+        font-size: 13.5px;
     }
     ul, ol {
         li {
