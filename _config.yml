@@ -183,16 +183,16 @@ extlinks:
 mermaid: true
 
 # Webpusher
-webpusher: BEoSVcN1J4tJu8PAJyJSgpeSa2GZH3dxotSuHDVE09DYi1_zoP8cSxl_jtxIf2OKaC6fabO8yxRT-yPyWBfxeTM
+webpusher: false
 
 # Foreverblog
-foreverblog: true
+foreverblog: false
 
 # Wormhole
-wormhole: true
+wormhole: false
 
 # Alive time
-alivetime: true
+alivetime: false
 alivestart: "12/23/2021"
 
 # TOC
