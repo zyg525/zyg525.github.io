@@ -131,13 +131,14 @@ comments:
     avatar: mp          # 默认头像  › https://waline.js.org/guide/client/avatar.html
   # Giscus 选项 › https://giscus.app
   giscus:
-    repo:             # <Github 用户名>/<仓库名>
+    repo:              # <Github 用户名>/<仓库名>
     repo_id:
     category:
     category_id:
-    mapping:          # 可选项，默认为 'pathname'
-    input_position:   # 可选项，默认为 'bottom'
-    lang:             # 可选项，默认为 `site.lang` 的值
+    mapping:           # 可选项，默认为 'pathname'
+    input_position:    # 可选项，默认为 'bottom'
+    lang:              # 可选项，默认为 `site.lang` 的值
+    reactions_enabled: # 可选项，默认为 1
 
 # 自托管静态资产，可选 › https://github.com/cotes2020/chirpy-static-assets
 assets:
