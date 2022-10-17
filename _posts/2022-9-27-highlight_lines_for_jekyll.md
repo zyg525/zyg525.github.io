@@ -177,3 +177,41 @@ fn main() {
 否则像这样的纯文本，很难对其进行行高亮。
 ```
 {: highlight-lines="2" }
+
+即使有多个连续的空行，也能正常处理：
+
+````markdown
+```python
+# -*- coding: UTF-8 -*-
+
+
+
+def just_print( a ):
+    print(a)
+
+
+
+
+if __name__ == "__main__":
+    just_print("Hello World")
+```
+{: highlight-lines="5, 12" }
+````
+
+效果：
+
+```python
+# -*- coding: UTF-8 -*-
+
+
+
+def just_print( a ):
+    print(a)
+
+
+
+
+if __name__ == "__main__":
+    just_print("Hello World")
+```
+{: highlight-lines="5, 12" }
