@@ -79,10 +79,17 @@ post:
     share_link:
       title: 分享链接
       succeed: 链接已复制！
-  # pinned prompt of posts list on homepage
+  # 主页帖子列表的置顶提示
   pin_prompt: 置顶
 
-# 标签页
+# 日期格式
+# 参见: <http://strftime.net/>, <https://day.js.org/docs/en/display/format>
+df:
+  post:
+    strftime: '%Y/%m/%d'
+    dayjs: 'YYYY/MM/DD'
+
+# 分类页面
 categories:
   category_measure: 个分类
   post_measure: 篇文章

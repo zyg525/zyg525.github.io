@@ -31,7 +31,7 @@ $(function () {
     }
   
     function getOutputFrame(btn) {
-      let outputFrame = btn.parentNode.parentNode.parentNode.nextElementSibling;
+      let outputFrame = btn.parentNode.parentNode.nextElementSibling;
       if (outputFrame == undefined || !(outputFrame.tagName == 'DETAILS' && outputFrame.className == 'run-output')) {
         let referElement = outputFrame;
         outputFrame = document.createElement('details');
@@ -40,7 +40,7 @@ $(function () {
         summary.textContent = btn.attributes["output-title"].value;
         outputFrame.appendChild(summary);
         if (referElement == undefined) {
-          btn.parentNode.parentNode.parentNode.parentNode.appendChild(outputFrame);
+          btn.parentNode.parentNode.parentNode.appendChild(outputFrame);
         } else {
           referElement.parentNode.insertBefore(outputFrame, referElement);
         }
@@ -92,7 +92,7 @@ $(function () {
       let p = document.createElement('p');
       p.innerText = this.attributes["wait-message"].value;
       outputFrame.appendChild(p);
-      const codeBlock = this.parentNode.parentNode.nextElementSibling;
+      const codeBlock = this.parentNode.nextElementSibling;
       run_cpp_code(codeBlock, p, $(this), this.attributes["error-prompt"].value);
     })
   })
