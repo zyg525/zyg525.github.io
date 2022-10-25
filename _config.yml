@@ -35,7 +35,9 @@ twitter:
   username: NichtsHsu       # 推特用户名
 
 social:
-  name: Nichts Hsu                  # 将会显示为页脚处的版权所有者
+  # 改为你的全名。
+  # 这将会显示为帖子的默认作者以及页脚的版权所有者
+  name: Nichts Hsu
   email: NichtsVonChaos@gmail.com             # 邮箱地址
   links:
     # 第一个链接将会作为版权所有者的链接

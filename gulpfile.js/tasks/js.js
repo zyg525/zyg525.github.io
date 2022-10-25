@@ -47,18 +47,17 @@ const homeJs = () => {
 
 const postJs = () => {
   return concatJs([
-    `${JS_SRC}/commons/*.js`,
-    `${JS_SRC}/utils/img-extra.js`,
-    `${JS_SRC}/utils/locale-datetime.js`,
-    `${JS_SRC}/utils/checkbox.js`,
-    `${JS_SRC}/utils/clipboard.js`,
-    `${JS_SRC}/utils/run-cpp.js`,
-    `${JS_SRC}/utils/run-javascript.js`,
-    `${JS_SRC}/utils/run-rust.js`,
-    // 'smooth-scroll.js' must be called after ToC is ready
-    `${JS_SRC}/utils/smooth-scroll.js`,
-    `${JS_SRC}/utils/highlight-lines.js`
-  ], 'post'
+      `${JS_SRC}/commons/*.js`,
+      `${JS_SRC}/utils/img-extra.js`,
+      `${JS_SRC}/utils/locale-datetime.js`,
+      `${JS_SRC}/utils/clipboard.js`,
+      `${JS_SRC}/utils/run-cpp.js`,
+      `${JS_SRC}/utils/run-javascript.js`,
+      `${JS_SRC}/utils/run-rust.js`,
+      // 'smooth-scroll.js' must be called after ToC is ready
+      `${JS_SRC}/utils/smooth-scroll.js`,
+      `${JS_SRC}/utils/highlight-lines.js`
+    ], 'post'
   );
 };
 
@@ -73,15 +72,15 @@ const categoriesJs = () => {
 
 const pageJs = () => {
   return concatJs([
-    `${JS_SRC}/commons/*.js`,
-    `${JS_SRC}/utils/checkbox.js`,
-    `${JS_SRC}/utils/img-extra.js`,
-    `${JS_SRC}/utils/clipboard.js`,
-    `${JS_SRC}/utils/smooth-scroll.js`,
-    `${JS_SRC}/utils/run-cpp.js`,
-    `${JS_SRC}/utils/run-javascript.js`,
-    `${JS_SRC}/utils/run-rust.js`,
-  ], 'page'
+      `${JS_SRC}/commons/*.js`,
+      `${JS_SRC}/utils/img-extra.js`,
+      `${JS_SRC}/utils/clipboard.js`,
+      `${JS_SRC}/utils/smooth-scroll.js`,
+      `${JS_SRC}/utils/run-cpp.js`,
+      `${JS_SRC}/utils/run-javascript.js`,
+      `${JS_SRC}/utils/run-rust.js`,
+      `${JS_SRC}/utils/highlight-lines.js`
+    ], 'page'
   );
 };
 
