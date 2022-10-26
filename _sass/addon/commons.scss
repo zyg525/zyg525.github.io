@@ -129,18 +129,6 @@ blockquote {
   @include prompt("danger", "\f071");
 }
 
-blockquote:not([class^="prompt-"]) {
-  border-radius: 0.5rem;
-  border: solid var(--text-color);
-  margin: 0;
-  margin-bottom: 1rem;
-  padding: 0 1rem;
-
-  p:last-child {
-    margin-bottom: 0rem;
-  }
-}
-
 mjx-container {
   overflow-x: auto;
   overflow-y: hidden;
@@ -529,8 +517,8 @@ img[data-src] {
     }
   }
 
-  > ol,
-  > ul {
+  ol,
+  ul {
     -webkit-padding-start: 1.75rem;
     padding-inline-start: 1.75rem;
 
