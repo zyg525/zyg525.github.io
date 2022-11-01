@@ -55,7 +55,7 @@ linuxdeploy --appdir AppDir -e demo -i demo.png -d demo.desktop --plugin qt
 这一步的目的主要是将 Qt 库打包到 AppDir 下。
 
 > 不要使用参数 `--output appimage`，因为这样打包出来的 AppImage 只能在**当前或更高版本的系统**上才能运行，无法兼容低版本系统。
-{:.prompt-warning}
+{:.prompt-danger}
 
 至此，linuxdeploy 的任务就结束了，但是在进行下一步之前，我们要先把 `AppDir/demo.desktop` 与 `AppDir/demo.png` 删除，否则 appimage-builder 将抱怨无法创建这两个文件。
 
