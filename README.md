@@ -11,7 +11,7 @@
 * 右侧边栏添加了外部链接块，参见 `_data/external_links.yml`。
 * 可以自由地控制在帖子中显示右侧边栏哪些块。参见 `_config.yml` 里的 `panel`。
 * 添加了子域页。参见 `_data/subdomain.yml`。不需要该页面的情况下删除 `_tabs/subdomain.md` 即可。
-* 添加了 `<details>` 标签的样式，同时修改了 blockquote 的样式。
+* 添加了 `<details>` 标签的样式，同时调整了 blockquote 的样式。
 * 使用改自 [`just the docs`](https://github.com/pmarsceill/just-the-docs) 的表格样式。
 * 将代码染色应用到了行内代码段，例如 `` `let fuck_rust = 114514;`{:.language-rust} ``。
 * 使用 [Fira Code](https://github.com/tonsky/FiraCode) 作为代码段字体。默认对行内代码不开启连体（Ligature），对块代码开启。因为某些原因，在 shell 语言中禁用连体。
