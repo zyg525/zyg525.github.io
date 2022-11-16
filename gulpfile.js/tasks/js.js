@@ -54,6 +54,7 @@ const postJs = () => {
       `${JS_SRC}/utils/run-cpp.js`,
       `${JS_SRC}/utils/run-javascript.js`,
       `${JS_SRC}/utils/run-rust.js`,
+      `${JS_SRC}/utils/run-python.js`,
       // 'smooth-scroll.js' must be called after ToC is ready
       `${JS_SRC}/utils/smooth-scroll.js`,
       `${JS_SRC}/utils/highlight-lines.js`
@@ -79,6 +80,7 @@ const pageJs = () => {
       `${JS_SRC}/utils/run-cpp.js`,
       `${JS_SRC}/utils/run-javascript.js`,
       `${JS_SRC}/utils/run-rust.js`,
+      `${JS_SRC}/utils/run-python.js`,
       `${JS_SRC}/utils/highlight-lines.js`
     ], 'page'
   );

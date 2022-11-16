@@ -33,6 +33,7 @@
     | :-: | :-: | :-: |
     | C++ | `run="cpp"` | [Coliru](https://coliru.stacked-crooked.com/) |
     | JavaScript | `run="javascript"` | N/A (本地) |
+    | Python | `run="python"` | [Online Python](https://www.online-python.com/) |
     | Rust | `run="rust"` | [Rust Playground](https://play.rust-lang.org/) |
 
 如果喜欢我这个定制化的版本，欢迎 Fork，但是请修改 `_config.yml` 中 `google_analytics` 的 `id`， `waline` 的 `server`，以及 `CNAME` 文件中配置的域名，请勿使用我的配置。

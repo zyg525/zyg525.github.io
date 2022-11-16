@@ -104,7 +104,7 @@
   {% endif %}
   
   <!-- Fira Code -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css">
 
   {% if site.panel.post.toc and page.toc %}
     <link rel="stylesheet" href="{{ site.data.assets[origin].bootstrap-toc.css | relative_url }}">
@@ -118,6 +118,7 @@
   <!-- JavaScript -->
 
   <script src="{{ site.data.assets[origin].jquery.js | relative_url }}"></script>
+  <script async src="//cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.min.js"></script>
 
   {% unless site.theme_mode %}
     {% include mode-toggle.html %}
