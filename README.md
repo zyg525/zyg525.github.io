@@ -38,5 +38,3 @@
 如果喜欢我这个定制化的版本，欢迎 Fork，但是请修改 `_config.yml` 中 `google_analytics` 的 `id`， `waline` 的 `server`，以及 `CNAME` 文件中配置的域名，请勿使用我的配置。
 
 通常，每周会至少 merge 一次 [`upstream/master`](https://github.com/cotes2020/jekyll-theme-chirpy) 以追踪新的功能。
-
-原版本的 Chirpy 也会在 [original-chirpy](https://github.com/NichtsHsu/nichtshsu.github.io/tree/original-chirpy) 分支保持同步。
