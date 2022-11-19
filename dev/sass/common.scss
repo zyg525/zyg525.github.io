@@ -465,6 +465,9 @@ a {
                     margin: 5px 0;
                     text-align: justify;
                     white-space: nowrap;
+                    width: 265px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                     a:hover {
                         text-decoration: underline;
                         color: #1494fb;
@@ -1631,10 +1634,9 @@ a {
     top: 100px;
     margin-bottom: 80px;
     height: fit-content;
-    overflow: scroll;
+    overflow: auto;
     max-height: 450px;
     h2 {
-        font-family: fantasy;
         color: #e32e00;
     }
     ul{

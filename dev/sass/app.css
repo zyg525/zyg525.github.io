@@ -686,6 +686,9 @@ a.extlinks::after {
   margin: 5px 0;
   text-align: justify;
   white-space: nowrap;
+  width: 265px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .g-sidebar section .latest-articles li .latest-title a:hover {
   text-decoration: underline;
@@ -1810,11 +1813,10 @@ a.extlinks::after {
   top: 100px;
   margin-bottom: 80px;
   height: fit-content;
-  overflow: scroll;
+  overflow: auto;
   max-height: 450px;
 }
 .table-of-contents h2 {
-  font-family: fantasy;
   color: #e32e00;
 }
 .table-of-contents ul {
