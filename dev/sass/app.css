@@ -1193,6 +1193,7 @@ a.extlinks::after {
   margin-bottom: 20px;
   height: 40px;
   line-height: 40px;
+  min-width: 90px;
 }
 .author-detail .comment .comments-headline .icon {
   width: 30px;
@@ -1206,6 +1207,8 @@ a.extlinks::after {
   display: block;
   float: right;
   margin-bottom: 10px;
+  min-width: 176px;
+  text-align: center;
 }
 .author-detail .comment #comments-switch .first-comment {
   color: #3CD5FF;

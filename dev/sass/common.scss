@@ -954,6 +954,7 @@ a {
             margin-bottom: 20px;
             height: 40px;
             line-height: 40px;
+            min-width: 90px;
             .icon {
                 width: 30px;
                 height: 30px;
@@ -967,6 +968,8 @@ a {
             display: block;
             float: right;
             margin-bottom: 10px;
+            min-width: 176px;
+            text-align: center;
             .first-comment {
                 color: #3CD5FF;
             }
