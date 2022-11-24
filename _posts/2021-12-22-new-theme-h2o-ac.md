@@ -73,7 +73,7 @@ pin: true
 
 (2022年4月30日更新)
 
-&emsp;&emsp;，由于 fancybox 库作者对原使用的 v3.5.7 版本不再进行维护和更新，现将版本更新至新的 v4.0 版本，即 [fancyapps/ui](https://github.com/fancyapps/ui)。另，新增将 alt 内容作为图片的描述显示在 fancybox 中。
+&emsp;&emsp;由于 fancybox 库作者对原使用的 v3.5.7 版本不再进行维护和更新，现将版本更新至新的 v4.0 版本，即 [fancyapps/ui](https://github.com/fancyapps/ui)。另，新增将 alt 内容作为图片的描述显示在 fancybox 中。
 
 #### 深色模式切换按钮
 
