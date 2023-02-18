@@ -1,7 +1,7 @@
 # 网站设置
 
 # 导入主题
-theme: jekyll-theme-chirpy 
+theme: jekyll-theme-chirpy
 
 # 仅当你的站点类型是 Github Pages 项目并且没有自定义域名时，修改下面的值为 '/项目名'。
 baseurl: '/zyg525.github.io'
