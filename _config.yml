@@ -16,23 +16,23 @@ timezone: Asia/Shanghai
 
 # jekyll-seo-tag 设置 › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: Nihil       # 主标题
+title: zyg的博客       # 主标题
 
-tagline: Nichts Hsu   # 副标题
+tagline:    # 副标题
 
 description: >-                        # 由 seo meta 和 atom feed 使用
   Nichts Hsu 的个人博客
 
 # 填入你的网站的协议和域名，例如，'https://username.github.io'
-url: 'https://nihil.cc'
+url: 'https://zyg525.github.io/'
 
-author: Nichts Hsu    # 全名
+author: zyg    # 全名
 
 github:
-  username: NichtsHsu     # Github 用户名
+  username: zyg525     # Github 用户名
 
 twitter:
-  username: NichtsHsu       # 推特用户名
+  username:        # 推特用户名
 
 social:
   # 改为你的全名。
@@ -41,9 +41,9 @@ social:
   email: NichtsVonChaos@gmail.com             # 邮箱地址
   links:
     # 第一个链接将会作为版权所有者的链接
-    - https://nihil.cc/
-    - https://twitter.com/NichtsHsu      # 推特主页
-    - https://github.com/NichtsHsu       # Github 主页
+    #- https://nihil.cc/
+    #- https://twitter.com/NichtsHsu      # 推特主页
+    #- https://github.com/NichtsHsu       # Github 主页
     # 取消注释以添加更多链接
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
