@@ -9,15 +9,7 @@ cover: 'https://images.unsplash.com/photo-1529322365446-6efd62aed02e?w=1600&q=90
 cover_author: 'inma santiago'
 cover_author_link: 'https://unsplash.com/@inmasantiago'
 tags: 
-- jekyll 
-- theme 
-- blog 
-- ac 
-- develop 
-- 主题 
-- 前端开发 
-- 学术 
-- 运维
+- test
 pin: true
 ---
 
