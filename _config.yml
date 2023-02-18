@@ -4,7 +4,7 @@
 theme: jekyll-theme-chirpy 
 
 # 仅当你的站点类型是 Github Pages 项目并且没有自定义域名时，修改下面的值为 '/项目名'。
-baseurl: ''
+baseurl: '/zyg525.github.io'
 
 # 站点的语言 › https://www.w3.org/International/questions/qa-choosing-language-tags
 # 如果在文件夹 `_data/locales` 下存在同名文件，则布局语言也会改变，
@@ -24,7 +24,7 @@ description: >-                        # 由 seo meta 和 atom feed 使用
   Nichts Hsu 的个人博客
 
 # 填入你的网站的协议和域名，例如，'https://username.github.io'
-url: 'https://zyg525.github.io/'
+url: ''
 
 author: zyg    # 全名
 
@@ -37,7 +37,7 @@ twitter:
 social:
   # 改为你的全名。
   # 这将会显示为帖子的默认作者以及页脚的版权所有者
-  name: Nichts Hsu
+  name: zyg
   email: NichtsVonChaos@gmail.com             # 邮箱地址
   links:
     # 第一个链接将会作为版权所有者的链接
