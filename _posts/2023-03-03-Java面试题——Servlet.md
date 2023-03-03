@@ -3,6 +3,8 @@ title: Java面试题——Servlet
 tags: Java面试题
 ---
 
+## 一、Servlet
+
 * ### Tomcat的默认端口是多少，如何修改？
 
 　　默认端口是`8080`，可以在`conf/server.xml`中修改。
@@ -23,7 +25,7 @@ tags: Java面试题
 
 * ### 简述GET和POST的区别
 
-　　**GET**：请求参数通过?拼接在URL后面，大小有限制，不能放敏感信息。
+　　**GET**：请求参数通过`?`拼接在URL后面，大小有限制，不能放敏感信息。
 
 　　**POST**：请求参数放在请求体中，大小没有限制，可以放敏感信息。
 
@@ -46,3 +48,25 @@ tags: Java面试题
 　　2、Cookie存放在浏览器，Session存放在服务器，因此Session更加安全；
 
 　　3、浏览器对Cookie的大小和数量有限制，但是服务器对Session的大小和数量没有限制。
+
+## 二、JDBC
+
+* ### 简述JDBC操作数据库的步骤
+
+　　1、注册数据库驱动，数据库驱动就是数据库厂商提供的实现了JDBC接口的实现类。
+
+　　2、获取Connection，核心代码是静态方法`DriverManager.getConnection(url, username, password)`。
+
+　　3、创建Statement对象，通过它来操作数据库，核心代码是`connection.createStatement()`。
+
+　　4、执行sql语句。
+
+　　5、关闭Connection。
+
+* ### 如何防止sql注入？
+
+　　使用PreparedStatement代替Statement来操作数据库，通过占位符`?`来写入参数。
+
+* ### 介绍一下数据库连接池
+
+　　JDBC操作数据库时，频繁地创建、销毁Connection对象会浪费资源，我们可以利用数据库连接池复用已有的Connection。数据库连接池的接口是`javax.sql.DataSource`，常见的实现类有HikariCP、Druid等等。数据库连接池内维护了若干个Connection实例，如果调用了`getConnection()`，就选择一个空闲连接，把它标记为“正在使用”然后返回，如果关闭连接，就把它标记为“空闲”等待下次使用。
