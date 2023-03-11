@@ -136,9 +136,9 @@ public method(..) {...} //事务方法必须是public类型
 
 * ### IOC注解
 
-　　1、`@Component`：标注在类上，IOC容器会创建、维护该类的实例。`@Repository`、`@Service`、`@Controller`和`@Component`的作用一样，只是分别用于MVC开发模式中的dao层、service层、controller层。
+　　1、**`@Component`**：标注在类上，IOC容器会创建、维护该类的实例。`@Repository`、`@Service`、`@Controller`和`@Component`的作用一样，只是分别用于MVC开发模式中的dao层、service层、controller层。
 
-　　2、`@Scope`：和`@Component`或者`@Bean`配合使用，作用是指定Bean的作用域。
+　　2、**`@Scope`**：和`@Component`或者`@Bean`配合使用，作用是指定Bean的作用域。
 
 ```java
 @Component
@@ -146,7 +146,7 @@ public method(..) {...} //事务方法必须是public类型
 //@Scope("prototype") //原型模式
 ```
 
-　　3、`@Value`：标注在Bean的一般属性上，作用是给属性注入值，可以直接注入，也可以配合`@PropertySource`注解，读取配置文件中的属性值后再注入。`@Value`也可以读取Bean的属性。
+　　3、**`@Value`**：标注在Bean的一般属性上，作用是给属性注入值，可以直接注入，也可以配合`@PropertySource`注解，读取配置文件中的属性值后再注入。`@Value`也可以读取Bean的属性。
 
 ```java
 @Value("张三") //直接注入
@@ -159,14 +159,14 @@ private String name;
 private String name;
 ```
 
-　　4、`@PropertySource`：标注在类上，作用是读取`.properties`文件中的属性值。
+　　4、**`@PropertySource`**：标注在类上，作用是读取`.properties`文件中的属性值。
 
 ```java
 @PropertySource("config.properties") //读取类路径下的config.properties文件
 public class Student {...}
 ```
 
-　　5、`@Autowired`：标注在Bean的对象属性或者方法参数上，作用是给属性或参数注入值，默认通过类型注入，也可以配合@Qualifier来通过实例名注入。
+　　5、**`@Autowired`**：标注在Bean的对象属性或者方法参数上，作用是给属性或参数注入值，默认通过类型注入，也可以配合@Qualifier来通过实例名注入。
 
 ```java
 @Autowired
@@ -174,13 +174,13 @@ public class Student {...}
 private Teacher teacher;
 ```
 
-　　6、`@Resource`：和`@Autowired`+`@Qualifier`的作用相同，区别是`@Resource`由JDK提供，而另外两个由Spring提供。
+　　6、**`@Resource`**：和`@Autowired`+`@Qualifier`的作用相同，区别是`@Resource`由JDK提供，而另外两个由Spring提供。
 
-　　7、`@ComponentScan`：标注在类上，当通过该类创建IOC容器时，会自动扫描该类所在包以及所有子包中的Bean，然后注册到容器中。也可以自行指定要扫描的包。
+　　7、**`@ComponentScan`**：标注在类上，当通过该类创建IOC容器时，会自动扫描该类所在包以及所有子包中的Bean，然后注册到容器中。也可以自行指定要扫描的包。
 
-　　8、`@Configuration`：标注在类上，它不但拥有`@Component`的功能，而且被标注的类会被声明为配置类。
+　　8、**`@Configuration`**：标注在类上，它不但拥有`@Component`的功能，而且被标注的类会被声明为配置类。
 
-　　9、`@Bean`：标注在配置类中的方法上，方法的返回值会作为Bean被注册到容器中，Bean的实例名默认是方法名，也可以自己指定实例名。当一个Bean类不在我们的管理范围之内，就可以使用`@Bean`来进行注册。
+　　9、**`@Bean`**：标注在配置类中的方法上，方法的返回值会作为Bean被注册到容器中，Bean的实例名默认是方法名，也可以自己指定实例名。当一个Bean类不在我们的管理范围之内，就可以使用`@Bean`来进行注册。
 
 ```java
 @Bean("student") //向容器中注册一个名为student的Bean实例
@@ -191,16 +191,16 @@ Student getStudent() {
 
 * ### AOP注解
 
-　　1、`@Aspect`：标注在Bean类上，作用是声明该类为切面类。
+　　1、**`@Aspect`**：标注在Bean类上，作用是声明该类为切面类。
 
-　　2、`@Before`：标注在切面类的方法上，作用是声明该方法为前置通知方法，与它类似的还有`@After`、`@Around`、`@AfterReturning`、`@AfterThrowing`，分别代表了后置通知、环绕通知、返回通知、异常通知。@Before可以配合execution表达式或者注解来向切入点织入通知。
+　　2、**`@Before`**：标注在切面类的方法上，作用是声明该方法为前置通知方法，与它类似的还有`@After`、`@Around`、`@AfterReturning`、`@AfterThrowing`，分别代表了后置通知、环绕通知、返回通知、异常通知。@Before可以配合execution表达式或者注解来向切入点织入通知。
 
 ```java
 @Before("execution(public * com.zyg.user.printUser(..))") //向printUser()方法织入通知
 @Before("@annotation(userLog)") //向所有Bean中标注了UserLog注解的方法织入通知
 ```
 
-　　3、`@EnableAspectAutoProxy`：标注在类上，当通过该类创建IOC容器时，会自动查找切面类，并将通知方法织入到特定的位置。可以指定实现AOP的代理方式。
+　　3、**`@EnableAspectAutoProxy`**：标注在类上，当通过该类创建IOC容器时，会自动查找切面类，并将通知方法织入到特定的位置。可以指定实现AOP的代理方式。
 
 ```java
 @EnableAspectAutoProxy(proxyTargetClass = true) //true代表使用CGLIB动态代理，false(默认)代表使用JDK动态代理
@@ -208,7 +208,7 @@ Student getStudent() {
 public class MyConfig {...}
 ```
 
-　　4、`@Transactional`：标注在类或方法上，在SpringBoot中可以直接为该方法开启事务，标注在类上可以为所有方法开启事务，可以指定事务传播行为和对哪些异常进行回滚。
+　　4、**`@Transactional`**：标注在类或方法上，在SpringBoot中可以直接为该方法开启事务，标注在类上可以为所有方法开启事务，可以指定事务传播行为和对哪些异常进行回滚。
 
 ```java
 //事务传播行为是REQUIRED(默认)，当发生指定异常时回滚事务
@@ -218,7 +218,7 @@ public void updateStudent() {...} //事务方法必须是public类型的非静�
 
 * ### MVC注解
 
-　　1、`@RequestMapping`：标注在类或方法上，作用在类上时，表示该类中所有响应请求的方法都以该地址为父路径，作用在方法上时，负责将请求映射到对应的方法上。它还有一些常用属性。
+　　1、**`@RequestMapping`**：标注在类或方法上，作用在类上时，表示该类中所有响应请求的方法都以该地址为父路径，作用在方法上时，负责将请求映射到对应的方法上。它还有一些常用属性。
 
 ```java
 @RequestMapping(value = "/login",                 //请求路径
@@ -230,7 +230,7 @@ public void updateStudent() {...} //事务方法必须是public类型的非静�
 public String login(User user) {...}
 ```
 
-　　2、`@PathVariable`：标注在方法参数上，作用是读取url路径值并赋值给参数。
+　　2、**`@PathVariable`**：标注在方法参数上，作用是读取url路径值并赋值给参数。
 
 ```java
 @RequestMapping("/login/{path1}/{path2}")
@@ -238,7 +238,7 @@ public String login(User user) {...}
 public String login(@PathVariable p1, @PathVariable p2) {...}
 ```
 
-　　3、`@RequestParam`：标注在方法参数上，作用是当请求中参数名称和方法参数名称不同时，可以通过它进行绑定。
+　　3、**`@RequestParam`**：标注在方法参数上，作用是当请求中参数名称和方法参数名称不同时，可以通过它进行绑定。
 
 ```java
 @RequestMapping("/login")
@@ -246,7 +246,7 @@ public String login(@PathVariable p1, @PathVariable p2) {...}
 public String login(@RequestParam(value="username", required=true, defaultValue="Tom") String name) {...}
 ```
 
-　　4、`@RequestBody`：标注在方法参数上，作用是将JSON格式的请求参数绑定到参数对象上。
+　　4、**`@RequestBody`**：标注在方法参数上，作用是将JSON格式的请求参数绑定到参数对象上。
 
 ```java
 @RequestMapping("/login")
@@ -254,7 +254,7 @@ public String login(@RequestParam(value="username", required=true, defaultValue=
 public String login(@RequestBody User user) {...}
 ```
 
-　　5、`@ResponseBody`：标注在方法上，作用是将返回的对象转换为JSON格式，响应给客户端。
+　　5、**`@ResponseBody`**：标注在方法上，作用是将返回的对象转换为JSON格式，响应给客户端。
 
 ```java
 @RequestMapping("/login")
@@ -264,9 +264,9 @@ public String login(@RequestBody User user) {
 }
 ```
 
-　　6、`@RestController`：标注在类上，作用是相当于给该类的所有方法都加上了`@ResponseBody`。
+　　6、**`@RestController`**：标注在类上，作用是相当于给该类的所有方法都加上了`@ResponseBody`。
 
-　　7、`@ExceptionHandler`：标注在方法上，作用是声明该方法为异常处理方法，当前Controller类的其它方法只要发生了异常，就会执行这个方法。
+　　7、**`@ExceptionHandler`**：标注在方法上，作用是声明该方法为异常处理方法，当前Controller类的其它方法只要发生了异常，就会执行这个方法。
 
 ```java
 @ExceptionHandler({Exception1.class, Exception2.class}) //只要当前Controller中的方法抛出指定异常，就会执行这个方法
@@ -275,7 +275,7 @@ public void handleException() {...}
 
 * ### SpringBoot注解
 
-　　1、`@ConfigurationProperties`：标注在类上，作用是读取SpringBoot项目中的配置文件(`application.properties/yml`)，根据指定的前缀向类中的属性注入值，有点类似于`@PropertySource`。
+　　1、**`@ConfigurationProperties`**：标注在类上，作用是读取SpringBoot项目中的配置文件(`application.properties/yml`)，根据指定的前缀向类中的属性注入值，有点类似于`@PropertySource`。
 
 ```java
 @Component
@@ -287,7 +287,7 @@ public class Student {
 }
 ```
 
-　　2、`@EnableConfigurationProperties`：标注在配置类上，作用是将标注了`@ConfigurationProperties`的指定类注册为Bean(假如该类没有添加`@Component`)。
+　　2、**`@EnableConfigurationProperties`**：标注在配置类上，作用是将标注了`@ConfigurationProperties`的指定类注册为Bean(假如该类没有添加`@Component`)。
 
 ```java
 @Configuration
@@ -295,7 +295,7 @@ public class Student {
 public class MyConfig {...}
 ```
 
-　　3、`@Import`：标注在配置类上，作用是将指定类注册为Bean(假如该类没有添加`@Component`)。
+　　3、**`@Import`**：标注在配置类上，作用是将指定类注册为Bean(假如该类没有添加`@Component`)。
 
 ```java
 @Configuration
@@ -303,7 +303,7 @@ public class MyConfig {...}
 public class MyConfig {...}
 ```
 
-　　4、`@Conditional`：标注在配置类上，作用是当指定Condition类中的方法返回值是true时配置类才会生效。
+　　4、**`@Conditional`**：标注在配置类上，作用是当指定Condition类中的方法返回值是true时配置类才会生效。
 
 ```java
 public class MyCondition implements Condition {
@@ -318,7 +318,7 @@ public class MyCondition implements Condition {
 public class MyConfig {...}
 ```
 
-　　5、`@ConditionalOnBean`：标注在配置类上，作用是当容器中存在指定Bean时配置类才会生效。
+　　5、**`@ConditionalOnBean`**：标注在配置类上，作用是当容器中存在指定Bean时配置类才会生效。
 
 ```java
 @Configuration
@@ -326,9 +326,9 @@ public class MyConfig {...}
 public class MyConfig {...}
 ```
 
-　　6、`@ConditionalOnMissingBean`：标注在配置类上，作用是当容器中不存在指定Bean时配置类才会生效。
+　　6、**`@ConditionalOnMissingBean`**：标注在配置类上，作用是当容器中不存在指定Bean时配置类才会生效。
 
-　　7、`@ConditionalOnClass`：标注在配置类上，作用是当系统中存在指定类时配置类才会生效。
+　　7、**`@ConditionalOnClass`**：标注在配置类上，作用是当系统中存在指定类时配置类才会生效。
 
 ```java
 @Configuration
@@ -336,7 +336,7 @@ public class MyConfig {...}
 public class MyConfig {...}
 ```
 
-　　8、`@ConditionalOnMissingClass`：标注在配置类上，作用是当系统中不存在指定类时配置类才会生效。
+　　8、**`@ConditionalOnMissingClass`**：标注在配置类上，作用是当系统中不存在指定类时配置类才会生效。
 
 ```java
 @Configuration
@@ -344,7 +344,7 @@ public class MyConfig {...}
 public class MyConfig {...}
 ```
 
-　　9、`@ConditionalOnProperty`：标注在配置类上，作用是当配置文件中存在指定属性时配置类才会生效。
+　　9、**`@ConditionalOnProperty`**：标注在配置类上，作用是当配置文件中存在指定属性时配置类才会生效。
 
 ```java
 @Configuration
@@ -353,7 +353,7 @@ public class MyConfig {...}
 public class MyConfig {...}
 ```
 
-　　10、`@EnableAutoConfiguration`：标注在启动类上，作用是禁用指定的自动配置类。
+　　10、**`@EnableAutoConfiguration`**：标注在启动类上，作用是禁用指定的自动配置类。
 
 ```java
 @SpringBootApplication
@@ -361,7 +361,7 @@ public class MyConfig {...}
 public class MyApplication {...}
 ```
 
-　　11、`@Profile`：标注在Bean类上，作用是当指定的配置文件和激活的配置文件相同时该Bean才会被注册到容器中。
+　　11、**`@Profile`**：标注在Bean类上，作用是当指定的配置文件和激活的配置文件相同时该Bean才会被注册到容器中。
 
 ```yml
 #主配置文件
