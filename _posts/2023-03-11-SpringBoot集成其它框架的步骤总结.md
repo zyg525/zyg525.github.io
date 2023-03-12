@@ -100,7 +100,61 @@ public class StudentMapper {
 ```yml
 mybatis:
   mapper-locations:
-    - mapper/*.xml #类路径下mapper目录中的所有xml文件
-    - *.xml #类路径下的所有xml文件
+    - classpath:mapper/*.xml #类路径下mapper目录中的所有xml文件
+    - classpath:*.xml #类路径下的所有xml文件
 ```
+
+## 二、集成日志
+
+　　SpringBoot默认使用`slf4j`+`logback`记录日志，我们只需要添加一个`logback.xml`配置文件就可以开启日志了。更好的方法是将`logback.xml`更名为`logback-spring.xml`，这样就可以使用SpringBoot的Profile特性了，实现在不同的环境下输出不同格式的日志：
+
+```xml
+<configuration scan="false" scanPeriod="60 seconds" debug="false">
+    ......
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+       <layout class="ch.qos.logback.classic.PatternLayout">
+            <!--开发环境 日志输出格式-->
+            <springProfile name="dev">
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ----> [%thread] ---> %-5level %logger{50} - %msg%n</pattern>
+            </springProfile>
+            <!--非开发环境 日志输出格式-->
+            <springProfile name="!dev">
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} ==== [%thread] ==== %-5level %logger{50} - %msg%n</pattern>
+            </springProfile>
+        </layout>
+    </appender>
+    ......
+</configuration> 
+```
+
+## 三、集成Redis
+
+　　首先要引入Redis的起步依赖：
+
+```pom
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+```
+
+　　然后修改配置文件：
+
+```yml
+spring:
+  redis:
+    host: 192.168.154.130
+    port: 6379
+    database: 0 #数据库索引
+    password:
+    timeout: 300ms #连接超时时间
+```
+
+　　最后就可以通过RedisTemplate操作数据库了。
+
+## 四、集成RabbitMq
+
+## 五、集成Kafka
+
+## 六、集成ElasticSearch
 
