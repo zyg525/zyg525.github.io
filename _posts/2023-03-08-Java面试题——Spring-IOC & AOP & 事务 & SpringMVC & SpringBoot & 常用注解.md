@@ -376,5 +376,53 @@ spring:
 public class Student {...}
 ```
 
+## 七、Spring中的设计模式
 
+* ### 工厂模式
+
+　　Spring使用工厂模式，可以通过BeanFactory或ApplicationContext来创建Bean对象。
+
+* ### 单例模式
+
+　　Spring中Bean的默认作用域就是单例的。
+
+* ### 代理模式
+
+　　Spring中的AOP就是通过代理模式(动态代理)实现的。
+
+* ### 适配器模式
+
+　　SpringMVC中使用到了适配器模式。在SpringMVC中，处理器(Handler)可能有多种类型，比如Controller、Servlet、HttpRequestHandler等等，不同类型的处理器有不同的执行方式，最简单的实现方法就是用`if...else`多重判断+`instanceof`直接执行：
+
+```java
+if(handler instanceof Controller) {调用handler...}
+else if(handler instanceof Servlet) {调用handler...}
+else if(handler instanceof HttpRequestHandler) {调用handler...}
+...
+```
+
+　　但是这种方法有一个缺点，当新增一个处理器类型时，需要再增加一个`else...if`，违反了开闭原则(对扩展开放，对修改关闭)。更好的方法是使用适配器模式，将不同类型的Handler包装成具有统一接口、不同实现的适配器，执行处理器时，通过统一的方法名执行。
+
+　　SpringMVC中为我们提供了4种适配器，它们都继承了HandlerAdapter接口，这个接口有两个重要的方法：
+
+```java
+//判断当前适配器是否支持当前Handler
+boolean supports(Object handler);
+//执行Handler
+ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler);
+```
+
+　　根据不同类型的Handler，这4种适配器对`supports()`和`handle()`方法有不同的实现。当要执行一个Handler时，首先会根据`supports()`方法来为它选择一个合适的适配器，然后再统一通过适配器的`handler()`方法执行。这样，即使新增一种Handler，也无需修改原代码，只需要新增一个适配器即可。
+
+* ### 模板方法
+
+　　<font color='red'>JdbcTemplate。</font>
+
+* ### 装饰者模式
+
+　　<font color='red'>DataSource。</font>
+
+* ### 观察者模式
+
+　　Spring的监听器(Listener)使用了观察者模式。
 
