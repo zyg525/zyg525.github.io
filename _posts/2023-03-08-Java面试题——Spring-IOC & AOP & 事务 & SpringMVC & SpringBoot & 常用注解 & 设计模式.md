@@ -395,9 +395,9 @@ public class Student {...}
 　　SpringMVC中使用到了适配器模式。在SpringMVC中，处理器(Handler)可能有多种类型，比如Controller、Servlet、HttpRequestHandler等等，不同类型的处理器有不同的执行方式，最简单的实现方法就是用`if...else`多重判断+`instanceof`直接执行：
 
 ```java
-if(handler instanceof Controller) {调用handler...}
-else if(handler instanceof Servlet) {调用handler...}
-else if(handler instanceof HttpRequestHandler) {调用handler...}
+if(handler instanceof Controller) {执行handler...}
+else if(handler instanceof Servlet) {执行handler...}
+else if(handler instanceof HttpRequestHandler) {执行handler...}
 ...
 ```
 
@@ -426,3 +426,24 @@ ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Ob
 
 　　Spring的监听器(Listener)使用了观察者模式。
 
+## 八、SpringCloud
+
+* ### 简单介绍一下SpringCloud
+
+　　SpringCloud是Spring提供的微服务治理框架，微服务是一种架构模式，提倡将单体应用划分成一组小的服务，各个服务之间互相协调。
+
+　　SpringCloud的核心组件有：
+
+　　1、**服务注册与发现**：Eureka、Consul。
+
+　　2、**客户端负载均衡**：Ribbon。
+
+　　3、**声明式服务调用**：Feign。
+
+　　4、**API网关**：Zuul、Gateway。
+
+　　5、**服务容错保护**：Hystrix。
+
+　　6、**消息总线**：Bus。
+
+　　7、**分布式配置中心**：Config。
