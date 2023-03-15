@@ -1,0 +1,40 @@
+---
+title: Vmware的网络配置
+tags: Linux
+---
+
+## 一、NAT模式设置方法
+
+　　1、安装操作系统，版本`Centos7.6`。
+
+　　2、为`VMnet8`虚拟网卡配置`IPv4`属性
+
+![为Vmnet8虚拟网卡配置属性1](/assets/img/linux/为Vmnet8虚拟网卡配置属性1.png)
+
+![为Vmnet8虚拟网卡配置属性2](/assets/img/linux/为Vmnet8虚拟网卡配置属性2.png)
+
+　　3、打开`Vmware`虚拟网络编辑器 - 点击【更改设置】-选择【NAT模式】-选择【将主机虚拟适配器连接到此网络】-设置【子网IP】和【子网掩码】，与第2步中保持一致
+
+![配置虚拟网络编辑器1](/assets/img/linux/配置虚拟网络编辑器1.png)
+
+　　然后点击【NAT设置】，配置网关，和第2步中保持一致
+
+![配置虚拟网络编辑器2](/assets/img/linux/配置虚拟网络编辑器2.png)
+
+　　4、修改`Centos`系统网络配置文件
+
+```shell
+vi /etc/sysconfig/network-scripts/ifcfg-ens33
+```
+
+　　添加下面的配置：
+
+```shell
+BOOTPROTO=none #使用静态IP，如果要使用DHCP，就改成dhcp
+IPADDR=192.168.154.140 #手动指定静态IP
+NETMASK=255.255.255.0 #设置子网掩码
+GATEWAY=192.168.154.2 #设置默认网关
+DNS1=8.8.8.8 #设置DNS服务器
+DNS2=8.8.4.4
+```
+
