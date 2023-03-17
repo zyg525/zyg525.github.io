@@ -3,13 +3,13 @@ title: SpringBoot集成其它框架的步骤总结
 tags: Spring
 ---
 
-　　本文基于`SpringBoot-2.3.0`，项目父依赖是：
+　　本文基于`SpringBoot-2.7.5`，项目父依赖是：
 
 ```pom
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.3.0.RELEASE</version>
+    <version>2.7.5</version>
 </parent>
 ```
 
@@ -129,6 +129,8 @@ mybatis:
 
 ## 三、集成Redis
 
+* ### 配置Redis
+
 　　首先要引入Redis的起步依赖：
 
 ```pom
@@ -148,9 +150,42 @@ spring:
     database: 0 #数据库索引
     password:
     timeout: 300ms #连接超时时间
+    lettuce:
+      pool:
+        max-active: 8 #连接池最大连接数，负数代表没有限制
+        max-wait: -1 #连接池最大阻塞等待时间，负数代表没有限制
 ```
 
 　　最后就可以通过RedisTemplate操作数据库了。
+
+* ### 使用RedisTemplate
+
+　　SpringBoot会帮我们自动配置RedisTemplate，我们也可以定制自己的RedisTemplate，比如修改数据的序列化方式：
+
+```java
+@Configuration
+public class MyRedisConfig {
+    @Bean
+    RedisTemplate redisTemplate(LettuceConnectionFactory lettuceConnectionFactory) {
+        RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<>();
+		redisTemplate.setKeySerializer(new StringRedisSerializer());
+		redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+		redisTemplate.setConnectionFactory(connectionFactory);
+		return redisTemplate;
+    }
+}
+```
+
+　　如果要序列化Java对象，对象需要实现Serializable接口。然后就可以使用RedisTemplate操作数据库了：
+
+```java
+ValueOperations valueOperations = redisTemplate.opsForValue(); //操作string
+ListOperations listOperations = redisTemplate.opsForList(); //操作list
+HashOperations hashOperations = redisTemplate.opsForHash(); //操作hash
+SetOperations setOperations = redisTemplate.opsForSet(); //操作set
+ZSetOperations zSetOperations = redisTemplate.opsForZSet(); //操作zset
+GeoOperations geoOperations = redisTemplate.opsForGeo(); //操作Geo
+```
 
 ## 四、集成RabbitMq
 
