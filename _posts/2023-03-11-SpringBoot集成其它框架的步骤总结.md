@@ -189,6 +189,89 @@ GeoOperations geoOperations = redisTemplate.opsForGeo(); //操作Geo
 
 ## 四、集成RabbitMq
 
+* ### 添加依赖
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-amqp</artifactId>
+</dependency>
+```
+
+* ### 生产者
+
+　　1、配置队列、交换器
+
+```java
+@Configuration
+public class RabbitmqConfig {
+    //队列名称
+    private static final String QUEUE_NAME = "queue1";
+    //交换器名称
+    private static final String EXCHANGE_NAME = "exchange1";
+
+    /**
+     * 声明队列
+     * @return
+     */
+    @Bean
+    Queue queue(){
+        return new Queue(QUEUE_NAME);
+    }
+
+    /**
+     * 声明direct类型交换器
+     * @return
+     */
+    @Bean
+    DirectExchange directExchange(){
+        return new DirectExchange(EXCHANGE_NAME,true,false);
+    }
+
+    /**
+     * 绑定队列和交换器，绑定键是key1
+     * @return
+     */
+    @Bean
+    Binding binding(){
+        return BindingBuilder.bind(queue())
+                .to(directExchange())
+                .with("key1");
+    }
+}
+```
+
+　　2、通过`RabbitTemplate`发送消息到队列
+
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class MySenderTest {
+    //使用RabbitTemplate发送消息
+    @Autowired
+    RabbitTemplate rabbitTemplate;
+    
+    @Test
+    public void send(){
+        rabbitTemplate.convertAndSend("exchange1","key1","你好");
+    }
+}
+```
+
+* ### 消费者
+
+　　使用`@RabbitListener`注解监听队列：
+
+```java
+@RunWith(SpringRunner.class)
+public class MyConsumer {
+    @RabbitListener(queues = {"queue1"})
+    public void handler1(String msg){
+        System.out.println("msg："+msg);
+    }
+}
+```
+
 ## 五、集成Kafka
 
 ## 六、集成ElasticSearch
