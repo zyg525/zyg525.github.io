@@ -187,7 +187,7 @@ ZSetOperations zSetOperations = redisTemplate.opsForZSet(); //操作zset
 GeoOperations geoOperations = redisTemplate.opsForGeo(); //操作Geo
 ```
 
-## 四、集成RabbitMq
+## 四、集成RabbitMQ
 
 * ### 添加依赖
 
@@ -196,6 +196,18 @@ GeoOperations geoOperations = redisTemplate.opsForGeo(); //操作Geo
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-amqp</artifactId>
 </dependency>
+```
+
+* ### 配置文件
+
+```yml
+spring:
+  rabbitmq:
+    port: 5672
+    host: 192.168.154.130
+    username: test1
+    password: test1
+    virtual-host: /virtualhost1
 ```
 
 * ### 生产者
@@ -212,31 +224,39 @@ public class RabbitmqConfig {
 
     /**
      * 声明队列
-     * @return
      */
     @Bean
     Queue queue(){
-        return new Queue(QUEUE_NAME);
+        return QueueBuilder.durable(QUEUE_NAME)
+                .build();
     }
 
     /**
-     * 声明direct类型交换器
-     * @return
+     * 声明交换器
      */
     @Bean
     DirectExchange directExchange(){
-        return new DirectExchange(EXCHANGE_NAME,true,false);
+        return ExchangeBuilder.directExchange(EXCHANGE_NAME)
+                .durable(true)
+                .build();
     }
 
     /**
      * 绑定队列和交换器，绑定键是key1
-     * @return
      */
     @Bean
     Binding binding(){
         return BindingBuilder.bind(queue())
                 .to(directExchange())
                 .with("key1");
+    }
+    
+    /**
+     * 序列化工具，可以将Java对象自动序列化为JSON并以文本消息传递
+     */
+    @Bean
+    MessageConverter createMessageConverter() {
+        return new Jackson2JsonMessageConverter();
     }
 }
 ```
@@ -273,6 +293,76 @@ public class MyConsumer {
 ```
 
 ## 五、集成Kafka
+
+* ### 添加依赖
+
+```xml
+<dependency>
+    <groupId>org.springframework.kafka</groupId>
+    <artifactId>spring-kafka</artifactId>
+</dependency>
+```
+
+* ### 配置文件
+
+```yml
+spring:
+  kafka:
+    bootstrap-servers: 192.168.154.130:9092 #服务地址
+    producer:
+      retries: 0 #重试次数
+      acks: 1 #应答级别:多少个分区副本备份完成时向生产者发送ack确认(可选0、1、all/-1)
+      batch-size: 16384 #批量大小
+      buffer-memory: 33554432 #生产端缓冲区大小
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer #key序列化器
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer #value序列化器
+
+    consumer:
+      group-id: group1 #默认的消费组ID
+      enable-auto-commit: true #是否自动提交offset
+      auto-commit-interval: 100  #提交offset延时(接收到消息后多久提交offset)
+
+      # earliest:当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
+      # latest:当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，消费新产生的该分区下的数据
+      # none:topic各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer #key反序列化器
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer #value反序列化器
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*' #配合JsonSerializer使用
+```
+
+* ### 生产者
+
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class MySenderTest {
+    //使用KafkaTemplate发送消息
+    @Autowired
+    KafkaTemplate<String,Student> kafkaTemplate;
+    
+    @Test
+    public void kafkaSender(){
+        kafkaTemplate.send("mykafka","1",new Student("张三",30,99)); //Topic、key、value
+    }
+}
+```
+
+* ### 消费者
+
+```java
+@RunWith(SpringRunner.class)
+public class MyConsumer {
+    @KafkaListener(topics = {"mykafka"},groupId = "group1")
+    public void kafkaHandler1(Student student){
+        System.out.println("student="+student);
+    }
+}
+```
 
 ## 六、集成ElasticSearch
 
