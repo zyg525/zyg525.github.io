@@ -17,7 +17,7 @@ tags: Spring
 
 * ### 添加项目依赖
 
-```pom
+```xml
 <!-- Web项目起步依赖 -->
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -133,7 +133,7 @@ mybatis:
 
 　　首先要引入Redis的起步依赖：
 
-```pom
+```xml
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-redis</artifactId>
