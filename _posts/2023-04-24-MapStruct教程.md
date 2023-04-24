@@ -1,6 +1,6 @@
 ---
 title: MapStruct教程
-tags: Java工具
+tags: 开发工具
 ---
 
 　　当我们需要把一个实体类的属性映射到另一个实体类上时，可以使用`BeanUtils.copyProperties()`方法，但是它只能映射同名的属性，而且效率比较低。更好的方法是使用MapStruct。
@@ -79,4 +79,4 @@ public interface StudentMappers {
 
 本文参考：
 
-1、[](https://blog.csdn.net/qq_40194399/article/details/110162124)
+1、<https://blog.csdn.net/qq_40194399/article/details/110162124>
