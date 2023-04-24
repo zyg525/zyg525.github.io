@@ -36,6 +36,16 @@ tags: Spring
 </dependency>
 ```
 
+　　如果使用oracle数据库，需要更换驱动：
+
+```xml
+<dependency>
+    <groupId>com.oracle.database.jdbc</groupId>
+    <artifactId>ojdbc8</artifactId>
+    <version>21.1.0.0</version>
+</dependency>
+```
+
 * ### 配置数据源
 
 　　SpringBoot自带Hikari数据源，配置文件的写法是：
@@ -66,6 +76,17 @@ spring:
 spring:
   datasource:
     type: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceWrapper
+```
+
+　　如果使用oracle数据库，数据源要这么配置：
+
+```yml
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@192.168.154.130:1521:helowin
+    username: zyg1
+    password: 123456
+    driver-class-name: oracle.jdbc.OracleDriver
 ```
 
 * ### 编写映射器
