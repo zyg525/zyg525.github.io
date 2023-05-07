@@ -376,21 +376,37 @@ spring:
 public class Student {...}
 ```
 
-## 七、Spring中的设计模式
+## 七、设计模式在Java中的应用
 
-* ### 工厂模式
+* ### 创建型模式
 
-　　Spring使用工厂模式，可以通过BeanFactory或ApplicationContext来创建Bean对象。
+* #### 1、工厂模式
 
-* ### 单例模式
+　　1、Spring容器用到了工厂模式，创建Bean对象的方法是`BeanFactory.getBean(Class var)`；
 
-　　Spring中Bean的默认作用域就是单例的。
+　　2、MyBatis中创建SqlSession时也用到了工厂模式，创建SqlSession对象的方法是`SqlSessionFactory.openSession()`；
 
-* ### 代理模式
+　　3、JDBC中创建数据库连接Connection时也用到了工厂模式，创建Connection对象的方法是`DriverManager.getConnection(String url,String username,String password)`;
 
-　　Spring中的AOP就是通过代理模式(动态代理)实现的。
+* #### 2、建造者模式
 
-* ### 适配器模式
+　　1、JDK中的StringBuilder就用到了建造者模式，可以链式调用`append`方法，并且对于不同的调用顺序创建出不同的对象。
+
+* #### 3、单例模式
+
+　　1、Spring容器中的Bean默认都是单例的，即对于同一个容器，里面的Bean实例是唯一的。
+
+* ### 结构型模式
+
+* #### 1、代理模式
+
+　　1、Spring中的AOP就用到了动态代理。
+
+* #### 2、装饰者模式
+
+　　1、在JDK的IO中大量用到了装饰者模式，比如字符输入流`InputStreamReader`实际上是通过所持有的字节输入流`InputStream`来读取字节信息的，然后再将字节按照编码转换为字符。
+
+* #### <font color='red'>3、适配器模式</font>
 
 　　SpringMVC中使用到了适配器模式。在SpringMVC中，处理器(Handler)可能有多种类型，比如Controller、Servlet、HttpRequestHandler等等，不同类型的处理器有不同的执行方式，最简单的实现方法就是用`if...else`多重判断+`instanceof`直接执行：
 
@@ -414,17 +430,15 @@ ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Ob
 
 　　根据不同类型的Handler，这4种适配器对`supports()`和`handle()`方法有不同的实现。当要执行一个Handler时，首先会根据`supports()`方法来为它选择一个合适的适配器，然后再统一通过适配器的`handler()`方法执行。这样，即使新增一种Handler，也无需修改原代码，只需要新增一个适配器即可。
 
-* ### 模板方法
+* ### 行为型模式
 
-　　<font color='red'>JdbcTemplate。</font>
+* #### 1、迭代器模式
 
-* ### 装饰者模式
+　　1、JDK的集合类中就用到了迭代器模式，比如`List`中就定义了`iterator()`方法，用于返回遍历集合的`Iterator`对象。
 
-　　<font color='red'>DataSource。</font>
+* #### 2、模板方法模式
 
-* ### 观察者模式
-
-　　Spring的监听器(Listener)使用了观察者模式。
+　　1、各种和网络连接相关的`*Template`类都用到了模板方法模式，比如`JdbcTemplate、RedisTemplate、AmqpTemplate`等，这些类会将创建连接、释放连接等公共操作抽取出来放在父类中，让子类去实现非公共操作。
 
 ## 八、SpringCloud
 
