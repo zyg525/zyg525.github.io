@@ -9,13 +9,15 @@ tags: Java面试题
 
 　　**IOC(Inversion Of Control，控制反转)**，即将创建对象的操作权交给Spring容器，调用者不需要手动通过new关键字创建对象，只需要从容器中获取创建好的对象即可。
 
-　　**DI(Dependency Injection，依赖注入)**，指的是容器在创建对象时，将该对象依赖的其它对象注入给它。依赖注入有两种方式：**setter方法注入和构造方法注入**。
+　　**DI(Dependency Injection，依赖注入)**，指的是容器在实例化对象时，将该对象依赖的其它对象注入给它。依赖注入有两种方式：**setter方法注入和构造方法注入**。
 
-　　IOC最重要的作用是将对象的创建和使用分离开，即**解耦**，并且降低了代码量。
+　　**IOC最重要的作用是将对象的创建和使用分离开，即解耦，并且降低了代码量**。
 
 * ### ApplicationContext和BeanFactory的区别是什么？
 
-　　ApplicationContext在创建容器对象后，就创建好了所有Bean，而BeanFactory只有当调用`getBean()`方法时才会创建Bean，即懒加载。
+　　1、`BeanFactory`是类的通用工厂，它面向Spring框架本身，可以创建并管理各种对象；`ApplicationContext`是BeanFactory的子类，它面向Spring框架的使用者，提供了更多实际的功能。
+
+　　2、`ApplicationContext`在创建容器对象后，就创建好了所有Bean，而`BeanFactory`只有当调用`getBean()`方法时才会创建Bean，即延迟初始化。
 
 * ### Bean的作用域有哪些？
 
@@ -36,7 +38,7 @@ tags: Java面试题
 
 * ### 什么是AOP？
 
-　　**AOP(Aspect Oriented Programming，面向切面编程)**，指的是把系统分解为不同的关注点(即切面，Aspect)，然后将一些类似于日志、事务等重复使用的代码抽取到独立的模块中，最后将这些代码自动织入到切面中。AOP减少了代码量，让业务逻辑变得更加清晰。
+　　**AOP(Aspect Oriented Programming，面向切面编程)**，指的是把业务逻辑中一些相同的代码抽取到独立的模块中，让业务逻辑更加清爽，比如日志和数据校验。AOP减少了代码量，降低了业务逻辑和通用逻辑之间的耦合性，让业务逻辑变得更加清晰。
 
 * ### 解释一下AOP的几个专用术语
 
@@ -90,17 +92,13 @@ tags: Java面试题
 public method(..) {...} //事务方法必须是public类型
 ```
 
-* ### 介绍一下数据库事务的隔离级别
+* ### 事务失效的场景有哪些？
 
-　　数据库事务有4种隔离级别，从低到高分别是：
+　　1、非public类型方法不支持事务、static方法不支持事务；
 
-　　1、**READ UNCOMMITTED(读未提交)**：顾名思义，即事务A可能会读取到事务B中还没有提交的数据，即**脏读**。这种隔离级别的本质是**允许写入时读取**。
+　　2、在类中直接调用本类的其它方法，其它方法中的事务不会生效。原因是其它方法没有通过Spring容器中的对象进行调用；
 
-　　2、**READ COMMITTED(读已提交)**：事务A不会读取到事务B中还没有提交的数据，但是如果事务A分别在事务B的前后进行读取，两次读取的数据会不一致，即**不可重复读**。这种隔离级别的本质是**不允许写入时读取，但是允许读取时写入**。
-
-　　3、**REPEATABLE READ(可重复读，mysql默认隔离级别)**：事务A不会读取到事务B中还没有提交的数据，并且如果事务A分别在事务B的前后进行读取，两次读取的数据是一致的，事务B的修改对事务A不可见，但是事务A提交前后读取到的数据会不一致，即**幻读**。这种隔离级别的本质是**不允许写入时读取，允许读取时写入，但是其它事务的写入对当前事务不可见**。
-
-　　4、**SERIALIZABLE(序列化)**：这是最高的隔离级别，可以避免脏读、不可重复读、幻读。这种隔离级别的本质是**不允许写入时读取，也不允许读取时写入**。
+　　3、事务传播行为错误、事务声明异常错误。
 
 ## 四、SpringMVC
 
@@ -130,7 +128,7 @@ public method(..) {...} //事务方法必须是public类型
 
 　　2、在starter的自动配置包下，可能会存在一个`/META-INF/spring.factories`文件，该文件中会有一个名为`org.springframework.boot.autoconfigure.EnableAutoConfiguration`的属性，属性值就是一个个默认的自动配置类；
 
-　　3、SpringBoot的启动类上有一个`@SpringBootApplication`注解，这个注解中又定义了一个`@EnableAutoConfiguration`注解，它的作用就是开启自动配置，它会自动扫描项目中需要的默认配置类，然后交给IOC容器去装配。假如开发者想修改默认配置，可以在`application.properties/yml`文件中进行修改，默认配置类会自动读取文件中的配置信息。
+　　3、SpringBoot的启动类上有一个`@SpringBootApplication`注解，这个注解中又定义了一个`@EnableAutoConfiguration`注解，它的作用就是开启自动配置，它会自动扫描`spring.factories`中需要的默认配置类，然后交给IOC容器去装配。假如开发者想修改默认配置，可以在`application.properties/yml`文件中进行修改，默认配置类会自动读取文件中的配置信息。
 
 ## 六、常用注解
 
@@ -138,7 +136,7 @@ public method(..) {...} //事务方法必须是public类型
 
 　　1、**`@Component`**：标注在类上，IOC容器会创建、维护该类的实例。`@Repository`、`@Service`、`@Controller`和`@Component`的作用一样，只是分别用于MVC开发模式中的dao层、service层、controller层。
 
-　　2、**`@Scope`**：和`@Component`或者`@Bean`配合使用，作用是指定Bean的作用域。
+　　2、**`@Scope`**：和`@Component`或者`@Bean`配合使用，作用是设置Bean的作用域。
 
 ```java
 @Component
@@ -176,7 +174,7 @@ private Teacher teacher;
 
 　　6、**`@Resource`**：和`@Autowired`+`@Qualifier`的作用相同，区别是`@Resource`由JDK提供，而另外两个由Spring提供。
 
-　　7、**`@ComponentScan`**：标注在类上，当通过该类创建IOC容器时，会自动扫描该类所在包以及所有子包中的Bean，然后注册到容器中。也可以自行指定要扫描的包。
+　　7、**`@ComponentScan`**：标注在配置类上，当通过该类创建IOC容器时，会自动扫描该类所在包以及所有子包中的Bean，然后注册到容器中。也可以自行指定要扫描的包。
 
 　　8、**`@Configuration`**：标注在类上，它不但拥有`@Component`的功能，而且被标注的类会被声明为配置类。
 
@@ -200,7 +198,7 @@ Student getStudent() {
 @Before("@annotation(userLog)") //向所有Bean中标注了UserLog注解的方法织入通知
 ```
 
-　　3、**`@EnableAspectAutoProxy`**：标注在类上，当通过该类创建IOC容器时，会自动查找切面类，并将通知方法织入到特定的位置。可以指定实现AOP的代理方式。
+　　3、**`@EnableAspectAutoProxy`**：标注在配置类上，当通过该类创建IOC容器时，会自动查找切面类，并将通知方法织入到特定的位置。可以指定实现AOP的代理方式。
 
 ```java
 @EnableAspectAutoProxy(proxyTargetClass = true) //true代表使用CGLIB动态代理，false(默认)代表使用JDK动态代理

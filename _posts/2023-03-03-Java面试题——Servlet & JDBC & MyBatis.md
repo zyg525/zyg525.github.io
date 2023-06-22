@@ -81,13 +81,13 @@ tags: Java面试题
 
 　　1、创建SqlSessionFactoryBuilder；
 
-　　2、通过SqlSessionFactoryBuilder创建SqlSessionFactory；
+　　2、通过SqlSessionFactoryBuilder**创建SqlSessionFactory**；
 
-　　3、通过SqlSessionFactory创建SqlSession；
+　　3、通过SqlSessionFactory**创建SqlSession**；
 
-　　4、通过SqlSession获取Mapper代理对象；
+　　4、通过SqlSession**获取Mapper代理对象**；
 
-　　5、通过Mapper代理对象来操作数据库；
+　　5、通过Mapper代理对象来**操作数据库**；
 
 　　6、通过SqlSession提交事务。
 
@@ -96,6 +96,31 @@ tags: Java面试题
 　　SQL语句标签：**select、update、insert、delete**。
 
 　　动态SQL标签：**（trim、where、set，去除多余符号）、(if、choose-when-otherwise，条件判断)、(foreach，遍历集合)、(bind，拼接字符串)**。
+
+　　常见用法有：
+
+```xml
+<where>
+    <choose>
+        <when test="id==1"> and id=1</when>
+        <when test="id==2"> and id=2</when>
+        <otherwise> and id=3</otherwise>
+    </choose>
+</where>
+```
+
+```xml
+<set>
+    <if test="name != null">name=#{name},</if>
+    <if test="age != null">age=#{age},</if>
+</set>
+```
+
+```xml
+<foreach collection="list" item="student" index="index" open="(" separator="," close=")">
+    #{student.id}
+</foreach>
+```
 
 * ### #{}和${}的区别是什么？
 
