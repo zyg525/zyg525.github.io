@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 home-title: ZYG的博客
 description: 温故而知新
 permalink: /categories.html
@@ -10,13 +10,13 @@ permalink: /categories.html
 {% assign uncategory_posts = site.posts | where: "categories", empty | sort: "date" | reverse %}
 {% assign uncategory_posts_num = uncategory_posts | size %}
 
-<h2>Categories</h2>
+<h2 style="font-size:30px;color:rgb(39, 183, 245)">分类</h2>
 
 <p>本站共有 {{ site.posts | size }} 篇文章{% if category_posts_num > 0 %}，其中有 {{ category_posts_num }} 个类别{% endif %}{% if uncategory_posts_num > 0 %}，{{ uncategory_posts_num }} 篇未分类{% endif %}</p>
 
 {% for category in site.categories %}
   {% assign category_name = category | first %}
-  <h3 class="category">{{ category[0] }}</h3>
+  <h3 class="category" style="color:rgb(39, 183, 245)">{{ category[0] }}</h3>
   <ul>
   {% for post in site.categories[category_name] %}
     <li>
@@ -39,7 +39,7 @@ permalink: /categories.html
 {% endfor %}
 
 {% if uncategory_posts_num > 0 %}
-  <h3 class="category">Uncategorized</h3>
+  <h3 class="category" style="color:rgb(39, 183, 245)">Uncategorized</h3>
   <ul>
   {% for post in uncategory_posts %}
     <li>

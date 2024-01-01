@@ -10,19 +10,19 @@
             </div>
             <div class="level">
                 <div class="level-item">
-                    <p class="heading">Posts</p>
+                    <p class="heading" style="font-size:20px">历史</p>
                     <a href="{{ "/archives.html" | prepend: site.baseurl }}">
                         <p class="title">{{ site.posts | size }}</p>
                     </a>
                 </div>
                 <div class="level-item">
-                    <p class="heading">Categories</p>
+                    <p class="heading" style="font-size:20px">分类</p>
                     <a href="{{ "/categories.html" | prepend: site.baseurl }}">
                         <p class="title">{{ site.categories | size }}</p>
                     </a>
                 </div>
                 <div class="level-item">
-                    <p class="heading">Tags</p>
+                    <p class="heading" style="font-size:20px">标签</p>
                     <a href="{{ "/tags.html" | prepend: site.baseurl }}">
                         <p class="title">{{ site.tags | size }}</p>
                     </a>
@@ -42,6 +42,16 @@
             </ul>
             {% endif %}
         </section>
+		
+    {% if site.search %}
+    <div class="search-card">
+        <input id="search_input" type="text" placeholder="Search..." autocomplete="off">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-search"></use>
+        </svg>
+        <div class="search_result"></div>
+    </div>
+    {% endif %}
 
         {% if site.recommend-tags and site.tags.size>0 %}
         {% assign max_tag_count = 0 %}
@@ -106,14 +116,6 @@
 
     </div>
 
-    {% if site.search %}
-    <div class="search-card">
-        <input id="search_input" type="text" placeholder="Search..." autocomplete="off">
-        <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-search"></use>
-        </svg>
-        <div class="search_result"></div>
-    </div>
-    {% endif %}
+
 
 </aside>

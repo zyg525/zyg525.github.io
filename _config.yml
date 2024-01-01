@@ -32,12 +32,20 @@ pwa:
 language: zh-cn
 
 # Navigation links
+#nav:
+#  home: '/'
+#  blog: '/blog/index.html'
+#  archives: '/archives.html'
+#  tags: '/tags.html'
+#  about:   
+#    RSS: '/feed.xml'
+    
 nav:
-  home: '/'
-  blog: '/blog/index.html'
-  archives: '/archives.html'
-  tags: '/tags.html'
-  about:   
+  首页: '/'
+  #blog: '/blog/index.html'
+  历史: '/archives.html'
+  标签: '/tags.html'
+  关于:   
     RSS: '/feed.xml'
 
 # Gray for the whole site 全站灰色
@@ -58,7 +66,7 @@ footer:
 # Author 配置博主信息
 author: 'ZYG'
 nickname: 'ZYG'
-bio: 'Java后端开发'
+bio: 
 avatar: '/assets/img/cat.jpeg'
 
 # Search
@@ -236,4 +244,5 @@ premonition:
       default_title: 'Error'
 
 # Plugins
+#plugins: [jekyll-paginate]
 plugins: [jekyll-paginate-v2, jekyll-feed, jekyll-sitemap, premonition, h2o-ac-jekyll-extlinks]

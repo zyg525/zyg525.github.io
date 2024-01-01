@@ -10,7 +10,7 @@ cover_author: 'inma santiago'
 cover_author_link: 'https://unsplash.com/@inmasantiago'
 tags: 
 - test
-pin: true
+pin: false
 ---
 
 ## 前言

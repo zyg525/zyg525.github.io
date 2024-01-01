@@ -19,7 +19,7 @@ permalink: /archives.html
   {% assign total_size = total_size | plus:post_size %}
 {% endfor %}
 
-<h2>Archives</h2>
+<h2 style="font-size:30px;color:rgb(242,159,5)">历史文章</h2>
 
 <p>本站共有 {{ site.posts | size }} 篇文章{% if pin_posts_num > 0 %}，其中有 {{pin_posts_num}} 篇置顶文章{% endif %}，总计 {% if total_size < 1000 %} {{ total_size }} {% else %} {{ total_size | divided_by: 1000.0 | round: 1 }}k {% endif %}字</p>
 
@@ -54,7 +54,7 @@ permalink: /archives.html
     {% if year != nyear %}
       {% assign nyear = year %}
       </ul>
-      <h3 class="year">{{ post.date | date: '%Y' }}
+      <h3 class="year" style="color:rgb(242,159,5)">{{ post.date | date: '%Y' }}
         <span class="icon-item">
           <svg class="icon animal" aria-hidden="true">
             <use xlink:href="#icon-{{ ssyears[animal] }}"></use>

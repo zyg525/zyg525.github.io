@@ -1,9 +1,9 @@
 ---
 layout: categories
-home-title: Welcome to zhonger's blog!
-description: Writing, writing, writing ...
+home-title: ZYG的博客
+description: 温故而知新
 permalink: /categories.html
-cover: 'https://images.unsplash.com/photo-1649771482867-21eaffe6fcd0'
-cover_author: 'Colin + Meg'
-cover_author_link: 'https://unsplash.com/@colinandmeg'
+cover: 
+cover_author: 
+cover_author_link: 
 ---
