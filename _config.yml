@@ -2,9 +2,9 @@
 version: 1.1.14
 
 # Site settings 配置站点
-title: 'zyg'
-description: '记录&分享'
-keyword: 'zyg, zyg的博客, java, 后端'
+title: 'ZYG'
+description: '温故而知新'
+keyword: ''
 url: '' # your host
 
 # when build blog on server, if you don't need baseurl, you should leave this value blank.
@@ -49,17 +49,17 @@ formats:
   time: 0   
 
 # Favicon
-favicon: "/favicon.ico"
+favicon: "/cat2.ico"
 
 # Footer
 footer:
   since: 2015
 
 # Author 配置博主信息
-author: 'zyg'
-nickname: 'zyg'
+author: 'ZYG'
+nickname: 'ZYG'
 bio: 'Java后端开发'
-avatar: '/assets/img/tkzc.png'
+avatar: '/assets/img/cat.jpeg'
 
 # Search
 search: true
@@ -80,7 +80,7 @@ comments:
 mathjax: true
 
 # Share
-social-share: true
+social-share: false
 social-share-items: ['wechat', 'weibo', 'douban', 'twitter']
 
 # theme color 主题皮肤

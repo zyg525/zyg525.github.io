@@ -1,7 +1,7 @@
 ---
 layout: links
-home-title: H2O-ac theme for Jekyll
-description: zyg的博客
+home-title: ZYG的博客
+description: 温故而知新
 comments:
   waline: true
 ---
