@@ -6,4 +6,5 @@ permalink: /categories.html
 cover: 
 cover_author: 
 cover_author_link: 
+title: 分类
 ---

@@ -4,6 +4,7 @@ home-title: ZYG的博客
 description: 温故而知新
 permalink: 
 cover: 
+title: 首页
 ---
 
 

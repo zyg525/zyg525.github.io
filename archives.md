@@ -6,4 +6,5 @@ permalink: /archives.html
 cover: 
 cover_author: 
 cover_author_link: 
+title: 历史
 ---
