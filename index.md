@@ -9,6 +9,10 @@ title: 首页
 
 
 
+<audio controls>
+  <source src="/assets/audio/进步的小曲.mp3" type="audio/mp3">
+</audio>
+
 ## 《沁园春·雪》
 江山如此多娇，引无数英雄竞折腰。
 
