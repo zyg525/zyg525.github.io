@@ -9,11 +9,16 @@ title: 首页
 
 
 
-<audio controls>
+## 进步的小曲🎵
+
+<audio controls loop>
   <source src="/assets/audio/进步的小曲.mp3" type="audio/mp3">
 </audio>
 
+
+
 ## 《沁园春·雪》
+
 江山如此多娇，引无数英雄竞折腰。
 
 惜秦皇汉武，略输文采；唐宗宋祖，稍逊风骚。一代天骄，成吉思汗，只识弯弓射大雕。
