@@ -42,11 +42,12 @@ language: zh-cn
     
 nav:
   首页: '/'
+  分类: '/categories.html'
   #blog: '/blog/index.html'
   历史: '/archives.html'
   标签: '/tags.html'
-  关于:   
-    RSS: '/feed.xml'
+  #关于:   
+    #RSS: '/feed.xml'
 
 # Gray for the whole site 全站灰色
 gray: false
