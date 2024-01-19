@@ -2,6 +2,7 @@
 layout: post
 title: Windows本地部署Jekyll博客
 tags: 教程
+layout: post
 ---
 
 

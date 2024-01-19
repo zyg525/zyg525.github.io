@@ -1,6 +1,7 @@
 ---
 title: hashCode()与equals()
 tags: Java基础
+layout: post
 ---
 
 * ### hashCode()方法

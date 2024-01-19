@@ -1,6 +1,7 @@
 ---
 title: Java面试题——Kafka
 tags: Java面试题
+layout: post
 ---
 
 * ### 1、介绍一下Kafka的架构

@@ -1,6 +1,7 @@
 ---
 title: Java面试题——Redis
 tags: Java面试题
+layout: post
 ---
 
 ## 基础

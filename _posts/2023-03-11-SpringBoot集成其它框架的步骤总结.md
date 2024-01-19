@@ -1,6 +1,7 @@
 ---
 title: SpringBoot集成其它框架的步骤总结
 tags: Spring
+layout: post
 ---
 
 　　本文基于`SpringBoot-2.7.5`，项目父依赖是：
@@ -189,10 +190,10 @@ public class MyRedisConfig {
     @Bean
     RedisTemplate redisTemplate(LettuceConnectionFactory lettuceConnectionFactory) {
         RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<>();
-		redisTemplate.setKeySerializer(new StringRedisSerializer());
-		redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
-		redisTemplate.setConnectionFactory(connectionFactory);
-		return redisTemplate;
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        redisTemplate.setConnectionFactory(connectionFactory);
+        return redisTemplate;
     }
 }
 ```

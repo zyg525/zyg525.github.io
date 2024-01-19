@@ -1,6 +1,7 @@
 ---
 title: Java面试题——MySQL
 tags: Java面试题
+layout: post
 ---
 
 ## 基础

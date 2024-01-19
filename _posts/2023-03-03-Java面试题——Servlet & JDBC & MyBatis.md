@@ -1,6 +1,7 @@
 ---
 title: Java面试题——Servlet & JDBC & MyBatis
 tags: Java面试题
+layout: post
 ---
 
 ## 一、Servlet

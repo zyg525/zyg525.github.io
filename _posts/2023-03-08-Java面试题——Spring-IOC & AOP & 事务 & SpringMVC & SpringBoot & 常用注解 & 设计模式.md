@@ -1,6 +1,7 @@
 ---
 title: Java面试题——Spring-IOC & AOP & 事务 & SpringMVC & SpringBoot & 常用注解 & 设计模式
 tags: Java面试题
+layout: post
 ---
 
 ## 一、IOC
@@ -114,7 +115,7 @@ public method(..) {...} //事务方法必须是public类型
 
 　　执行流程图如下所示：
 
-![SpringMVC执行流程](/assets/img/java/SpringMVC执行流程.png)
+<img src="./../assets/img/java/SpringMVC执行流程.png" alt="SpringMVC执行流程" style="zoom:67%;" />
 
 ## 五、SpringBoot
 

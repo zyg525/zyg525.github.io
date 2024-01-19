@@ -985,6 +985,7 @@ a.extlinks::after {
 	margin: 0 auto
 }
 
+
 .post-wrapper {
 	width: 695px
 }
@@ -1183,16 +1184,16 @@ a.extlinks::after {
 }
 
 .post-content .container {
-	width: 1080px;
-	margin: 0 auto;
+	width: 98%;
+	margin: 0px 0px 0px 0px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between
 }
 
 .post-content .container .contents {
-	width: 695px;
-	padding: 30px
+	width: 100%;
+	padding: 0px 0px 0px 0px;
 }
 
 .post-content .interest {
@@ -1204,9 +1205,9 @@ a.extlinks::after {
 
 .markdown-body {
 	font-family: "LXGW WenKai Screen",-apple-system,Verdana,"PingFang SC","Helvetica Neue",Arial,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
-	width: 100%;
+	width: 1200px;
 	box-sizing: border-box;
-	padding: 0 0 32px
+	padding: 0px 20px 0px 80px
 }
 
 .markdown-body .highlight {
@@ -1899,14 +1900,16 @@ a.extlinks::after {
 }
 
 .markdown-body .table-area {
-	overflow: auto
+	width: 100%;
+	overflow: auto;
 }
 
 .markdown-body .table-area table {
 	word-break: keep-all;
 	word-wrap: break-word;
 	text-overflow: ellipsis;
-	white-space: nowrap
+	width: 100%
+	/*white-space: nowrap*/
 }
 
 .markdown-body .post-copyright {
@@ -2056,16 +2059,16 @@ a.extlinks::after {
 }
 
 .table-of-contents {
-	padding: 20px;
-	border-left: 2px solid #efefef;
-	width: 280px;
+	padding: 0 10px 0 10px;
+	border-left: 4px solid #efefef;
+	width: 25%;
 	position: -webkit-sticky;
 	position: sticky;
 	top: 100px;
 	margin-bottom: 80px;
 	height: fit-content;
 	overflow: auto;
-	max-height: 450px
+	max-height: 600px
 }
 
 .table-of-contents h2 {

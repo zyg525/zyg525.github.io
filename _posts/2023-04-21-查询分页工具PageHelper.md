@@ -1,6 +1,7 @@
 ---
 title: 查询分页工具PageHelper
 tags: 开发工具
+layout: post
 ---
 
 　　本文基于SpringBoot-2.7.0和PageHelper-1.4.6。
