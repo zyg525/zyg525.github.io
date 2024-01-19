@@ -24,7 +24,7 @@ layout: default
         {% for i in (1..max_tag_count) reversed %}
             {% for tag in site.tags %}
                 {% if tag[1].size == i %}
-                    <a href="{{ page.url }}.html#{{ tag[0] }}" class="tag">
+                    <a href="{{ page.url }}.html#{{ tag[0] }}" class="tag" target="_black">
                     {{ tag[0] }}<sup>{{ i }}</sup>
                     </a>
                 {% endif %}
@@ -37,7 +37,7 @@ layout: default
                     <li>
                         <span class="tag-name" id="{{ tag[0] }}">「{{ tag[0] }}」</span>
                         {% for post in tag[1] %}
-                        <a class="tag-post" href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.title }}</a>
+                        <a class="tag-post" href="{{ post.url | relative_url }}" title="{{ post.title }}" target="_black">{{ post.title }}</a>
                         {% endfor %}
                     </li>
                 {% endif %}

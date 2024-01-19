@@ -31,7 +31,7 @@ permalink: /categories.html
             {{ post.date | date: "%Y年%-m月%-d日"  }}
           {% endcase %}
         </span>
-        <a href="{{ post.url | prepend: site.baseurl }}"> {{ post.title }} </a>
+        <a href="{{ post.url | prepend: site.baseurl }}" target="_black"> {{ post.title }} </a>
       </p>
     </li>
   {% endfor %}
@@ -54,7 +54,7 @@ permalink: /categories.html
             {{ post.date | date: "%Y年%-m月%-d日"  }}
           {% endcase %}
         </span>
-        <a href="{{ post.url | prepend: site.baseurl }}"> {{ post.title }} </a>
+        <a href="{{ post.url | prepend: site.baseurl }}" target="_black"> {{ post.title }} </a>
       </p>
     </li>
   {% endfor %}

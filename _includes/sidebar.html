@@ -11,19 +11,19 @@
             <div class="level">
                 <div class="level-item">
                     <p class="heading" style="font-size:20px">历史</p>
-                    <a href="{{ "/archives.html" | prepend: site.baseurl }}">
+                    <a href="{{ "/archives.html" | prepend: site.baseurl }}" target="_blank">
                         <p class="title">{{ site.posts | size }}</p>
                     </a>
                 </div>
                 <div class="level-item">
                     <p class="heading" style="font-size:20px">分类</p>
-                    <a href="{{ "/categories.html" | prepend: site.baseurl }}">
+                    <a href="{{ "/categories.html" | prepend: site.baseurl }}" target="_blank">
                         <p class="title">{{ site.categories | size }}</p>
                     </a>
                 </div>
                 <div class="level-item">
                     <p class="heading" style="font-size:20px">标签</p>
-                    <a href="{{ "/tags.html" | prepend: site.baseurl }}">
+                    <a href="{{ "/tags.html" | prepend: site.baseurl }}" target="_blank">
                         <p class="title">{{ site.tags | size }}</p>
                     </a>
                 </div>
@@ -70,7 +70,7 @@
                         {% if pnum > site.recommend-condition-size %}
                             {% break %}
                         {% endif %}
-                        <a href="{{ "tags.html#" | append: tag[0] | relative_url }}" class="tag">{{ tag[0] }}<sup>{{ i }}</sup></a>
+                        <a href="{{ "tags.html#" | append: tag[0] | relative_url }}" class="tag" target="_blank">{{ tag[0] }}<sup>{{ i }}</sup></a>
                     {% endif %}
                 {% endfor %}
                 {% if pnum > site.recommend-condition-size %}
@@ -84,7 +84,7 @@
         <section class="tags-card">
             <div class="links" rel="links">Links</div>
             {% for link in site.links %}
-                <a href="{{ link[1] }}" target="_blank" class="tag" rel="noreferrer"> {{ link[0] }} </a>
+                <a href="{{ link[1] }}" target="_blank" class="tag" rel="noreferrer" target="_blank"> {{ link[0] }} </a>
             {% endfor %}
         </section>
         {% endif %}
@@ -96,7 +96,7 @@
                 {% for post in posts limit:3 %}
                     <li>
                         <p class="latest-title">
-                            <a href="{{ post.url | prepend: site.baseurl }}"> {{ post.title }} </a>
+                            <a href="{{ post.url | prepend: site.baseurl }}" target="_blank"> {{ post.title }} </a>
                         </p>
                         <span class="latest-date">
                             {% case site.formats.time %}
