@@ -460,3 +460,8 @@ ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Ob
 　　6、**消息总线**：Bus。
 
 　　7、**分布式配置中心**：Config。
+
+
+
+
+
