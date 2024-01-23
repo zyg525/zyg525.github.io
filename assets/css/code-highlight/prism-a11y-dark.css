@@ -24,15 +24,17 @@ pre[class*=language-] {
 	border-radius: .3em
 }
 
-:not(pre)>code[class*=language-],pre[class*=language-] {
+:not(pre)>pre[class*=language-] {
 	background: #2b2b2b
 }
 
 :not(pre)>code[class*=language-] {
 	padding: .1em;
 	border-radius: .3em;
-	white-space: normal
+	white-space: normal;
+	background: #ffffff /*#e5e5e5*/
 }
+
 
 .token.cdata {
 	color: #00b300;
@@ -98,10 +100,6 @@ pre[class*=language-] {
 
 .token.entity {
 	cursor: help
-}
-
-:not(pre)>code[class="highlighter-rouge language-plaintext"] {
-	background: #ffffff /*#e5e5e5*/
 }
 
 

@@ -30,6 +30,10 @@ a {
 	transition: .2s
 }
 
+th, td {
+	border: 2px solid #ddd;
+}
+
 ::selection {
 	background-color: rgba(0,147,254,.2)
 }
