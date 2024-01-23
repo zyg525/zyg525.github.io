@@ -1936,7 +1936,9 @@ a.extlinks::after {
 }
 
 .markdown-body .language-plaintext {
-	color: #d2691e
+	color: #00b300;
+	font-weight: bold;
+	font-size: 16px
 }
 
 .modal {

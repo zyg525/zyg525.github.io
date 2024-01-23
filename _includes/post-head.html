@@ -48,7 +48,8 @@
     {% if prisms1 contains site.prism.theme %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/themes/prism-{{site.prism.theme}}.min.css" />
     {% else if prisms2 contains site.prism.theme %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-{{site.prism.theme}}.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-{{site.prism.theme}}.min.css" /> -->
+	<link rel="stylesheet" href="../assets/css/code-highlight/prism-{{site.prism.theme}}.css" />
     {% else %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/themes/prism.min.css" />
     {% endif %}

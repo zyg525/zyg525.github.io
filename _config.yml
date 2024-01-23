@@ -172,7 +172,7 @@ kramdown:
 # Support all offical and extended themes
 # Please visit https://prismjs.com and https://github.com/PrismJS/prism-themes/tree/master/themes to check the supported theme names
 prism:
-  theme: one-light
+  theme: a11y-dark #one-light, one-dark, a11y-dark
   line_numbers: true
 
 # RSS
