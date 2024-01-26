@@ -45,6 +45,10 @@ pre[class*=language-] {
 	font-weight: bold
 }
 
+.token.annotation.punctuation {
+	color: #ffff00;
+}
+
 .token.doctype,.token.prolog {
 	color: #d4d0ab
 }
