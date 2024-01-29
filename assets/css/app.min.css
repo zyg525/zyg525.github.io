@@ -1913,7 +1913,7 @@ a.extlinks::after {
 	word-break: keep-all;
 	word-wrap: break-word;
 	text-overflow: ellipsis;
-	width: 100%
+	width: 100%;
 	/*white-space: nowrap*/
 }
 
