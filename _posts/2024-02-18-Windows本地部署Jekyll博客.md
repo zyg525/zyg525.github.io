@@ -2,7 +2,7 @@
 layout: post
 title: Windows本地部署Jekyll博客
 tags: 安装教程
-categories: 安装教程
+categories: 十、安装教程
 ---
 
 

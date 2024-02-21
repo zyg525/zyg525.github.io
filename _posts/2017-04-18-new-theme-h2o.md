@@ -3,7 +3,7 @@ layout: post
 title: 'H2O theme for Jekyll'
 subtitle: '或许是最漂亮的Jekyll主题'
 date: 2017-04-18
-categories: tech
+categories: 
 author: kaeyleo
 cover: 'https://images.unsplash.com/photo-1485470733090-0aae1788d5af'
 cover_author: 'Daniel Leone'
