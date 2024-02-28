@@ -9,9 +9,9 @@ layout: post
 
 ## 一、SpringMVC的原理
 
-### 创建一个简单的SpringMVC项目
+### 第一个SpringMVC程序
 
-　　SpringMVC项目中的主要组件包括`Filter`(过滤器)、`Interceptor`(拦截器)、`Controller`(控制器)、`ExceptionHandler`(异常处理器)。下面编写一个基本的SpringMVC项目，并在项目中使用这些组件。
+　　SpringMVC程序中的主要组件包括`Filter`(过滤器)、`Interceptor`(拦截器)、`Controller`(控制器)、`ExceptionHandler`(异常处理器)。下面编写一个基本的SpringMVC程序，并在程序中使用这些组件。
 
 　　步骤：
 
