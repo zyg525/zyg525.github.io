@@ -7,7 +7,7 @@ layout: post
 
 
 
-## 一、SpringMVC的原理
+## 一、SpringMVC原理
 
 ### 第一个SpringMVC程序
 
