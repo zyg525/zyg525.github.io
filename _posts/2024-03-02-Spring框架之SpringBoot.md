@@ -167,3 +167,167 @@ mydatasource:
   password: 123456
 ```
 
+## 二、SpringBoot打包
+
+### Maven打包插件
+
+　　Spring Boot自带一个简单的`spring-boot-maven-plugin`插件用来打包，我们只需要在`pom.xml`中加入以下配置：
+
+```xml
+<project ...>
+    ...
+    <build>
+        <!-- 生成的包名 -->
+        <finalName>MyApp</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+
+　　无需任何配置，Spring Boot的这款插件会自动定位应用程序的入口Class，我们执行以下Maven命令即可打包：
+
+```shell
+mvn clean package
+```
+
+　　以`springboot-exec-jar`项目为例，打包后我们在`target`目录下可以看到两个jar文件：
+
+```
+springboot-exec-jar-1.0-SNAPSHOT.jar
+springboot-exec-jar-1.0-SNAPSHOT.jar.original
+```
+
+　　其中，`springboot-exec-jar-1.0-SNAPSHOT.jar.original`是Maven标准打包插件打的jar包，它只包含我们自己的Class，不包含依赖，而`springboot-exec-jar-1.0-SNAPSHOT.jar`是Spring Boot打包插件创建的包含依赖的jar，可以直接运行：
+
+```shell
+java -jar springboot-exec-jar-1.0-SNAPSHOT.jar
+```
+
+　　这样，部署一个Spring Boot应用就非常简单，无需预装任何服务器，只需要上传jar包即可。
+
+### jar包瘦身工具
+
+* #### 原理
+
+　　jar包虽然可以直接运行，但缺点是包太大了，动不动几十MB，在网速不给力的情况下，上传服务器非常耗时。并且，其中我们引用到的Tomcat、Spring和其他第三方组件，只要版本号不变，这些jar就相当于每次都重复打进去，再重复上传了一遍。所以问题来了：如何只打包我们自己编写的代码，同时又自动把依赖包下载到某处，并自动引入到classpath中。解决方案就是使用`spring-boot-thin-launcher`。
+
+　　实际上`spring-boot-thin-launcher`这个插件改变了`spring-boot-maven-plugin`的默认行为。它输出的jar包只包含我们自己代码编译后的class，一个很小的`ThinJarWrapper`，以及解析`pom.xml`后得到的所有依赖jar的列表。运行的时候，入口实际上是`ThinJarWrapper`，它会先在指定目录搜索看看依赖的jar包是否都存在，如果不存在，先从Maven中央仓库下载到本地，然后，再执行我们自己编写的`main()`入口方法。
+
+* #### 基本使用
+
+　　使用`spring-boot-thin-launcher`的步骤是：
+
+　　1、在要打包的项目中添加依赖，并修改打包插件的配置：
+
+```xml
+<dependencies>
+	<dependency>
+        <groupId>org.springframework.boot.experimental</groupId>
+        <artifactId>spring-boot-thin-layout</artifactId>
+        <version>1.0.27.RELEASE</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot.experimental</groupId>
+        <artifactId>spring-boot-thin-launcher</artifactId>
+        <classifier>exec</classifier>
+        <version>1.0.27.RELEASE</version>
+    </dependency>
+</dependencies>
+
+<build>
+    <plugins>
+        <plugin>
+            <finalName>MyApp</finalName>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot.experimental</groupId>
+                    <artifactId>spring-boot-thin-layout</artifactId>
+                    <version>1.0.27.RELEASE</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+    </plugins>
+</build>
+```
+
+　　2、输入下面的命令启动jar包，在系统属性中指定jar包搜索和下载的地址，这里配置成本地Maven仓库路径
+
+```shell
+java  -Dthin.root=D:\Software\java\Maven-3.8 -jar MyApp-1.0-SNAPSHOT.jar
+```
+
+* #### 预热
+
+　　第一次在服务器上运行`awesome-app.jar`时，仍需要从Maven中央仓库下载大量的jar包，所以，`spring-boot-thin-launcher`还提供了一个`dryrun`选项，专门用来下载依赖项而不执行实际代码：
+
+```shell
+java -Dthin.dryrun=true -Dthin.root=. -jar MyApp-1.0-SNAPSHOT.jar
+```
+
+　　执行上述代码会在当前目录创建`repository`目录，并下载所有依赖项，但并不会运行我们编写的`main()`方法。此过程称之为“预热”（warm up）。如果服务器由于安全限制不允许从外网下载文件，那么可以在本地预热，然后把`MyApp-1.0-SNAPSHOT.jar`和`repository`目录上传到服务器。只要依赖项没有变化，后续改动只需要上传`MyApp-1.0-SNAPSHOT.jar`即可。
+
+## 三、SpringBoot其它功能
+
+### 加载配置文件
+
+* #### @Value
+
+　　在SpringBoot中也可以使用`@Value`加载配置文件。
+
+　　`application.yml`：
+
+```yml
+server:
+  port: 8082
+```
+
+　　`DataSourceConfig.java`：
+
+```java
+@Component
+public class DataSourceConfig {
+    // 默认值是8080
+    @Value("${server.port:8080}")
+    private String port;
+}
+```
+
+* #### @ConfigurationProperties
+
+　　加载配置文件更好的方式是使用`@ConfigurationProperties`。
+
+　　`application.yml`：
+
+```yml
+server:
+  port: 8082
+```
+
+　　`DataSourceConfig.java`：
+
+```java
+@Configuration
+@ConfigurationProperties("server")
+public class DataSourceConfig {
+    private String port;
+}
+```
+
+### 禁用自动配置
+
+　　禁用自动配置的方法：
+
+```java
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+public class MyApplication {
+    ...
+}
+```
+
