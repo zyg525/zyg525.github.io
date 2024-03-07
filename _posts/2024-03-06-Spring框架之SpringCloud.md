@@ -80,7 +80,7 @@ layout: post
 
 ## 二、SpringCloud Netflix
 
-### Eureka
+### Eureka注册中心
 
 * #### 简介
 
@@ -98,7 +98,19 @@ layout: post
 
 2、[Spring Cloud 系列之 Netflix Eureka 注册中心（二）](https://www.cnblogs.com/mrhelloworld/p/eureka2.html)
 
-### Ribbon
+### Consul注册中心
+
+* #### 简介
+
+　　Consul 是 HashiCorp 公司推出的开源工具，用于实现分布式系统的服务发现与配置。与其它分布式服务注册与发现的方案，Consul 的方案更“一站式”，内置了服务注册与发现框架、分布一致性协议实现、健康检查、Key/Value 存储（配置中心）、多数据中心方案，不再需要依赖其它工具（比如 ZooKeeper 等），使用起来也较为简单。
+
+　　Consul 使用 Go 语言编写，因此具有天然可移植性（支持Linux、Windows 和 Mac OS）；安装包仅包含一个可执行文件，方便部署，与 Docker 等轻量级容器可无缝配合。
+
+* #### 案例
+
+1、[Spring Cloud 系列之 Consul 注册中心（一）](https://www.cnblogs.com/mrhelloworld/p/consul1.html)
+
+### Ribbon负载均衡
 
 * #### 简介
 
@@ -115,7 +127,7 @@ layout: post
 
 1、[Spring Cloud 系列之 Netflix Ribbon 负载均衡](https://www.cnblogs.com/mrhelloworld/p/ribbon.html)
 
-### Feign
+### Feign服务调用
 
 * #### 简介
 
@@ -134,7 +146,7 @@ layout: post
 
 1、[Spring Cloud 系列之 Feign 声明式服务调用（一）](https://www.cnblogs.com/mrhelloworld/p/feign1.html)
 
-### Hystrix
+### Hystrix服务容错
 
 * #### 简介
 
@@ -155,3 +167,138 @@ layout: post
 2、[Spring Cloud 系列之 Netflix Hystrix 服务容错（二）](https://www.cnblogs.com/mrhelloworld/p/hystrix2.html)
 
 3、[Spring Cloud 系列之 Netflix Hystrix 服务容错（三）](https://www.cnblogs.com/mrhelloworld/p/hystrix3.html)
+
+### Hystrix服务监控
+
+　　Hystrix 除了可以实现服务容错之外，还提供了近乎实时的监控功能，将服务执行结果和运行指标，请求数量成功数量等等这些状态通过 `Actuator` 进行收集，然后访问 `/actuator/hystrix.stream` 即可看到实时的监控数据。
+
+　　具体案例见：[Spring Cloud 系列之 Netflix Hystrix 服务监控](https://www.cnblogs.com/mrhelloworld/p/hystrix-dashboard.html)
+
+### Zuul服务网关
+
+* #### 简介
+
+　　微服务的应用可能部署在不同机房，不同地区，不同域名下。此时客户端（浏览器/手机/软件工具）想要请求对应的服务，都需要知道机器的具体 IP 或者域名 URL，当微服务实例众多时，这是非常难以记忆的，对于客户端来说也太复杂难以维护。此时就有了网关，客户端相关的请求直接发送到网关，由网关根据请求标识解析判断出具体的微服务地址，再把请求转发到微服务实例。这其中的记忆功能就全部交由网关来操作了。
+
+　　网关具有身份认证与安全、审查与监控、动态路由、负载均衡、缓存、请求分片与管理、静态响应处理等功能。当然最主要的职责还是与“外界联系”。
+
+　　Zuul 是 Netflix 开源的微服务网关，它可以和 Eureka、Ribbon、Hystrix 等组件配合使用。Zuul 的核心是一系列的过滤器，包含了对请求的**路由**和**过滤**两个最主要的功能。由于 Zuul 本身的设计是基于单线程的接收请求和转发处理，是阻塞 IO，不支持长连接。目前来看 Zuul 就显得很鸡肋，随着 Zuul 2.x 一直跳票（2019 年 5 月发布了 Zuul 2.0 版本），Spring Cloud 推出自己的 Spring Cloud Gateway。大意就是：Zuul 已死，Spring Cloud Gateway 永生（手动狗头）。
+
+> info "提示"
+>
+> 常用网关解决方案有：
+>
+> `Nginx + Lua`、`Kong`、`Traefik`、`Spring Cloud Netflix Zuul`、`Spring Cloud Gateway`等。
+
+* #### 案例
+
+1、[Spring Cloud 系列之 Netflix Zuul 服务网关（一）](https://www.cnblogs.com/mrhelloworld/p/zuul1.html)
+
+2、[Spring Cloud 系列之 Netflix Zuul 服务网关（二）](https://www.cnblogs.com/mrhelloworld/p/zuul2.html)
+
+3、[Spring Cloud 系列之 Netflix Zuul 服务网关（三）](https://www.cnblogs.com/mrhelloworld/p/zuul3.html)
+
+4、[Spring Cloud 系列之 Netflix Zuul 服务网关（四）](https://www.cnblogs.com/mrhelloworld/p/zuul4.html)
+
+### Gateway服务网关
+
+* #### 简介
+
+　　Spring Cloud Gateway 作为 Spring Cloud 生态系统中的网关，目标是替代 Netflix Zuul，其不仅提供统一的路由方式，并且还基于 Filter 链的方式提供了网关基本的功能。
+
+* #### 案例
+
+1、[Spring Cloud 系列之 Gateway 服务网关（一）](https://www.cnblogs.com/mrhelloworld/p/gateway1.html)
+
+2、[Spring Cloud 系列之 Gateway 服务网关（二）](https://www.cnblogs.com/mrhelloworld/p/gateway2.html)
+
+3、[Spring Cloud 系列之 Gateway 服务网关（三）](https://www.cnblogs.com/mrhelloworld/p/gateway3.html)
+
+4、[Spring Cloud 系列之 Gateway 服务网关（四）](https://www.cnblogs.com/mrhelloworld/p/gateway4.html)
+
+### Sleuth链路追踪
+
+* #### 简介
+
+　　随着微服务架构的流行，服务按照不同的维度进行拆分，一次请求往往需要涉及到多个服务。互联网应用构建在不同的软件模块集上，这些软件模块，有可能是由不同的团队开发、可能使用不同的编程语言来实现、有可能布在了几千台服务器，横跨多个不同的数据中心。因此，就需要一些可以帮助理解系统行为、用于分析性能问题的工具，以便发生故障的时候，能够快速定位和解决问题。**在复杂的微服务架构系统中，几乎每一个前端请求都会形成一个复杂的分布式服务调用链路**。
+
+　　随着业务规模不断增大、服务不断增多以及频繁变更的情况下，面对复杂的调用链路就带来一系列问题：
+
+- 如何快速发现问题？
+- 如何判断故障影响范围？
+- 如何梳理服务依赖以及依赖的合理性？
+- 如何分析链路性能问题以及实时容量规划？
+
+　　**而链路追踪的出现正是为了解决这种问题，它可以在复杂的服务调用中定位问题，还可以在新人加入后台团队之后，让其清楚地知道自己所负责的服务在哪一环。**
+
+　　除此之外，如果某个接口突然耗时增加，也不必再逐个服务查询耗时情况，我们可以直观地分析出服务的性能瓶颈，方便在流量激增的情况下精准合理地扩容。
+
+　　Spring Cloud Sleuth 为 Spring Cloud 实现了分布式跟踪解决方案。兼容 Zipkin，HTrace 和其他基于日志的追踪系统，例如 ELK（Elasticsearch 、Logstash、 Kibana）。
+
+* #### 案例
+
+　　Spring Cloud Sleuth的原理和案例参考以下链接：
+
+1、[Spring Cloud 系列之 Sleuth 链路追踪（一）](https://www.cnblogs.com/mrhelloworld/p/sleuth1.html)
+
+### Stream消息驱动
+
+* #### 简介
+
+　　在实际开发过程中，服务与服务之间通信经常会使用到消息中间件，消息中间件解决了应用解耦、异步处理、流量削锋等问题，实现高性能，高可用，可伸缩和最终一致性架构。不同中间件内部实现方式是不一样的，这些中间件的差异性导致我们实际项目开发给我们造成了一定的困扰，比如项目中间件为 Kafka，如果我们要替换为 RabbitMQ，这无疑就是一个灾难性的工作，一大堆东西都要重做，因为它跟我们系统的耦合性非常高。**这时我们可以使用 Spring Cloud Stream 来整合我们的消息中间件，降低系统和中间件的耦合性。**
+
+　　Spring Cloud Stream 是用于构建消息驱动微服务应用程序的框架。该框架提供了一个灵活的编程模型，该模型建立在已经熟悉 Spring 习惯用法的基础上，它提供了来自多家供应商的中间件的合理配置，包括 publish-subscribe，消息分组和消息分区处理的支持。
+
+　　Spring Cloud Stream 解决了开发人员无感知的使用消息中间件的问题，因为 Stream 对消息中间件的进一步封装，可以做到代码层面对中间件的无感知，甚至于动态的切换中间件，使得微服务开发的高度解耦，服务可以关注更多自己的业务流程。
+
+* #### 案例
+
+1、[Spring Cloud 系列之 Stream 消息驱动（一）](https://www.cnblogs.com/mrhelloworld/p/stream1.html)
+
+### Config配置中心
+
+* #### 简介
+
+　　随着微服务系统的不断迭代，整个微服务系统可能会成为一个**「网状结构」**，这个时候就要考虑整个微服务系统的**「扩展性、伸缩性、耦合性」**等等。其中一个很重要的环节就是**「配置管理」**的问题。
+
+　　常规配置管理解决方案的缺点是：
+
+- 硬编码（需要修改代码、繁琐、风险大）
+- properties 或者 yml（集群环境下需要替换和重启）
+- xml（重新打包和重启）
+
+　　由于常规配置管理有很大的缺点，所以采用 Spring Cloud Config **「集中式」**的配置中心来管理**「每个服务」**的配置信息。Spring Cloud Config 在微服务分布式系统中，采用 **「Server 服务端」**和 **「Client 客户端」**的方式来提供可扩展的配置服务。服务端提供配置文件的存储，以接口的形式将配置文件的内容提供出去；客户端通过接口获取数据、并依据此数据初始化自己的应用。配置中心负责**「管理所有服务」**的各种环境配置文件，默认采用 `Git` 的方式存储配置文件，因此我们可以很容易的部署和修改，有助于环境配置进行版本管理。
+
+* #### 案例
+
+1、[Spring Cloud 系列之 Config 配置中心（一）](https://www.cnblogs.com/mrhelloworld/p/config1.html)
+
+2、[Spring Cloud 系列之 Config 配置中心（二）](https://www.cnblogs.com/mrhelloworld/p/config2.html)
+
+3、[Spring Cloud 系列之 Config 配置中心（三）](https://www.cnblogs.com/mrhelloworld/p/config3.html)
+
+### Consul配置中心
+
+* #### 简介
+
+　　Spring Cloud Config 虽然提供了配置中心的功能，但是需要配合 git、svn 或外部存储（例如各种数据库），且需要配合 Spring Cloud Bus 实现配置刷新。
+
+　　Spring Cloud Consul 作为 Spring Cloud 官方推荐替换 Eureka 注册中心的方案，可以使用 Consul 提供的配置中心功能，并且不需要额外的 git 、svn、数据库等配合，且无需配合 Bus 即可实现配置刷新。
+
+* #### 案例
+
+1、[Spring Cloud 系列之 Consul 配置中心](https://www.cnblogs.com/mrhelloworld/p/consul-config.html)
+
+### Bus消息总线
+
+* #### 简介
+
+　　Spring Cloud Bus 是 Spring Cloud 体系内的消息总线，用来连接分布式系统的所有节点。
+
+　　Spring Cloud Bus 将分布式的节点用轻量的消息代理（RibbitMQ、Kafka）连接起来。可以通过消息代理广播配置文件的更改，或服务之间的通讯，也可以用于监控。解决了微服务数据变更，及时同步的问题。
+
+　　微服务一般都采用集群方式部署，而且在高并发下经常需要对服务进行扩容、缩容、上线、下线的操作。比如我们需要更新配置，又或者需要同时失效所有服务器上的某个缓存，需要向所有相关的服务器发送命令，此时就可以选择使用 Spring Cloud Bus 了。总的来说，就是在我们需要把一个操作散发到所有后端相关服务器的时候，就可以选择使用 Spring Cloud Bus 了。
+
+* #### 案例
+
+1、[Spring Cloud 系列之 Bus 消息总线](https://www.cnblogs.com/mrhelloworld/p/bus.html)
