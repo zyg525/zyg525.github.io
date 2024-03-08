@@ -78,11 +78,13 @@ layout: post
 
 　　总而言之，没有最好的策略，好的系统应该是根据业务场景来进行架构设计的，只有适合的才是最好的。
 
-## 二、SpringCloud Netflix
+## 二、微服务常用组件
 
-### Eureka注册中心
+### 注册中心
 
-* #### 简介
+* #### Eureka注册中心
+
+　　**简介**
 
 　　Eureka 是 Netflix 开发的服务发现组件，本身是一个基于 REST 的服务。Spring Cloud 将它集成在其子项目 Spring Cloud Netflix 中，实现 Spring Cloud 的服务注册与发现，同时还提供了负载均衡、故障转移等能力。
 
@@ -90,7 +92,7 @@ layout: post
 
 <img src="./../assets/img/java/Eureka架构图.jfif" alt="Eureka架构图" style="zoom:67%;" />
 
-* #### 案例
+　　**案例**
 
 参考链接：
 
@@ -98,21 +100,49 @@ layout: post
 
 2、[Spring Cloud 系列之 Netflix Eureka 注册中心（二）](https://www.cnblogs.com/mrhelloworld/p/eureka2.html)
 
-### Consul注册中心
+* #### Consul注册中心
 
-* #### 简介
+　　**简介**
 
 　　Consul 是 HashiCorp 公司推出的开源工具，用于实现分布式系统的服务发现与配置。与其它分布式服务注册与发现的方案，Consul 的方案更“一站式”，内置了服务注册与发现框架、分布一致性协议实现、健康检查、Key/Value 存储（配置中心）、多数据中心方案，不再需要依赖其它工具（比如 ZooKeeper 等），使用起来也较为简单。
 
 　　Consul 使用 Go 语言编写，因此具有天然可移植性（支持Linux、Windows 和 Mac OS）；安装包仅包含一个可执行文件，方便部署，与 Docker 等轻量级容器可无缝配合。
 
-* #### 案例
+　　**案例**
 
 1、[Spring Cloud 系列之 Consul 注册中心（一）](https://www.cnblogs.com/mrhelloworld/p/consul1.html)
 
-### Ribbon负载均衡
+* #### Nacos注册中心
 
-* #### 简介
+　　**简介**
+
+　　Nacos 是 Alibaba 公司推出的开源工具，用于实现分布式系统的服务发现与配置管理。Nacos 致力于发现、配置和管理微服务。Nacos 提供了一组简单易用的特性集，可以快速实现动态服务发现、服务配置、服务元数据及流量管理。
+
+　　Nacos 可以更敏捷和容易地构建、交付和管理微服务平台。 Nacos 是构建以“服务”为中心的现代应用架构的服务基础设施。
+
+　　使用 Nacos 简化服务发现、配置管理、服务治理及管理的解决方案，让微服务的发现、管理、共享、组合更加容易。
+
+　　**案例**
+
+1、[Spring Cloud 系列之 Alibaba Nacos 注册中心（一）](https://www.cnblogs.com/mrhelloworld/p/nacos1.html)
+
+* #### ZooKeeper注册中心
+
+　　**简介**
+
+　　Apache ZooKeeper 是一个开放源码的分布式应用程序协调组件，是 Hadoop 和 Hbase 的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务等。
+
+　　在微服务项目开发中 ZooKeeper 主要的角色是当做服务注册中心存在，我们将编写好的服务注册至 ZooKeeper 即可。
+
+　　**案例**
+
+1、[Spring Cloud 系列之 ZooKeeper 注册中心](https://www.cnblogs.com/mrhelloworld/p/zookeeper.html)
+
+### 服务通信与负载均衡
+
+* #### Ribbon负载均衡
+
+　　**简介**
 
 　　Ribbon 是一个基于 HTTP 和 TCP 的 **客户端负载均衡工具**，它是基于 Netflix Ribbon 实现的。它不像 Spring Cloud 服务注册中心、配置中心、API 网关那样独立部署，但是它几乎存在于每个 Spring Cloud 微服务中。包括 Feign 提供的声明式服务调用也是基于该 Ribbon 实现的。Ribbon 默认提供很多种负载均衡算法，例如轮询、随机等等。甚至包含自定义的负载均衡算法。
 
@@ -121,15 +151,25 @@ layout: post
 - 集中式负载均衡（服务器负载均衡），即在 consumer 和 provider 之间使用独立的负载均衡设施(可以是硬件，如 F5，也可以是软件，如 nginx)，由该设施负责把访问请求通过某种策略转发至 provider；
 - 进程内负载均衡（客户端负载均衡），将负载均衡逻辑集成到 consumer，consumer 从服务注册中心获知有哪些地址可用，然后自己再从这些地址中选择出一个合适的 provider。Ribbon 属于后者，它只是一个类库，集成于 consumer 进程，consumer 通过它来获取 provider 的地址。
 
-* #### 案例
+　　**案例**
 
 参考链接：
 
 1、[Spring Cloud 系列之 Netflix Ribbon 负载均衡](https://www.cnblogs.com/mrhelloworld/p/ribbon.html)
 
-### Feign服务调用
+* #### Dubbo RPC 通信
 
-* #### 简介
+　　**简介**
+
+　　Apache Dubbo 是一款高性能、轻量级的开源 Java RPC 框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。Dubbo 框架广泛的在阿里巴巴内部使用，以及当当、去哪儿、网易考拉、滴滴等都在使用。
+
+　　**案例**
+
+1、[Spring Cloud 系列之 Dubbo RPC 通信](https://www.cnblogs.com/mrhelloworld/p/dubbo-nacos.html)
+
+* #### Feign服务调用
+
+　　**简介**
 
 　　Feign 是 Spring Cloud Netflix 组件中的一个轻量级 RESTful 的 HTTP 服务客户端，实现了负载均衡和 Rest 调用的开源框架，**封装了 Ribbon 和 RestTemplate**，实现了 WebService 的面向接口编程，进一步降低了项目的耦合度。Feign 本身并不支持 Spring MVC 的注解，它有一套自己的注解，为了更方便的使用，Spring Cloud 孵化了 OpenFeign，OpenFeign 是 Spring Cloud 在 Feign 的基础上支持了 Spring MVC 的注解，如 `@RequesMapping`、`@Pathvariable` 等等。。
 
@@ -142,13 +182,15 @@ layout: post
 
 　　Feign 的使用方式是：使用 Feign 的注解定义接口，调用这个接口，就可以调用服务注册中心的服务。
 
-* #### 案例
+　　**案例**
 
 1、[Spring Cloud 系列之 Feign 声明式服务调用（一）](https://www.cnblogs.com/mrhelloworld/p/feign1.html)
 
-### Hystrix服务容错
+### 服务容错
 
-* #### 简介
+* #### Hystrix服务容错
+
+　　**简介**
 
 　　在微服务架构中，一个请求需要调用多个服务是非常常见的。如客户端访问 A 服务，而 A 服务需要调用 B 服务，B 服务需要调用 C 服务，由于网络原因或者自身的原因，如果 B 服务或者 C 服务不能及时响应，A 服务将处于阻塞状态，直到 B 服务 C 服务响应。此时若有大量的请求涌入，容器的线程资源会被消耗完毕，导致服务瘫痪。服务与服务之间的依赖性，故障会传播，造成连锁反应，会对整个微服务系统造成灾难性的严重后果，这就是服务故障的**“雪崩”效应**。
 
@@ -160,7 +202,7 @@ layout: post
 - 服务熔断：牺牲局部服务，保全整体系统稳定性的措施；
 - 服务降级：服务熔断以后，客户端调用自己本地方法返回缺省值。
 
-* #### 案例
+　　**案例**
 
 1、[Spring Cloud 系列之 Netflix Hystrix 服务容错（一）](https://www.cnblogs.com/mrhelloworld/p/hystrix1.html)
 
@@ -168,15 +210,43 @@ layout: post
 
 3、[Spring Cloud 系列之 Netflix Hystrix 服务容错（三）](https://www.cnblogs.com/mrhelloworld/p/hystrix3.html)
 
-### Hystrix服务监控
+* #### Sentinel服务容错
+
+　　**简介**
+
+　　Alibaba Sentinel 是一款高性能且轻量级的流量控制、熔断降级解决方案。是面向分布式服务架构的高可用流量控制组件。
+
+　　Sentinel 具有以下特征：
+
+- **「丰富的应用场景」**：Sentinel 承接了阿里巴巴近 10 年的双十一大促流量的核心场景，例如秒杀（即突发流量控制在系统容量可以承受的范围）、消息削峰填谷、集群流量控制、实时熔断下游不可用应用等。
+- **「完备的实时监控」**：Sentinel 同时提供实时的监控功能。您可以在控制台中看到接入应用的单台机器秒级数据，甚至 500 台以下规模的集群的汇总运行情况。
+- **「广泛的开源生态」**：Sentinel 提供开箱即用的与其它开源框架/库的整合模块，例如与 Spring Cloud、Dubbo、gRPC 的整合。您只需要引入相应的依赖并进行简单的配置即可快速地接入 Sentinel。
+- **「完善的 SPI 扩展点」**：Sentinel 提供简单易用、完善的 SPI 扩展接口。您可以通过实现扩展接口来快速地定制逻辑。例如定制规则管理、适配动态数据源等。
+
+　　Sentinel 目前已经针对 Servlet、Dubbo、Spring Boot/Spring Cloud、gRPC 等进行了适配，用户只需引入相应依赖并进行简单配置即可非常方便地享受 Sentinel 的高可用流量防护能力。Sentinel 还为 Service Mesh 提供了集群流量防护的能力。未来 Sentinel 还会对更多常用框架进行适配。
+
+　　Sentinel 分为两个部分:
+
+- 核心库（Java 客户端）不依赖任何框架/库，能够运行于所有 Java 运行时环境，同时对 Dubbo / Spring Cloud 等框架也有较好的支持。
+- 控制台（Dashboard）基于 Spring Boot 开发，打包后可以直接运行，不需要额外的 Tomcat 等应用容器。
+
+　　**案例**
+
+1、[双剑合璧 Nacos 结合 Sentinel 实现流量安全控制](https://www.cnblogs.com/mrhelloworld/p/sentinel-nacos.html)
+
+### 服务监控
+
+* #### Hystrix服务监控
 
 　　Hystrix 除了可以实现服务容错之外，还提供了近乎实时的监控功能，将服务执行结果和运行指标，请求数量成功数量等等这些状态通过 `Actuator` 进行收集，然后访问 `/actuator/hystrix.stream` 即可看到实时的监控数据。
 
 　　具体案例见：[Spring Cloud 系列之 Netflix Hystrix 服务监控](https://www.cnblogs.com/mrhelloworld/p/hystrix-dashboard.html)
 
-### Zuul服务网关
+### 服务网关
 
-* #### 简介
+* #### Zuul服务网关
+
+　　**简介**
 
 　　微服务的应用可能部署在不同机房，不同地区，不同域名下。此时客户端（浏览器/手机/软件工具）想要请求对应的服务，都需要知道机器的具体 IP 或者域名 URL，当微服务实例众多时，这是非常难以记忆的，对于客户端来说也太复杂难以维护。此时就有了网关，客户端相关的请求直接发送到网关，由网关根据请求标识解析判断出具体的微服务地址，再把请求转发到微服务实例。这其中的记忆功能就全部交由网关来操作了。
 
@@ -190,7 +260,7 @@ layout: post
 >
 > `Nginx + Lua`、`Kong`、`Traefik`、`Spring Cloud Netflix Zuul`、`Spring Cloud Gateway`等。
 
-* #### 案例
+　　**案例**
 
 1、[Spring Cloud 系列之 Netflix Zuul 服务网关（一）](https://www.cnblogs.com/mrhelloworld/p/zuul1.html)
 
@@ -200,13 +270,13 @@ layout: post
 
 4、[Spring Cloud 系列之 Netflix Zuul 服务网关（四）](https://www.cnblogs.com/mrhelloworld/p/zuul4.html)
 
-### Gateway服务网关
+* #### Gateway服务网关
 
-* #### 简介
+　　**简介**
 
 　　Spring Cloud Gateway 作为 Spring Cloud 生态系统中的网关，目标是替代 Netflix Zuul，其不仅提供统一的路由方式，并且还基于 Filter 链的方式提供了网关基本的功能。
 
-* #### 案例
+　　**案例**
 
 1、[Spring Cloud 系列之 Gateway 服务网关（一）](https://www.cnblogs.com/mrhelloworld/p/gateway1.html)
 
@@ -216,9 +286,11 @@ layout: post
 
 4、[Spring Cloud 系列之 Gateway 服务网关（四）](https://www.cnblogs.com/mrhelloworld/p/gateway4.html)
 
-### Sleuth链路追踪
+### 链路追踪
 
-* #### 简介
+* #### Sleuth链路追踪
+
+　　**简介**
 
 　　随着微服务架构的流行，服务按照不同的维度进行拆分，一次请求往往需要涉及到多个服务。互联网应用构建在不同的软件模块集上，这些软件模块，有可能是由不同的团队开发、可能使用不同的编程语言来实现、有可能布在了几千台服务器，横跨多个不同的数据中心。因此，就需要一些可以帮助理解系统行为、用于分析性能问题的工具，以便发生故障的时候，能够快速定位和解决问题。**在复杂的微服务架构系统中，几乎每一个前端请求都会形成一个复杂的分布式服务调用链路**。
 
@@ -235,15 +307,17 @@ layout: post
 
 　　Spring Cloud Sleuth 为 Spring Cloud 实现了分布式跟踪解决方案。兼容 Zipkin，HTrace 和其他基于日志的追踪系统，例如 ELK（Elasticsearch 、Logstash、 Kibana）。
 
-* #### 案例
+　　**案例**
 
 　　Spring Cloud Sleuth的原理和案例参考以下链接：
 
 1、[Spring Cloud 系列之 Sleuth 链路追踪（一）](https://www.cnblogs.com/mrhelloworld/p/sleuth1.html)
 
-### Stream消息驱动
+### 消息驱动
 
-* #### 简介
+* #### Stream消息驱动
+
+　　**简介**
 
 　　在实际开发过程中，服务与服务之间通信经常会使用到消息中间件，消息中间件解决了应用解耦、异步处理、流量削锋等问题，实现高性能，高可用，可伸缩和最终一致性架构。不同中间件内部实现方式是不一样的，这些中间件的差异性导致我们实际项目开发给我们造成了一定的困扰，比如项目中间件为 Kafka，如果我们要替换为 RabbitMQ，这无疑就是一个灾难性的工作，一大堆东西都要重做，因为它跟我们系统的耦合性非常高。**这时我们可以使用 Spring Cloud Stream 来整合我们的消息中间件，降低系统和中间件的耦合性。**
 
@@ -251,13 +325,15 @@ layout: post
 
 　　Spring Cloud Stream 解决了开发人员无感知的使用消息中间件的问题，因为 Stream 对消息中间件的进一步封装，可以做到代码层面对中间件的无感知，甚至于动态的切换中间件，使得微服务开发的高度解耦，服务可以关注更多自己的业务流程。
 
-* #### 案例
+　　**案例**
 
 1、[Spring Cloud 系列之 Stream 消息驱动（一）](https://www.cnblogs.com/mrhelloworld/p/stream1.html)
 
-### Config配置中心
+### 配置中心
 
-* #### 简介
+* #### Config配置中心
+
+　　**简介**
 
 　　随着微服务系统的不断迭代，整个微服务系统可能会成为一个**「网状结构」**，这个时候就要考虑整个微服务系统的**「扩展性、伸缩性、耦合性」**等等。其中一个很重要的环节就是**「配置管理」**的问题。
 
@@ -269,7 +345,7 @@ layout: post
 
 　　由于常规配置管理有很大的缺点，所以采用 Spring Cloud Config **「集中式」**的配置中心来管理**「每个服务」**的配置信息。Spring Cloud Config 在微服务分布式系统中，采用 **「Server 服务端」**和 **「Client 客户端」**的方式来提供可扩展的配置服务。服务端提供配置文件的存储，以接口的形式将配置文件的内容提供出去；客户端通过接口获取数据、并依据此数据初始化自己的应用。配置中心负责**「管理所有服务」**的各种环境配置文件，默认采用 `Git` 的方式存储配置文件，因此我们可以很容易的部署和修改，有助于环境配置进行版本管理。
 
-* #### 案例
+　　**案例**
 
 1、[Spring Cloud 系列之 Config 配置中心（一）](https://www.cnblogs.com/mrhelloworld/p/config1.html)
 
@@ -277,21 +353,53 @@ layout: post
 
 3、[Spring Cloud 系列之 Config 配置中心（三）](https://www.cnblogs.com/mrhelloworld/p/config3.html)
 
-### Consul配置中心
+* #### Consul配置中心
 
-* #### 简介
+　　**简介**
 
 　　Spring Cloud Config 虽然提供了配置中心的功能，但是需要配合 git、svn 或外部存储（例如各种数据库），且需要配合 Spring Cloud Bus 实现配置刷新。
 
 　　Spring Cloud Consul 作为 Spring Cloud 官方推荐替换 Eureka 注册中心的方案，可以使用 Consul 提供的配置中心功能，并且不需要额外的 git 、svn、数据库等配合，且无需配合 Bus 即可实现配置刷新。
 
-* #### 案例
+　　**案例**
 
 1、[Spring Cloud 系列之 Consul 配置中心](https://www.cnblogs.com/mrhelloworld/p/consul-config.html)
 
-### Bus消息总线
+* #### Apollo配置中心
 
-* #### 简介
+　　**简介**
+
+　　Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。服务端基于 Spring Boot 和 Spring Cloud 开发，打包后可以直接运行，不需要额外安装 Tomcat 等应用容器。
+
+　　Apollo 支持 4 个维度管理 Key-Value 格式的配置：
+
+　　1、application (应用)
+
+　　2、environment (环境)
+
+　　3、cluster (集群)
+
+　　4、namespace (命名空间 Namespace 是配置项的集合，类似于一个配置文件的概念)
+
+　　**案例**
+
+1、[Spring Cloud 系列之 Apollo 配置中心（一）](https://www.cnblogs.com/mrhelloworld/p/apollo1.html)
+
+* #### Nacos配置中心
+
+　　**简介**
+
+　　Nacos 不但可以作为注册中心，还可以作为配置中心。
+
+　　**案例**
+
+1、[Spring Cloud 系列之 Alibaba Nacos 配置中心](https://www.cnblogs.com/mrhelloworld/p/nacos-config.html)
+
+### 消息总线
+
+* #### Bus消息总线
+
+　　**简介**
 
 　　Spring Cloud Bus 是 Spring Cloud 体系内的消息总线，用来连接分布式系统的所有节点。
 
@@ -299,6 +407,6 @@ layout: post
 
 　　微服务一般都采用集群方式部署，而且在高并发下经常需要对服务进行扩容、缩容、上线、下线的操作。比如我们需要更新配置，又或者需要同时失效所有服务器上的某个缓存，需要向所有相关的服务器发送命令，此时就可以选择使用 Spring Cloud Bus 了。总的来说，就是在我们需要把一个操作散发到所有后端相关服务器的时候，就可以选择使用 Spring Cloud Bus 了。
 
-* #### 案例
+　　**案例**
 
 1、[Spring Cloud 系列之 Bus 消息总线](https://www.cnblogs.com/mrhelloworld/p/bus.html)
