@@ -1,14 +1,15 @@
 ---
-title: Redis-Java最佳实践
-tags: Redis
+title: SpringBoot集成Redis
+tags: 数据库
 layout: post
+categories: 七、数据库
 ---
 
 ## 一、Redis客户端
 
 　　1、**Jedis**：以Redis命令作为方法名称，学习成本低。缺点是线程不安全，多线程环境下需要使用连接池。
 
-　　2、**Lettuce**：基于Netty实现，支持同步、异步、响应式编程，线程安全。支持Redis集群、哨兵、管道模式。
+　　2、**Lettuce(SpringBoot默认)**：基于Netty实现，支持同步、异步、响应式编程，线程安全。支持Redis集群、哨兵、管道模式。
 
 　　3、**Redission**：基于Redis实现的分布式Java数据结构集合，包括Map、Queue、Lock等强大功能。
 
@@ -71,6 +72,12 @@ public class RedisConfig {
     RedisTemplate redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
+        // 设置普通类型key-value的序列化方式
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        // 设置hash类型中key-value的序列化方式
+        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+        redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
         return redisTemplate;
     }
 }
